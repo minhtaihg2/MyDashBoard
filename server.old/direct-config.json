@@ -1,0 +1,17 @@
+{
+    "rootNamespace": "Server",
+    "apiName": "API",
+    "apiUrl": "/directapi",
+    "classRouteUrl": "/direct",
+    "classPath": "/direct",
+    "server": "localhost",
+    "port": "3000",
+    "protocol": "http",
+    "timeout": 30000,
+    "cacheAPI": false,
+    "relativeUrl": false,
+    "appendRequestResponseObjects": true,
+    "enableMetadata": true,
+    "responseHelper": true,
+    "enableProcessors": true
+}
