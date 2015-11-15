@@ -14,9 +14,10 @@ Ext.define('Admin.view.main.ViewportController', {
         ':node': 'onRouteChange'
     },
 
-    //https://docs.sencha.com/extjs/6.0/components/trees.html
-
-    repaintList: function (treelist) {
+    // https://docs.sencha.com/extjs/6.0/components/trees.html
+    // https://www.sencha.com/forum/showthread.php?304624-Ext.list.Tree-item-renderer-and-update
+    //
+    visitiList: function (treelist) {
         treelist.getStore().getRoot().cascadeBy(function (node) {
             var item, toolElement;
             item = treelist.getItem(node);
@@ -43,12 +44,12 @@ Ext.define('Admin.view.main.ViewportController', {
         console.log(viewModel.get('username'));
         viewModel.set('username', 'Ana Rita');
 
-        this.repaintList(navigationList);
+        this.visitiList(navigationList);
 
         console.log("routeId??search → " + store.findExact( "routeId", "search" ));
+        console.log(store);
         store.remove(4);
         console.log("routeId??search → " + store.findExact( "routeId", "search" ));
-
 
     },
 
@@ -64,11 +65,16 @@ Ext.define('Admin.view.main.ViewportController', {
             vmData = viewModel.getData(),
             store = navigationList.getStore(),
             node = store.findNode('routeId', hashTag),
-            view = node ? node.get('view') : null,
+            view = node ? node.get('extjsview') : null,
             lastView = vmData.currentView,
             existingItem = mainCard.child('component[routeId=' + hashTag + ']'),
             newView;
 
+        if (node) {
+            console.log('Encontrei o node da view ' + hashTag);
+        } else {
+            console.log('NÃO ncontrei o node da view ' + hashTag);
+        }
         // Kill any previously routed window
         if (lastView && lastView.isWindow) {
             lastView.destroy();
@@ -77,9 +83,11 @@ Ext.define('Admin.view.main.ViewportController', {
         lastView = mainLayout.getActiveItem();
 
         if (!existingItem) {
-            newView = Ext.create('Admin.view.' + (view || 'pages.Error404Window'), {
+            //newView = Ext.create('Admin.view.' + (view || 'pages.Error404Window'), {
+            newView = Ext.create('Admin.view.' + (view || 'dashboard.Dashboard'), {
                 hideMode: 'offsets',
-                routeId: hashTag
+                //routeId: hashTag
+                routeId: 'dashboard'
             });
         }
 
@@ -112,7 +120,9 @@ Ext.define('Admin.view.main.ViewportController', {
     },
 
     onNavigationTreeSelectionChange: function (tree, node) {
-        if (node && node.get('view')) {
+        console.log('onNavigationTreeSelectionChange: redirect to: ' + node.get("text") + ' routeId: ' + node.get("routeId"));
+        //console.log(node);
+        if (node && node.get('extjsview')) {
             this.redirectTo(node.get("routeId"));
         }
     },
@@ -176,6 +186,7 @@ Ext.define('Admin.view.main.ViewportController', {
     },
 
     onRouteChange: function (id) {
+        console.log('onRouteChange: ' + id);
         this.setCurrentView(id);
     },
 

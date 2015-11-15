@@ -79,7 +79,7 @@ Ext.define('Admin.view.main.Viewport', {
                 {
                     xtype: 'tbtext',
                     bind: {
-                        text: '{username}',
+                        text: '{username}'
                     },
                     cls: 'top-user-name'
                 },

@@ -2,6 +2,35 @@ Ext.define('Admin.store.NavigationTree', {
     extend: 'Ext.data.TreeStore',
 
     storeId: 'NavigationTree',
+
+    root: {
+        //text: 'Navigation tree',
+        //expanded: false     // the same as autoLoad: true
+        expanded: true    // the same as autoLoad: true
+    },
+
+    fields: [
+        {
+            name: 'text'
+        }
+    ],
+
+    proxy: {
+        type: 'direct',
+        //directFn: 'Server.Demo.Tree.getTree'
+        directFn: 'Server.Users.User.readNavTree',
+        extraParams: {
+            userid : 8192   // initial userid...
+        }
+    }
+
+});
+
+/*
+Ext.define('Admin.store.NavigationTree', {
+    extend: 'Ext.data.TreeStore',
+
+    storeId: 'NavigationTree',
     root: {
         expanded: true,
         children: [
@@ -138,3 +167,4 @@ Ext.define('Admin.store.NavigationTree', {
         }
     ]
 });
+*/

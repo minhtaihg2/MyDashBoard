@@ -30,6 +30,7 @@ $include-admin-model-chatmessages: dynamic(true);;
 $include-admin-model-dataxy: dynamic(true);;
 $include-admin-model-friendslist: dynamic(true);;
 $include-admin-model-multidataxy: dynamic(true);;
+$include-admin-model-navigationtree: dynamic(true);;
 $include-admin-model-panelsetting: dynamic(true);;
 $include-admin-model-personalinfo: dynamic(true);;
 $include-admin-model-subscription: dynamic(true);;
