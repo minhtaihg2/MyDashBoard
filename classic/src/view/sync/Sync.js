@@ -36,9 +36,13 @@ Ext.define('Admin.view.sync.Sync', {
             //    text: 'Refresh {sensorGrid.selection.address}'
             //},
             handler: 'onSensorClearSelectionClick'
+        }, {
+            text: 'set ViewModel',
+            handler: 'onSetViewportViewModel'
         }],
         bind: {
-            title: '{title.sensor}',
+            //title: '{title.sensor}',
+            title: '{user.name}',
             store: '{sensor}'
         },
         viewConfig: {

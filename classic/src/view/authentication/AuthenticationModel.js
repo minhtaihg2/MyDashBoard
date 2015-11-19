@@ -9,5 +9,15 @@ Ext.define('Admin.view.authentication.AuthenticationModel', {
         email    : '',
         persist: false,
         agrees : false
+    },
+    formulas: {
+        currentUser: {
+            get: function(get) {
+                return this.get('current.user');
+            },
+            set: function(user) {
+                this.set('current.user', user);
+            }
+        }
     }
 });

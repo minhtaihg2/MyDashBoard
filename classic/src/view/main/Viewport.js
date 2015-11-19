@@ -34,13 +34,13 @@ Ext.define('Admin.view.main.Viewport', {
                     xtype: 'component',
                     reference: 'senchaLogo',
                     cls: 'sencha-logo',
-                    html: '<div class="main-logo"><img src="resources/images/sencha-icon.png">Sencha</div>',
+                    html: '<div class="main-logo"><img src="resources/images/geomaster-42x38.png">Geomaster</div>',
                     width: 250
                 },
                 {
                     margin: '0 0 0 8',
                     cls: 'delete-focus-bg',
-                    iconCls:'x-fa fa-navicon',
+                    iconCls: 'x-fa fa-navicon',
                     id: 'main-navigation-btn',
                     handler: 'onToggleNavigationSize'
                 },
@@ -48,50 +48,79 @@ Ext.define('Admin.view.main.Viewport', {
                     xtype: 'tbspacer',
                     flex: 1
                 },
+                /*
                 {
                     cls: 'delete-focus-bg',
-                    iconCls:'x-fa fa-search',
+                    iconCls: 'x-fa fa-search',
                     href: '#search',
                     hrefTarget: '_self',
                     tooltip: 'See latest search'
                 },
                 {
                     cls: 'delete-focus-bg',
-                    iconCls:'x-fa fa-envelope',
+                    iconCls: 'x-fa fa-envelope',
                     href: '#email',
                     hrefTarget: '_self',
                     tooltip: 'Check your email'
                 },
+                */
                 {
                     cls: 'delete-focus-bg',
-                    iconCls:'x-fa fa-bell',
-                    // jgr
-                    handler: 'onLogoutClick',
-                    tooltip: 'Logout'
+                    iconCls: 'x-fa fa-bell',
+                    handler: 'onBellClick'
                 },
+                /*
                 {
                     cls: 'delete-focus-bg',
-                    iconCls:'x-fa fa-th-large',
+                    iconCls: 'x-fa fa-th-large',
                     href: '#profile',
                     hrefTarget: '_self',
                     tooltip: 'See your profile'
                 },
                 {
-                    xtype: 'tbtext',
-                    bind: {
-                        text: '{username}'
-                    },
-                    cls: 'top-user-name'
+                    xtype: 'button',
+                    text: 'New user'.translate(),
+                    iconCls: 'x-fa fa-user-plus',
+                    itemId: 'botaoRegisto',
+                    scale: 'medium',
+                    handler: 'onClickNewUser'
                 },
+                */
                 {
                     xtype: 'image',
                     cls: 'header-right-profile-image',
                     height: 35,
                     width: 35,
-                    alt:'current user image',
-                    src: 'resources/images/user-profile/2.png'
-                }
-            ]
+                    alt: 'Profile image',
+                    bind: {
+                        src: '{current.user.fotografia}'
+                    }
+                }, {
+                    xtype: 'splitbutton',
+                    text: 'Login',
+                    iconCls: 'header-right-profile-image',
+                    bind: {
+                        //icon: '{current.user.fotografia}',
+                        text: '{sessionLabel}'
+                    },
+                    resizable: true,
+                    scale: 'medium',
+                    handler: 'onClickLogin',
+                    menu: [{
+                        text: 'Last access'.translate(),
+                        iconCls: 'x-fa fa-history'
+                    }, {
+                        text: 'Profile'.translate(),
+                        iconCls: 'x-fa fa-user',
+                        href: '#profile',
+                        hrefTarget: '_self'
+                    }, {
+                        text: 'Logout'.translate(),
+                        iconCls: 'x-fa fa-sign-out',
+                        itemId: 'botaoLogout',
+                        handler: 'onLogoutClick'
+                    }]
+                }]
         },
         {
             xtype: 'maincontainerwrap',

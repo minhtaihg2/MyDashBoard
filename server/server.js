@@ -9,7 +9,11 @@ var express = require('express'),
     direct = require('extdirect'),
     //db = require('./server-db'),
     pg = require('pg'),
-    nconf = require('nconf');
+    nconf = require('nconf'),
+    accepts = require('accepts'),
+    fs = require('fs');
+
+    //cookieParser = require('cookie-parser');
 
 nconf.env().file({
     file: './server-config.json'
@@ -57,11 +61,22 @@ app.use(logger(serverConfig.logger));
 
 app.use(methodOverride());
 
+app.use(express.static(path.join(__dirname, serverConfig.webRoot)));
+
 if(serverConfig.enableSessions) {
+    var RedisStore = require('connect-redis')(session);
+    var redis = require("redis").createClient();
+    //app.use(cookieParser());
     app.use(session({
+        store: new RedisStore({
+            host : 'localhost',
+            port : 6379,
+            client : redis
+        }),
+        name: 'geomaster.sid',
+        secret: 'nabocudnosor',
         resave: false,
-        saveUninitialized: true,
-        secret: serverConfig.sessionSecret
+        saveUninitialized: false
     }));
 }
 
@@ -78,7 +93,6 @@ app.use(bodyParser.json());
 if(serverConfig.enableUpload) {
     app.use(multer({dest: serverConfig.fileUploadFolder}));
 }
-app.use(express.static(path.join(__dirname, serverConfig.webRoot)));
 
 //CORS Supports
 if(serverConfig.enableCORS){
@@ -128,6 +142,42 @@ app.get(directConfig.classRouteUrl, function(req, res) {
 // POST request process route and calls class
 app.post(directConfig.classRouteUrl, function(req, res) {
     directRouter.processRoute(req, res);
+});
+
+app.get('/translation', function(request, response) {
+    var acceptedLanguages = accepts(request).languages();
+    console.log(acceptedLanguages);
+    // [ 'pt-PT', 'pt', 'en-US', 'en', 'es', 'fr', 'it' ]
+    var exist = 0, i = 0, n = 0;
+    if (acceptedLanguages) {
+        n = acceptedLanguages.length;
+    }
+    var buf = '';
+    while (!exist && (i < n)) {
+        try {
+            console.log('./public/resources/languages/' + acceptedLanguages[i] + '.js');
+            buf = fs.readFileSync('./public/resources/languages/' + acceptedLanguages[i] + '.js', 'utf8');
+            response.writeHead(200, {
+                'Content-Type' : 'application/json'
+            });
+            request.session.lang = acceptedLanguages[i];
+            console.log('Language ' + request.session.lang + ' added to request.session.lang');
+            response.end(buf);
+            exist = 1;
+        } catch(err) {
+            console.log('Language ' + acceptedLanguages[i] + ' not supported.');
+            //console.log(err);
+        }
+        i++;
+    }
+    if (!exist) {
+        request.session.lang = null;
+        console.log('None of the accepted languages is supported');
+        response.writeHead(200, {
+            'Content-Type' : 'application/json'
+        });
+        response.end('Admin.Translation = [];');
+    }
 });
 
 //Dev

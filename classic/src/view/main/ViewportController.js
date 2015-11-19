@@ -31,28 +31,6 @@ Ext.define('Admin.view.main.ViewportController', {
         });
     },
 
-    onLogoutClick: function (button) {
-        console.log('Logout');
-        var me = this,
-            refs = me.getReferences(),
-            navigationList = refs.navigationTreeList,
-            viewModel = me.getViewModel(),
-            vmData = viewModel.getData(),
-            store = navigationList.getStore();
-
-        console.log(vmData);
-        console.log(viewModel.get('username'));
-        viewModel.set('username', 'Ana Rita');
-
-        this.visitiList(navigationList);
-
-        console.log("routeId??search → " + store.findExact( "routeId", "search" ));
-        console.log(store);
-        store.remove(4);
-        console.log("routeId??search → " + store.findExact( "routeId", "search" ));
-
-    },
-
     setCurrentView: function (hashTag) {
         hashTag = (hashTag || '').toLowerCase();
 
@@ -120,11 +98,90 @@ Ext.define('Admin.view.main.ViewportController', {
     },
 
     onNavigationTreeSelectionChange: function (tree, node) {
-        console.log('onNavigationTreeSelectionChange: redirect to: ' + node.get("text") + ' routeId: ' + node.get("routeId"));
-        //console.log(node);
+        console.log('onNavigationTreeSelectionChange');
         if (node && node.get('extjsview')) {
+            //console.log(node);
+            console.log('redirect to: ' + node.get("text") + ' routeId: ' + node.get("routeId"));
             this.redirectTo(node.get("routeId"));
         }
+    },
+
+    onClickNewUser: function (button) {
+        console.log('onNewUser');
+        //console.log(node);
+        this.redirectTo('authentication.register'); // authentication.register
+    },
+
+    onClickLogin: function (splitbutton) {
+        console.log('onClickLogin');
+        var me = this;
+        var viewModel = me.getViewModel();
+        var id = viewModel.get('current.user.id');
+        console.log(id);
+        if (!id) {
+            this.redirectTo('authentication.login'); // authentication.register
+        } else {
+            console.log('Não faz nada...');
+        }
+    },
+
+    onBellClick: function (button) {
+        console.log('Server.DXLogin.ping');
+        Server.DXLogin.ping({}, function (result, event) {
+            if (result.success) {
+                Ext.Msg.alert(result.message);
+            } else {
+                Ext.Msg.alert('Erro.', Ext.encode(result));
+            }
+        });
+    },
+
+    onLogoutClick: function (button) {
+        console.log('Logout');
+        var me = this,
+            refs = me.getReferences(),
+            navigationList = refs.navigationTreeList,
+            viewModel = me.getViewModel(),
+            vmData = viewModel.getData(),
+            store = navigationList.getStore();
+
+        console.log(vmData);
+
+        Server.DXLogin.deauthenticate({}, function (result, event) {
+            if (result.success) {
+                Ext.Msg.alert(result.message);
+                viewModel.set('current.user', null);
+
+                //me.application.fireEvent('logoutComSucesso');
+                // me.fireEvent('logout');	// para ser apanhado pelo mapPanel (MainMapPanel controller)
+            } else {
+                Ext.Msg.alert('Erro ao terminar a sessão.', Ext.encode(result));
+            }
+        });
+
+        /*
+         viewModel.set('user.id', null);
+         viewModel.set('user.idgrupo', null);
+         viewModel.set('user.name', null);
+         viewModel.set('user.email', null);
+         viewModel.set('user.login', null);
+         viewModel.set('user.masculino', null);
+         viewModel.set('user.fotografia', null);
+         */
+
+        /*
+
+         console.log(viewModel.get('username'));
+         viewModel.set('username', 'Ana Rita');
+
+         this.visitiList(navigationList);
+
+         console.log("routeId??search → " + store.findExact("routeId", "search"));
+         console.log(store);
+         store.remove(4);
+         console.log("routeId??search → " + store.findExact("routeId", "search"));
+         */
+
     },
 
     onToggleNavigationSize: function () {
@@ -180,6 +237,8 @@ Ext.define('Admin.view.main.ViewportController', {
     },
 
     onMainViewRender: function () {
+        console.log('onMainViewRender');
+
         if (!window.location.hash) {
             this.redirectTo("dashboard");
         }
@@ -191,10 +250,12 @@ Ext.define('Admin.view.main.ViewportController', {
     },
 
     onSearchRouteChange: function () {
+        console.log('onSearchRouteChange');
         this.setCurrentView('search');
     },
 
     onEmailRouteChange: function () {
+        console.log('onEmailRouteChange');
         this.setCurrentView('email');
     }
 });

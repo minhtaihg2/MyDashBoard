@@ -13,6 +13,10 @@ Ext.define('Admin.Application', {
         // TODO - Add Global View Controllers here
     //],
 
+    init: function() {
+        Ext.enableAriaButtons = false;
+    },
+
     onAppUpdate: function () {
         Ext.Msg.confirm('Application Update', 'This application has an update, reload?',
             function (choice) {

@@ -1,3 +1,22 @@
+# Admin Dashboard enhancement
+
+### Login & Logout
+
+The current user data is assigned to the ViewportModel.
+
+Any view can bind to the ViewportModel and use the current user data.
+
+### Sessions
+
+#### Server side
+
+```
+redis-cli
+redis 127.0.0.1:6379> keys *
+127.0.0.1:6379> get "sess:Lk4Am8aREddkoes8JPgsWBl1x7c8EgaB"
+"{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"httpOnly\":true,\"path\":\"/\"},\"userid\":31,\"groupid\":1}"
+```
+
 # Admin Dashboard
 
 The Admin Dashboard is an application template for you to copy and adapt to suite

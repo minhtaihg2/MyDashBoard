@@ -52,8 +52,11 @@
     "requires": [
         "charts",
         "font-awesome",
-        "ux"
+        "ux",
+        "ext-locale"
     ],
+
+    "locale": "pt",
 
     /**
      * Sass configuration properties.
@@ -188,6 +191,9 @@
     "js": [{
         "path": "app.js",
         "bundle": true
+    }, {
+        "path": "resources/js/sha1.js",
+        "update": "delta"
     }],
 
     /**

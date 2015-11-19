@@ -9,7 +9,7 @@ Ext.define('Admin.Application', {
     name: 'Admin',
 
     requires:[
-        'Ext.data.proxy.Direct', 'Admin.DirectAPI'
+        'Ext.data.proxy.Direct', 'Admin.DirectAPI', 'Admin.Translation'
     ],
 
     stores: [
@@ -17,7 +17,7 @@ Ext.define('Admin.Application', {
     ],
     
     launch: function () {
-        // TODO - Launch the application
+        Ext.state.Manager.setProvider(Ext.create('Ext.state.LocalStorageProvider'));
     },
 
     onAppUpdate: function () {
