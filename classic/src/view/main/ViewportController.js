@@ -136,6 +136,49 @@ Ext.define('Admin.view.main.ViewportController', {
         });
     },
 
+    onRemoveItemClick: function (button) {
+        // https://fiddle.sencha.com/#fiddle/uoc
+        console.log('onRemoveItemClick');
+
+        var treelist = this.getReferences().navigationTreeList;
+        var estore = treelist.getStore();
+
+        //estore.removeAll(true);
+        //estore.commitChanges();
+
+        estore.reload({
+            params: {userid:25}
+        });
+        treelist.onRootChange(estore.getRoot());
+    },
+
+    onAddItemClick: function (button) {
+        console.log('onAddItemClick');
+
+        var treelist = this.getReferences().navigationTreeList;
+        var estore = treelist.getStore();
+
+        estore.load({
+            params: {userid:25, from: 'test2'}
+        });
+
+        /*
+        var treelist = this.getReferences().navigationTreeList;
+        treelist.getStore().getRoot().cascadeBy(function (node) {
+            var item, toolElement;
+            item = treelist.getItem(node);
+            if (item && item.isTreeListItem) {
+                if (item.element.isVisible(true)) {
+                    console.log('Visible: ' + item.getText()); // .getNode()
+                } else {
+                    console.log('Invisible: ' + item.getText());
+                }
+            }
+        });
+        */
+
+    },
+
     onLogoutClick: function (button) {
         console.log('Logout');
         var me = this,

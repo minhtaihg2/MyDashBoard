@@ -17,6 +17,9 @@ var dberror = function (text, log, err, callback) {
 var Sensor = {
 
     create: function (params, callback) {
+        console.log('ActiveEngCloud.Sensor.create');
+        console.log(params);
+
         var rows = [].concat( params ); // even if we receive just one object, we create an array with that object
         console.log(rows);
         console.log(rows.length);
@@ -80,6 +83,73 @@ var Sensor = {
             pgdone = done;
             rows.forEach(insertRow);
         });
+    },
+
+    status: function (params, callback) {
+        console.log('ActiveEngCloud.Sensor.status');
+        console.log(params);
+        /*
+         { installdate: 'Adelaide',
+         location: 'Rita Rocha',
+         address: '30:14:12:18:06:34',
+         sensorid: '1' }
+         */
+
+        /*
+         WITH temperature AS (
+         select sensorid, address, max(created) as lasttemperature
+         from activenglabs.temperature
+         group by sensorid, address
+         ), calibration AS (
+         select sensorid, address, max(created) as lastcalibration
+         from activenglabs.calibration
+         group by sensorid, address
+         )
+         select s.sensorid, s.address, temperature.lasttemperature, calibration.lastcalibration
+         from activenglabs.sensor s
+         LEFT JOIN temperature ON s.sensorid = temperature.sensorid and s.address = temperature.address
+         LEFT JOIN calibration ON s.sensorid = calibration.sensorid and s.address = calibration.address
+         where s.sensorid = 1 and s.address = '30:14:12:18:06:34';
+         */
+
+        if (params.sensorid && params.address) {
+            var sql = '';
+            sql += 'WITH temperature AS ( ';
+            sql += '  select sensorid, address, max(created) as lasttemperature ';
+            sql += '  from activenglabs.temperature ';
+            sql += '  group by sensorid, address ';
+            sql += '), calibration AS ( ';
+            sql += '  select sensorid, address, max(created) as lastcalibration ';
+            sql += '  from activenglabs.calibration ';
+            sql += '  group by sensorid, address ';
+            sql += ') ';
+            sql += 'select s.sensorid, s.address, temperature.lasttemperature, calibration.lastcalibration ';
+            sql += 'from activenglabs.sensor s ';
+            sql += 'LEFT JOIN temperature ON s.sensorid = temperature.sensorid and s.address = temperature.address ';
+            sql += 'LEFT JOIN calibration ON s.sensorid = calibration.sensorid and s.address = calibration.address ';
+            sql += ` WHERE s.sensorid = ${params.sensorid} and s.address = '${params.address}'`;
+
+            console.log(sql);
+
+            pg.connect(global.App.connection, function (err, client, done) {
+                if (err)
+                    return dberror('Database connection error', '', err, callback);
+                console.log(sql);
+                client.query(sql, function (err, result) {
+                    if (err)
+                        return dberror('Database error', `${err.toString()} SQL: ${sql}`, err, callback);
+                    console.log(result.rows[0]);
+                    callback(null, {
+                        data: result.rows,
+                        total: result.rows.length
+                    });
+                    // free this client, from the client pool
+                    done();
+                });
+            });
+        } else {
+            return dberror('Database error', 'Required parameters missing' , {}, callback);
+        }
     },
 
     //callback as last argument is mandatory

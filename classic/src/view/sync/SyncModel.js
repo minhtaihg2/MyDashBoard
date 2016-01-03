@@ -22,7 +22,8 @@ Ext.define('Admin.view.sync.SyncModel', {
     stores: {
         sensor: {
             model: 'sync.Sensor',
-            autoLoad: true
+            autoLoad: true,
+            autoSync: true
         },
         calibration: {
             model: 'sync.Calibration',
@@ -30,7 +31,7 @@ Ext.define('Admin.view.sync.SyncModel', {
             autoSync: false,
             remoteSort: true,
             remoteFilter: true,
-            pageSize: 5,
+            pageSize: 20,
             filters: [{
                 property: 'sensorid',
                 type: 'number',
@@ -47,7 +48,7 @@ Ext.define('Admin.view.sync.SyncModel', {
             autoSync: false, // true,
             remoteSort: true,
             remoteFilter: true,
-            pageSize: 5,
+            pageSize: 20,
             filters: [{
                 property: 'sensorid',
                 type: 'number',

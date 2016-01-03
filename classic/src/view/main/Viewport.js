@@ -69,23 +69,18 @@ Ext.define('Admin.view.main.Viewport', {
                     iconCls: 'x-fa fa-bell',
                     handler: 'onBellClick'
                 },
-                /*
                 {
                     cls: 'delete-focus-bg',
-                    iconCls: 'x-fa fa-th-large',
-                    href: '#profile',
-                    hrefTarget: '_self',
-                    tooltip: 'See your profile'
+                    iconCls: 'x-fa fa-minus-circle',
+                    tooltip: 'Remove item',
+                    handler: 'onRemoveItemClick'
                 },
                 {
-                    xtype: 'button',
-                    text: 'New user'.translate(),
-                    iconCls: 'x-fa fa-user-plus',
-                    itemId: 'botaoRegisto',
-                    scale: 'medium',
-                    handler: 'onClickNewUser'
+                    cls: 'delete-focus-bg',
+                    iconCls: 'x-fa fa-plus-circle',
+                    tooltip: 'Add item',
+                    handler: 'onAddItemClick'
                 },
-                */
                 {
                     xtype: 'image',
                     cls: 'header-right-profile-image',
