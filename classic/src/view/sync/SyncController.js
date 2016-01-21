@@ -30,6 +30,24 @@ Ext.define('Admin.view.sync.SyncController', {
         rowEditing.startEdit(0, 0);
     },
 
+    onSensorRemoveClick: function (button) {
+        var grid = this.lookupReference('sensorGrid');
+        var sm = grid.getSelectionModel();
+        grid.store.remove(sm.getSelection());
+        if (grid.store.getCount() > 0) {
+            sm.select(0);
+        }
+    },
+
+    onTemperatureRemoveClick: function (button) {
+        var grid = this.lookupReference('temperatureGrid');
+        var sm = grid.getSelectionModel();
+        grid.store.remove(sm.getSelection());
+        if (grid.store.getCount() > 0) {
+            sm.select(0);
+        }
+    },
+
     onSetViewportViewModel: function (button) {
         var me = this,
             viewModel = me.getViewModel(),

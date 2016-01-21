@@ -37,6 +37,10 @@ Ext.define('Admin.view.sync.Sync', {
             iconCls: 'x-fa fa-pencil',
             handler: 'onSensorAddClick'
         }, {
+            text: 'Delete',
+            iconCls: 'x-fa fa-remove',
+            handler: 'onSensorRemoveClick'
+        }, {
             text: 'Clear sel.',
             //bind: {
             //    text: 'Refresh {sensorGrid.selection.address}'
@@ -82,15 +86,13 @@ Ext.define('Admin.view.sync.Sync', {
             // https://docs.sencha.com/extjs/6.0/components/grids.html
             xtype: 'datecolumn',
             format: 'Y-m-d H:i:s',
-            width: 120,
+            width: 150,
             text: 'Date',
             dataIndex: 'installdate',
             editor: {
                 xtype: 'datefield',
                 format: 'Y-m-d H:i:s' // format to show the date
                 // defined in the model: dateWriteFormat: 'c'
-                // submitFormat: not working
-                // submitFormat: 'Y-m-d H:i:s' // 'c' // Defaults to: "m/d/Y"
             }
         }, {
             text: 'Type',
@@ -100,14 +102,12 @@ Ext.define('Admin.view.sync.Sync', {
                 xtype : 'textfield',
                 allowBlank : false
             }
+        }, {
+            text: 'Key',
+            dataIndex: 'cal1',
+            width: 80,
+            disabled: true
         }],
-        /*
-        selType: 'cellmodel',
-        plugins: [{
-            ptype: 'cellediting',
-            clicksToEdit: 2
-        }]
-        */
         selType: 'rowmodel',
         plugins: [{
             ptype: 'rowediting',
@@ -122,6 +122,7 @@ Ext.define('Admin.view.sync.Sync', {
         flex: 1,
         items: [{
             xtype: 'grid',
+            reference: 'temperatureGrid',
             flex: 1,
             dockedItems: [{
                 xtype: 'pagingtoolbar',
@@ -130,6 +131,15 @@ Ext.define('Admin.view.sync.Sync', {
                 },
                 dock: 'top',
                 displayInfo: true
+            }],
+            tbar: [{
+                text: 'Add',
+                iconCls: 'x-fa fa-pencil',
+                handler: 'onTemperatureAddClick'
+            }, {
+                text: 'Delete',
+                iconCls: 'x-fa fa-remove',
+                handler: 'onTemperatureRemoveClick'
             }],
             title: 'Temperature',
             bind: {
@@ -148,17 +158,31 @@ Ext.define('Admin.view.sync.Sync', {
                 dataIndex: 'address',
                 width: 80
             }, {
+                // https://docs.sencha.com/extjs/6.0/components/grids.html
                 xtype: 'datecolumn',
-                width: 120,
+                format: 'Y-m-d H:i:s',
+                width: 150,
                 text: 'Date',
-                dataIndex: 'created'
+                dataIndex: 'created',
+                editor: {
+                    xtype: 'datefield',
+                    format: 'Y-m-d H:i:s' // format to show the date
+                    // defined in the model: dateWriteFormat: 'c'
+                }
             }, {
                 text: 'Value',
                 dataIndex: 'value',
                 width: 120
+            }],
+            selType: 'rowmodel',
+            plugins: [{
+                ptype: 'rowediting',
+                pluginId: 'sensorTemperatureRowEditing',
+                clicksToEdit: 2
             }]
         }, {
             xtype: 'grid',
+            reference: 'calibrationGrid',
             flex: 1,
             dockedItems: [{
                 xtype: 'pagingtoolbar',
@@ -190,10 +214,17 @@ Ext.define('Admin.view.sync.Sync', {
                 dataIndex: 'address',
                 width: 80
             }, {
+                // https://docs.sencha.com/extjs/6.0/components/grids.html
                 xtype: 'datecolumn',
-                width: 120,
+                format: 'Y-m-d H:i:s',
+                width: 150,
                 text: 'Date',
-                dataIndex: 'created'
+                dataIndex: 'created',
+                editor: {
+                    xtype: 'datefield',
+                    format: 'Y-m-d H:i:s' // format to show the date
+                    // defined in the model: dateWriteFormat: 'c'
+                }
             }, {
                 text: 'A (old)',
                 dataIndex: 'cal_a_old',

@@ -28,7 +28,7 @@ Ext.define('Admin.view.sync.SyncModel', {
         calibration: {
             model: 'sync.Calibration',
             autoLoad: true,
-            autoSync: false,
+            autoSync: true,
             remoteSort: true,
             remoteFilter: true,
             pageSize: 20,
@@ -45,7 +45,7 @@ Ext.define('Admin.view.sync.SyncModel', {
         temperature: {
             model: 'sync.Temperature',
             autoLoad: true, // important to set autoLoad to false. If there is an error on the backend, Ext will still try to resolve Direct method names and crash the app.
-            autoSync: false, // true,
+            autoSync: true, // true,
             remoteSort: true,
             remoteFilter: true,
             pageSize: 20,

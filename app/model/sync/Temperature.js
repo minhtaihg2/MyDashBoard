@@ -1,8 +1,7 @@
 Ext.define('Admin.model.sync.Temperature', {
     extend: 'Ext.data.Model',
 
-    fields: [
-        {
+    fields: [{
             name: 'id',
             type: 'int'
         },{
@@ -23,8 +22,7 @@ Ext.define('Admin.model.sync.Temperature', {
         }, {
             name: 'calibrated',
             type: 'boolean'
-        }
-    ],
+        }],
 
     proxy: {
         type: 'direct',

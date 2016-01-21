@@ -48,6 +48,8 @@ var Sensor = {
             var sql = `INSERT INTO ${table} (${fields.join()}) VALUES (${buracos.join()}) RETURNING id`;
             console.log(sql);
             pgclient.query(sql, values, function (err, result) {
+                // maybe some rows are insert and other are not inserted...
+                // missing tests with rows ok and rows that will fail
                 if (err)
                     return dberror('Database error', `${err.toString()} SQL: ${sql} Values: ${values.toString()}`, err, callback);
                 var id = result.rows[0].id;
@@ -164,6 +166,8 @@ var Sensor = {
          [ { property: 'sensorid', type: 'number', value: 2 },
          { property: 'address', type: 'string', value: '30:14:12:18:06:34' } ] }
          */
+
+        //var sql = 'SELECT  sensorid, address, location, installdate, sensortype, metric, calibrated, quantity, decimalplaces, cal_a, cal_b, read_interval, record_sample FROM ' + table,
         var sql = 'SELECT * FROM ' + table,
             where = '', order = '', paging = '';
         if (params.filter) {

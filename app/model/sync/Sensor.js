@@ -67,7 +67,7 @@ Ext.define('Admin.model.sync.Sensor', {
         reader: {
             type: 'json',
             rootProperty: 'data',
-            messageProperty: 'message' // mandatory if you want the framework to set message property content
+            messageProperty: 'message'
         }
     }
 });
