@@ -15,6 +15,7 @@
     "indexHtmlPath": "index.html",
 
     /**
+    /**
      * The list of directories or files to search for classes.
      *
      * Any classes declared in these locations will be available in your class "requires"
@@ -56,7 +57,7 @@
         "ext-locale"
     ],
 
-    "locale": "pt",
+    "locale": "pt_PT",
 
     /**
      * Sass configuration properties.
@@ -191,6 +192,9 @@
     "js": [{
         "path": "app.js",
         "bundle": true
+    }, {
+        "path": "/directapi",
+        "remote": true
     }, {
         "path": "resources/js/sha1.js",
         "update": "delta"

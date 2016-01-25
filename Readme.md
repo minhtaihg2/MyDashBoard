@@ -6,6 +6,40 @@ The current user data is assigned to the ViewportModel.
 
 Any view can bind to the ViewportModel and use the current user data.
 
+### Navigation tree
+
+The navigation tree comes from the database table `users.menu`, calling:
+
+```
+{"action":"Users.User","method":"readNavTree","data":[{"userid":25,"from":"test2","node":"root"}]}
+```
+
+Entry example:
+
+```
+{
+      "id": 24,
+      "text": "liamE",
+      "iconCls": "right-icon hot-icon x-fa fa-send ",
+      "idparent": null,
+      "extjsview": "email.Email",
+      "routeId": "email",
+      "leaf": true,
+      "checked": true,
+      "children": []
+}, {
+         "id": 26,
+         "text": "srosneS",
+         "iconCls": "x-fa fa-line-chart",
+         "idparent": null,
+         "extjsview": "sync.Sync",
+         "routeId": "sync",
+         "leaf": true,
+         "checked": true,
+         "children": []
+}
+```
+
 ### Sessions
 
 #### Server side
@@ -16,8 +50,26 @@ redis 127.0.0.1:6379> keys *
 127.0.0.1:6379> get "sess:Lk4Am8aREddkoes8JPgsWBl1x7c8EgaB"
 "{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"httpOnly\":true,\"path\":\"/\"},\"userid\":31,\"groupid\":1}"
 ```
+#### PostgreSQL (node)
+
+Monitor connections:
+
+```
+SELECT * FROM pg_stat_activity;
+```
+
+#### PostgreSQL
+
+```
+ALTER TABLE users.sessao ADD CONSTRAINT unique_sessions UNIQUE (userid, sessionid);
+```
+
 
 # Admin Dashboard
+
+```
+sencha app build production
+```
 
 The Admin Dashboard is an application template for you to copy and adapt to suite
 your specific needs. While you can remove the files and folders that your application

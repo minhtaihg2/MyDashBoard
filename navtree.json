@@ -1,0 +1,196 @@
+{
+  "type": "rpc",
+  "tid": 5,
+  "action": "Users.User",
+  "method": "readNavTree",
+  "result": [
+    {
+      "id": 23,
+      "text": "draobhsaD",
+      "iconCls": "right-icon new-icon x-fa fa-desktop",
+      "idparent": null,
+      "extjsview": "dashboard.Dashboard",
+      "routeId": "dashboard",
+      "leaf": true,
+      "checked": true,
+      "children": []
+    },
+    {
+      "id": 24,
+      "text": "liamE",
+      "iconCls": "right-icon hot-icon x-fa fa-send ",
+      "idparent": null,
+      "extjsview": "email.Email",
+      "routeId": "email",
+      "leaf": true,
+      "checked": true,
+      "children": []
+    },
+    {
+      "id": 25,
+      "text": "eliforP",
+      "iconCls": "x-fa fa-user",
+      "idparent": null,
+      "extjsview": "profile.UserProfile",
+      "routeId": "profile",
+      "leaf": true,
+      "checked": true,
+      "children": []
+    },
+    {
+      "id": 26,
+      "text": "srosneS",
+      "iconCls": "x-fa fa-line-chart",
+      "idparent": null,
+      "extjsview": "sync.Sync",
+      "routeId": "sync",
+      "leaf": true,
+      "checked": true,
+      "children": []
+    },
+    {
+      "id": 27,
+      "text": "stluser hcraeS",
+      "iconCls": "x-fa fa-search",
+      "idparent": null,
+      "extjsview": "search.Results",
+      "routeId": "search",
+      "leaf": true,
+      "checked": true,
+      "children": []
+    },
+    {
+      "id": 28,
+      "text": "QAF",
+      "iconCls": "x-fa fa-question",
+      "idparent": null,
+      "extjsview": "pages.FAQ",
+      "routeId": "faq",
+      "leaf": true,
+      "checked": true,
+      "children": []
+    },
+    {
+      "id": 29,
+      "text": "segaP",
+      "iconCls": "x-fa fa-leanpub",
+      "idparent": null,
+      "extjsview": "",
+      "routeId": "pages-parent",
+      "leaf": false,
+      "checked": true,
+      "children": [
+        {
+          "id": 30,
+          "text": "egaP knalB",
+          "iconCls": "x-fa fa-file-o",
+          "idparent": 29,
+          "extjsview": "pages.BlankPage",
+          "routeId": "pages.blank",
+          "leaf": true,
+          "checked": true,
+          "children": []
+        },
+        {
+          "id": 31,
+          "text": "rorrE 404",
+          "iconCls": "x-fa fa-exclamation-triangle",
+          "idparent": 29,
+          "extjsview": "pages.Error404Window",
+          "routeId": "pages.404",
+          "leaf": true,
+          "checked": true,
+          "children": []
+        },
+        {
+          "id": 32,
+          "text": "rorrE 005",
+          "iconCls": "x-fa fa-times-circle",
+          "idparent": 29,
+          "extjsview": "pages.Error500Window",
+          "routeId": "pages.500",
+          "leaf": true,
+          "checked": true,
+          "children": []
+        },
+        {
+          "id": 33,
+          "text": "neercS kcoL",
+          "iconCls": "x-fa fa-lock",
+          "idparent": 29,
+          "extjsview": "authentication.LockScreen",
+          "routeId": "authentication.lockscreen",
+          "leaf": true,
+          "checked": true,
+          "children": []
+        },
+        {
+          "id": 34,
+          "text": "nigoL",
+          "iconCls": "x-fa fa-check",
+          "idparent": 29,
+          "extjsview": "authentication.Login",
+          "routeId": "authentication.login",
+          "leaf": true,
+          "checked": true,
+          "children": []
+        },
+        {
+          "id": 35,
+          "text": "retsigeR",
+          "iconCls": "x-fa fa-pencil-square-o",
+          "idparent": 29,
+          "extjsview": "authentication.Register",
+          "routeId": "authentication.register",
+          "leaf": true,
+          "checked": true,
+          "children": []
+        },
+        {
+          "id": 36,
+          "text": "teseR drowssaP",
+          "iconCls": "x-fa fa-lightbulb-o",
+          "idparent": 29,
+          "extjsview": "authentication.PasswordReset",
+          "routeId": "authentication.passwordreset",
+          "leaf": true,
+          "checked": true,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "text": "stegdiW",
+      "iconCls": "x-fa fa-flask",
+      "idparent": null,
+      "extjsview": "widgets.Widgets",
+      "routeId": "widgets",
+      "leaf": true,
+      "checked": true,
+      "children": []
+    },
+    {
+      "id": 38,
+      "text": "smroF",
+      "iconCls": "x-fa fa-edit",
+      "idparent": null,
+      "extjsview": "forms.Wizards",
+      "routeId": "forms",
+      "leaf": true,
+      "checked": true,
+      "children": []
+    },
+    {
+      "id": 39,
+      "text": "strahC",
+      "iconCls": "x-fa fa-pie-chart",
+      "idparent": null,
+      "extjsview": "charts.Charts",
+      "routeId": "charts",
+      "leaf": true,
+      "checked": true,
+      "children": []
+    }
+  ]
+}

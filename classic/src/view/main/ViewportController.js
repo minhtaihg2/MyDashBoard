@@ -3,9 +3,15 @@ Ext.define('Admin.view.main.ViewportController', {
     alias: 'controller.mainviewport',
 
     listen: {
+        global: {
+            loginComSucesso: 'onLoginComSucesso'
+        },
         controller: {
             '#': {
                 unmatchedroute: 'onRouteChange'
+            },
+            'authentication': {
+                loginComSucesso: 'onLoginComSucesso'
             }
         }
     },
@@ -14,21 +20,33 @@ Ext.define('Admin.view.main.ViewportController', {
         ':node': 'onRouteChange'
     },
 
-    // https://docs.sencha.com/extjs/6.0/components/trees.html
-    // https://www.sencha.com/forum/showthread.php?304624-Ext.list.Tree-item-renderer-and-update
-    //
-    visitiList: function (treelist) {
-        treelist.getStore().getRoot().cascadeBy(function (node) {
-            var item, toolElement;
-            item = treelist.getItem(node);
-            if (item && item.isTreeListItem) {
-                if (item.element.isVisible(true)) {
-                    console.log('Visible: ' + item.getText()); // .getNode()
-                } else {
-                    console.log('Invisible: ' + item.getText());
-                }
-            }
+    navigationTreeStoreLoaded: false,
+
+    init: function () {
+        var me = this;
+
+        //var navigationTreeStore = Ext.getStore('NavigationTree');
+        var navigationTreeStore = me.getViewModel().getStore('navigationTree');
+
+        navigationTreeStore.on('load', function (store) {
+            console.log('navigationTreeStore loaded');
+            me.navigationTreeStoreLoaded = true;
+            console.log('this.redirectTo("dashboard");');
+            //me.redirectTo("dashboard");
+            me.setCurrentView("dashboard");
         });
+
+        me.callParent(arguments);
+    },
+
+    onLoginComSucesso: function (user) {
+        var me = this;
+        console.log('onLoginComSucesso()');
+        //console.log(arguments);
+        console.log(user);
+        var viewModel = me.getViewModel();
+        viewModel.set('current.user', Ext.create('Admin.model.Utilizador', user));
+        viewModel.set('current.user.login', "local");
     },
 
     setCurrentView: function (hashTag) {
@@ -41,18 +59,14 @@ Ext.define('Admin.view.main.ViewportController', {
             navigationList = refs.navigationTreeList,
             viewModel = me.getViewModel(),
             vmData = viewModel.getData(),
-            store = navigationList.getStore(),
+            //store = navigationList.getStore(),
+            store = viewModel.getStore('navigationTree'),
             node = store.findNode('routeId', hashTag),
             view = node ? node.get('extjsview') : null,
             lastView = vmData.currentView,
             existingItem = mainCard.child('component[routeId=' + hashTag + ']'),
             newView;
 
-        if (node) {
-            console.log('Encontrei o node da view ' + hashTag);
-        } else {
-            console.log('NÃO ncontrei o node da view ' + hashTag);
-        }
         // Kill any previously routed window
         if (lastView && lastView.isWindow) {
             lastView.destroy();
@@ -61,13 +75,14 @@ Ext.define('Admin.view.main.ViewportController', {
         lastView = mainLayout.getActiveItem();
 
         if (!existingItem) {
-            //newView = Ext.create('Admin.view.' + (view || 'pages.Error404Window'), {
-            newView = Ext.create('Admin.view.' + (view || 'dashboard.Dashboard'), {
+            newView = Ext.create('Admin.view.' + (view || 'pages.Error404Window'), {
                 hideMode: 'offsets',
-                //routeId: hashTag
-                routeId: 'dashboard'
+                routeId: hashTag
             });
         }
+
+        //console.log('setCurrentView → mainCard');
+        //console.log(mainCard);
 
         if (!newView || !newView.isWindow) {
             // !newView means we have an existing view, but if the newView isWindow
@@ -143,11 +158,8 @@ Ext.define('Admin.view.main.ViewportController', {
         var treelist = this.getReferences().navigationTreeList;
         var estore = treelist.getStore();
 
-        //estore.removeAll(true);
-        //estore.commitChanges();
-
         estore.reload({
-            params: {userid:25}
+            params: {userid: 25}
         });
         treelist.onRootChange(estore.getRoot());
     },
@@ -159,23 +171,23 @@ Ext.define('Admin.view.main.ViewportController', {
         var estore = treelist.getStore();
 
         estore.load({
-            params: {userid:25, from: 'test2'}
+            params: {userid: 25, from: 'test2'}
         });
 
         /*
-        var treelist = this.getReferences().navigationTreeList;
-        treelist.getStore().getRoot().cascadeBy(function (node) {
-            var item, toolElement;
-            item = treelist.getItem(node);
-            if (item && item.isTreeListItem) {
-                if (item.element.isVisible(true)) {
-                    console.log('Visible: ' + item.getText()); // .getNode()
-                } else {
-                    console.log('Invisible: ' + item.getText());
-                }
-            }
-        });
-        */
+         var treelist = this.getReferences().navigationTreeList;
+         treelist.getStore().getRoot().cascadeBy(function (node) {
+         var item, toolElement;
+         item = treelist.getItem(node);
+         if (item && item.isTreeListItem) {
+         if (item.element.isVisible(true)) {
+         console.log('Visible: ' + item.getText()); // .getNode()
+         } else {
+         console.log('Invisible: ' + item.getText());
+         }
+         }
+         });
+         */
 
     },
 
@@ -188,7 +200,7 @@ Ext.define('Admin.view.main.ViewportController', {
             vmData = viewModel.getData(),
             store = navigationList.getStore();
 
-        console.log(vmData);
+        //console.log(vmData);
 
         Server.DXLogin.deauthenticate({}, function (result, event) {
             if (result.success) {
@@ -202,29 +214,23 @@ Ext.define('Admin.view.main.ViewportController', {
             }
         });
 
-        /*
-         viewModel.set('user.id', null);
-         viewModel.set('user.idgrupo', null);
-         viewModel.set('user.name', null);
-         viewModel.set('user.email', null);
-         viewModel.set('user.login', null);
-         viewModel.set('user.masculino', null);
-         viewModel.set('user.fotografia', null);
-         */
+    },
 
-        /*
-
-         console.log(viewModel.get('username'));
-         viewModel.set('username', 'Ana Rita');
-
-         this.visitiList(navigationList);
-
-         console.log("routeId??search → " + store.findExact("routeId", "search"));
-         console.log(store);
-         store.remove(4);
-         console.log("routeId??search → " + store.findExact("routeId", "search"));
-         */
-
+    // https://docs.sencha.com/extjs/6.0/components/trees.html
+    // https://www.sencha.com/forum/showthread.php?304624-Ext.list.Tree-item-renderer-and-update
+    //
+    visitiList: function (treelist) {
+        treelist.getStore().getRoot().cascadeBy(function (node) {
+            var item, toolElement;
+            item = treelist.getItem(node);
+            if (item && item.isTreeListItem) {
+                if (item.element.isVisible(true)) {
+                    console.log('Visible: ' + item.getText()); // .getNode()
+                } else {
+                    console.log('Invisible: ' + item.getText());
+                }
+            }
+        });
     },
 
     onToggleNavigationSize: function () {
@@ -280,25 +286,24 @@ Ext.define('Admin.view.main.ViewportController', {
     },
 
     onMainViewRender: function () {
-        console.log('onMainViewRender');
-
+        console.log('this.redirectTo("dashboard");');
         if (!window.location.hash) {
             this.redirectTo("dashboard");
         }
     },
 
     onRouteChange: function (id) {
-        console.log('onRouteChange: ' + id);
-        this.setCurrentView(id);
+        console.log('this.setCurrentView(' + id + ')');
+        if (this.navigationTreeStoreLoaded) {
+            this.setCurrentView(id);
+        }
     },
 
     onSearchRouteChange: function () {
-        console.log('onSearchRouteChange');
         this.setCurrentView('search');
     },
 
     onEmailRouteChange: function () {
-        console.log('onEmailRouteChange');
         this.setCurrentView('email');
     }
 });

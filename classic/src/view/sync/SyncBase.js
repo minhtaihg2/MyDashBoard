@@ -1,6 +1,6 @@
-Ext.define('Admin.view.sync.Sync', {
+Ext.define('Admin.view.sync.SyncBase', {
     extend: 'Ext.container.Container',
-    xtype: 'sync',
+    xtype: 'sync-base',
 
     controller: 'sync',
     viewModel: {
@@ -8,11 +8,11 @@ Ext.define('Admin.view.sync.Sync', {
     },
 
     /*
-    layout: {
-        type: 'hbox',
-        align: 'stretch'
-    },
-    */
+     layout: {
+     type: 'hbox',
+     align: 'stretch'
+     },
+     */
 
     // margin: '20 0 0 20',
 
@@ -29,27 +29,30 @@ Ext.define('Admin.view.sync.Sync', {
         height: 400,
         margin: 10,
 
-        tbar: [{
-            text: 'Refresh',
-            handler: 'onSensorRefreshClick'
-        }, {
-            text: 'Add',
-            iconCls: 'x-fa fa-pencil',
-            handler: 'onSensorAddClick'
-        }, {
-            text: 'Delete',
-            iconCls: 'x-fa fa-remove',
-            handler: 'onSensorRemoveClick'
-        }, {
-            text: 'Clear sel.',
-            //bind: {
-            //    text: 'Refresh {sensorGrid.selection.address}'
-            //},
-            handler: 'onSensorClearSelectionClick'
-        }, {
-            text: 'vm.data',
-            handler: 'onSetViewportViewModel'
-        }],
+        /*
+         tbar: [{
+         text: 'Refresh',
+         handler: 'onSensorRefreshClick'
+         }, {
+         text: 'Add',
+         iconCls: 'x-fa fa-pencil',
+         handler: 'onSensorAddClick'
+         }, {
+         text: 'Delete',
+         iconCls: 'x-fa fa-remove',
+         handler: 'onSensorRemoveClick'
+         }, {
+         text: 'Clear sel.',
+         //bind: {
+         //    text: 'Refresh {sensorGrid.selection.address}'
+         //},
+         handler: 'onSensorClearSelectionClick'
+         }, {
+         text: 'vm.data',
+         handler: 'onSetViewportViewModel'
+         }],
+         */
+
         bind: {
             //title: '{title.sensor}',
             title: '{user.name}',
@@ -59,28 +62,30 @@ Ext.define('Admin.view.sync.Sync', {
             emptyText: 'No data available'
         },
         columns: [{
-            text: 'Id',
+            bind: {
+                text: '{current.user.nome}'
+            },
             dataIndex: 'sensorid',
             width: 40,
-            editor : {
-                xtype : 'textfield',
-                allowBlank : false
+            editor: {
+                xtype: 'textfield',
+                allowBlank: false
             }
         }, {
             text: 'Address',
             dataIndex: 'address',
             width: 80,
-            editor : {
-                xtype : 'textfield',
-                allowBlank : false
+            editor: {
+                xtype: 'textfield',
+                allowBlank: false
             }
         }, {
             text: 'Location',
             dataIndex: 'location',
             flex: 1,
-            editor : {
-                xtype : 'textfield',
-                allowBlank : false
+            editor: {
+                xtype: 'textfield',
+                allowBlank: false
             }
         }, {
             // https://docs.sencha.com/extjs/6.0/components/grids.html
@@ -98,9 +103,9 @@ Ext.define('Admin.view.sync.Sync', {
             text: 'Type',
             dataIndex: 'sensortype',
             width: 20,
-            editor : {
-                xtype : 'textfield',
-                allowBlank : false
+            editor: {
+                xtype: 'textfield',
+                allowBlank: false
             }
         }, {
             text: 'Key',
@@ -243,5 +248,16 @@ Ext.define('Admin.view.sync.Sync', {
                 width: 80
             }]
         }]
-    }]
+    }],
+    getSensorGrid: function() {
+        return this.items[0];
+    },
+    getTemperatureGrid: function() {
+        // not tested
+        return this.items[1].items[0];
+    },
+    getCalibrationGrid: function() {
+        // not tested
+        return this.items[1].items[1];
+    }
 });

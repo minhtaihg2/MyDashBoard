@@ -37,43 +37,46 @@ var DXLogin = {
      * @param response only if "appendRequestResponseObjects" enabled
      */
     alive: function (params, callback, sessionID, request, response) {
-        console.log('Session ID = ' + sessionID);
+        console.log('DXLogin.alive(): Session ID = ' + sessionID);
         console.log(request.session);
         if (request.session.userid) {
-            var conn = db.connect();
             var sql = 'SELECT *, st_x(ponto) as longitude, st_y(ponto) as latitude FROM ' + table, where = '';
             where = " WHERE id = '" + request.session.userid + "' and ativo and emailconfirmacao";
             sql += where;
-            conn.query(sql, function (err, resultUtilizador) {
-                if (err) {
-                    db.debugError(callback, err);
-                } else {
-                    var sql = "UPDATE sessao SET dataultimaatividade = now(), reaproveitada = reaproveitada+1 where userid = " + request.session.userid + " and sessionid = '" + sessionID + "'";
-                    conn.query(sql, function (err, updateResult) {
-                        db.disconnect(conn);
-                        if (err) {
-                            console.log('UPDATE =' + sql + ' Error: ' + err);
-                            db.debugError(callback, err);
-                        } else {
-                            if (updateResult.rowCount == 0) {
-                                console.log('ERROR: session exists, but not on database');
-                            }
-                            // posso prolongar mais o cookie (mais uma semana...)
-                            // request.session.cookie.maxAge = 7 * 24 * 60 * 60 * 1000;
+            pg.connect(global.App.connection, function (err, client, done) {
+                if (err)
+                    return dberror('Database connection error', '', err, callback, done);
+                client.query(sql, function (err, resultSelect) {
+                    if (err)
+                        return dberror('Database error', `${err.toString()} SQL: ${sql}`, err, callback, done);
+                    sql = "UPDATE users.sessao SET dataultimaatividade = now(), reaproveitada = reaproveitada+1 where userid = " + request.session.userid + " and sessionid = '" + sessionID + "'";
+                    client.query(sql, function (err, resultUpdate) {
+                        if (err)
+                            return dberror('Database error', `${err.toString()} SQL: ${sql}`, err, callback, done);
+                        if (resultUpdate.rowCount == 0) {
+                            console.log('ERROR: session exists on REDIS but not on database');
                             callback({
-                                success: true,
-                                message: 'Sessão recuperada.',
-                                data: resultUtilizador.rows
+                                message: {
+                                    text: 'Session not registered or too old',
+                                    detail: 'This should not happen'
+                                }
+                            });
+                        } else {
+                            callback(null, {
+                                message: 'Session recovered',
+                                data: resultSelect.rows
                             });
                         }
+                        // free this client, from the client pool
+                        done();
                     });
-
-                }
+                });
             });
         } else {
             callback({
-                success: false,
-                message: 'Session not registered or too old'
+                message: {
+                    text: 'Session not registered or too old'
+                }
             });
         }
     },
@@ -94,7 +97,7 @@ var DXLogin = {
      */
     authenticate: function (params, callback, sessionID, request, response) {
         var email = params.email.toLowerCase(), password = params.password, remember = params.remember;
-        console.log('Session ID = ' + sessionID);
+        console.log('DXLogin.authenticate(): Session ID = ' + sessionID);
         var agent = useragent.parse(request.headers['user-agent']);
         var browser = agent.toAgent();
         var os = agent.os.toString();
@@ -206,15 +209,17 @@ var DXLogin = {
                             });
                             // free this client, from the client pool
                             done();
-
                         }
                     });
                 });
             })
         } else {
             console.log('Não deauthenticate, se request.session.userid indefinido');
-            callback(null, {
-                message: 'Logout already done'
+            callback({
+                message: {
+                    text: 'Session not registered or too old',
+                    detail: 'This should not happen'
+                }
             });
         }
     },

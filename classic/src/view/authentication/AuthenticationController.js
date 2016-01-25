@@ -33,12 +33,15 @@ Ext.define('Admin.view.authentication.AuthenticationController', {
             if (result.success) {
                 // We have a valid user data
                 Ext.Msg.alert('Successful login', Ext.encode(result));
+
+                me.fireEvent('loginComSucesso', result.data[0]);
+
                 //console.log(result.data[0]);
                 var viewModel = me.getViewModel();
-                // global: ViewportModel
-                viewModel.set('currentUser', Ext.create('Admin.model.Utilizador', result.data[0]));
-                // untested
-                viewModel.set('current.user.login', "local");
+                //// global: ViewportModel
+                //viewModel.set('currentUser', Ext.create('Admin.model.Utilizador', result.data[0]));
+                //// untested
+                //viewModel.set('current.user.login', "local");
 
                 //console.log(me.getViewModel().getData());
                 // local: AuthenticationModel
@@ -91,7 +94,8 @@ Ext.define('Admin.view.authentication.AuthenticationController', {
                 //me.application.fireEvent('loginComSucesso');
                 me.redirectTo("dashboard");
             } else {
-                Ext.Msg.alert('Error starting session'.translate(), 'Invalid user or password'.translate()); // Ext.encode(result)
+                //Ext.Msg.alert('Error starting session'.translate(), 'Invalid user or password'.translate()); // Ext.encode(result)
+                Ext.Msg.alert('Error starting session', 'Invalid user or password'); // Ext.encode(result)
             }
         });
     },

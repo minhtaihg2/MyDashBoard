@@ -2,7 +2,12 @@ Ext.define('Admin.view.main.Viewport', {
     extend: 'Ext.container.Viewport',
     xtype: 'mainviewport',
 
+    plugins: [
+        'viewport'
+    ],
+
     requires: [
+        'Ext.plugin.Viewport',
         'Ext.list.Tree'
     ],
 
@@ -49,21 +54,21 @@ Ext.define('Admin.view.main.Viewport', {
                     flex: 1
                 },
                 /*
-                {
-                    cls: 'delete-focus-bg',
-                    iconCls: 'x-fa fa-search',
-                    href: '#search',
-                    hrefTarget: '_self',
-                    tooltip: 'See latest search'
-                },
-                {
-                    cls: 'delete-focus-bg',
-                    iconCls: 'x-fa fa-envelope',
-                    href: '#email',
-                    hrefTarget: '_self',
-                    tooltip: 'Check your email'
-                },
-                */
+                 {
+                 cls: 'delete-focus-bg',
+                 iconCls: 'x-fa fa-search',
+                 href: '#search',
+                 hrefTarget: '_self',
+                 tooltip: 'See latest search'
+                 },
+                 {
+                 cls: 'delete-focus-bg',
+                 iconCls: 'x-fa fa-envelope',
+                 href: '#email',
+                 hrefTarget: '_self',
+                 tooltip: 'Check your email'
+                 },
+                 */
                 {
                     cls: 'delete-focus-bg',
                     iconCls: 'x-fa fa-bell',
@@ -102,15 +107,15 @@ Ext.define('Admin.view.main.Viewport', {
                     scale: 'medium',
                     handler: 'onClickLogin',
                     menu: [{
-                        text: 'Last access'.translate(),
+                        text: 'Last access',
                         iconCls: 'x-fa fa-history'
                     }, {
-                        text: 'Profile'.translate(),
+                        text: 'Profile',
                         iconCls: 'x-fa fa-user',
                         href: '#profile',
                         hrefTarget: '_self'
                     }, {
-                        text: 'Logout'.translate(),
+                        text: 'Logout',
                         iconCls: 'x-fa fa-sign-out',
                         itemId: 'botaoLogout',
                         handler: 'onLogoutClick'
@@ -128,7 +133,9 @@ Ext.define('Admin.view.main.Viewport', {
                     reference: 'navigationTreeList',
                     itemId: 'navigationTreeList',
                     ui: 'navigation',
-                    store: 'NavigationTree',
+                    bind: {
+                        store: '{navigationTree}'
+                    },
                     width: 250,
                     expanderFirst: false,
                     expanderOnly: false,
