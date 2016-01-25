@@ -107,15 +107,10 @@ Ext.define('Admin.view.main.Viewport', {
                     scale: 'medium',
                     handler: 'onClickLogin',
                     menu: [{
-                        text: 'Last access',
-                        iconCls: 'x-fa fa-history'
-                    }, {
-                        text: 'Profile',
-                        iconCls: 'x-fa fa-user',
-                        href: '#profile',
-                        hrefTarget: '_self'
-                    }, {
                         text: 'Logout',
+                        bind: {
+                            disabled: '{!current.user.id}'
+                        },
                         iconCls: 'x-fa fa-sign-out',
                         itemId: 'botaoLogout',
                         handler: 'onLogoutClick'

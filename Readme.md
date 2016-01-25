@@ -61,6 +61,11 @@ SELECT * FROM pg_stat_activity;
 #### PostgreSQL
 
 ```
+There should be a group with id == 0 for non logged users.
+This is used to retrive the menu tree for any user, without authentication.
+
+"0";"Anonymous";
+
 ALTER TABLE users.sessao ADD CONSTRAINT unique_sessions UNIQUE (userid, sessionid);
 ```
 

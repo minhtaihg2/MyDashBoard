@@ -47,20 +47,19 @@ var User = {
         //console.log(request.session);
         //console.log(request.session.userid);
 
-        var iduser = 31;
         var sql = '';
-        sql += 'select *, NOT EXISTS (select * from users.menu inm where inm.idparent = users.menu.id) leaf ';
-        sql += 'from users.menu ';
-        sql += 'where id IN (select idmenu from users.permissao p, users.utilizador u ';
-        sql += 'where p.idgrupo = u.idgrupo and id = ' + iduser + ' ) ';
-        sql += 'order by id ';
 
-        if (params.userid && params.userid == 25) {
-            sql = 'select id, reverse(text) as text, "iconCls", idparent, extjsview, "routeId", NOT EXISTS (select * from users.menu inm where inm.idparent = users.menu.id) leaf, true as checked from users.menu ';
+        if (params.hasOwnProperty('userid') && (parseInt(params.userid) > 0)) {
+            sql += 'select *, NOT EXISTS (select * from users.menu inm where inm.idparent = users.menu.id) leaf ';
+            sql += 'from users.menu ';
+            sql += 'where id IN (select idmenu from users.permissao p, users.utilizador u ';
+            sql += 'where p.idgrupo = u.idgrupo and id = ' + params.userid + ' ) ';
         } else {
-            sql = 'select *, NOT EXISTS (select * from users.menu inm where inm.idparent = users.menu.id) leaf from users.menu ';
+            sql += 'select *, NOT EXISTS (select * from users.menu inm where inm.idparent = users.menu.id) leaf ';
+            sql += 'from users.menu ';
+            sql += 'where id IN (select idmenu from users.permissao p where p.idgrupo = 0 ) ';
         }
-        //sql += 'order by id ';
+        sql += 'order by id ';
 
         pg.connect(global.App.connection, function (err, client, done) {
             if (err)

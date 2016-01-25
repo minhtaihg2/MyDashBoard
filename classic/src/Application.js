@@ -53,8 +53,8 @@ Ext.define('Admin.Application', {
                     } else {
                         //Ext.Msg.alert('No session available', Ext.encode(result));
                         Ext.Msg.alert('No session available', result.message.text);
+                        Ext.GlobalEvents.fireEvent('logoutComSucesso');
                     }
-
                 });
             }
         }

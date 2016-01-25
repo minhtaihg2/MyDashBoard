@@ -4,7 +4,8 @@ Ext.define('Admin.view.main.ViewportController', {
 
     listen: {
         global: {
-            loginComSucesso: 'onLoginComSucesso'
+            loginComSucesso: 'onLoginComSucesso',
+            logoutComSucesso: 'onLogoutComSucesso'
         },
         controller: {
             '#': {
@@ -12,6 +13,9 @@ Ext.define('Admin.view.main.ViewportController', {
             },
             'authentication': {
                 loginComSucesso: 'onLoginComSucesso'
+            },
+            '*': {
+                logoutComSucesso: 'onLogoutComSucesso'
             }
         }
     },
@@ -47,6 +51,61 @@ Ext.define('Admin.view.main.ViewportController', {
         var viewModel = me.getViewModel();
         viewModel.set('current.user', Ext.create('Admin.model.Utilizador', user));
         viewModel.set('current.user.login', "local");
+
+        var treelist = this.getReferences().navigationTreeList;
+        var estore = viewModel.getStore('navigationTree');
+
+        estore.reload({
+            params: {
+                userid: viewModel.get('current.user.id')
+            }
+        });
+        treelist.onRootChange(estore.getRoot());
+    },
+
+    onLogoutComSucesso: function () {
+        var me = this;
+        console.log('logoutComSucesso()');
+        //console.log(arguments);
+        var refs = me.getReferences(),
+            mainCard = refs.mainCardPanel,
+            viewModel = me.getViewModel();
+
+        mainCard.removeAll(true);
+        viewModel.set('current.user', null);
+
+        var treelist = this.getReferences().navigationTreeList;
+        var estore = viewModel.getStore('navigationTree');
+
+        estore.reload({
+            params: {
+                userid: null
+            }
+        });
+        treelist.onRootChange(estore.getRoot());
+
+    },
+
+    onLogoutClick: function (button) {
+        console.log('onLogoutClick');
+        var me = this,
+            viewModel = me.getViewModel();
+        var id = viewModel.get('current.user.id');
+        if (id) {
+            Server.DXLogin.deauthenticate({}, function (result, event) {
+                if (result.success) {
+                    Ext.Msg.alert(result.message);
+                    //viewModel.set('current.user', null);
+
+                    //me.application.fireEvent('logoutComSucesso');
+                    me.fireEvent('logoutComSucesso');
+                } else {
+                    Ext.Msg.alert('Erro ao terminar a sessão.', Ext.encode(result));
+                }
+            });
+        } else {
+            console.log('Não faz nada...');
+        }
     },
 
     setCurrentView: function (hashTag) {
@@ -188,31 +247,6 @@ Ext.define('Admin.view.main.ViewportController', {
          }
          });
          */
-
-    },
-
-    onLogoutClick: function (button) {
-        console.log('Logout');
-        var me = this,
-            refs = me.getReferences(),
-            navigationList = refs.navigationTreeList,
-            viewModel = me.getViewModel(),
-            vmData = viewModel.getData(),
-            store = navigationList.getStore();
-
-        //console.log(vmData);
-
-        Server.DXLogin.deauthenticate({}, function (result, event) {
-            if (result.success) {
-                Ext.Msg.alert(result.message);
-                viewModel.set('current.user', null);
-
-                //me.application.fireEvent('logoutComSucesso');
-                // me.fireEvent('logout');	// para ser apanhado pelo mapPanel (MainMapPanel controller)
-            } else {
-                Ext.Msg.alert('Erro ao terminar a sessão.', Ext.encode(result));
-            }
-        });
 
     },
 

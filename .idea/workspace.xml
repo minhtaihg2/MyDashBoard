@@ -1,44 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="61e971d5-b08e-4d59-b333-e3de1794b27a" name="Default" comment="Loading Ext:direct API using the proper way&#10;&#10;Improving pt_PT overrides&#10;">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/sync/SyncReadOnly.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/sync/SyncReadWrite.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/navtree.json" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Application.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/DirectAPI.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Translation.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/store/NavigationTree.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classic/src/view/main/List.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classic/src/view/main/Main.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/languages/pt.js" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/classic/src/view/sync/Sync.js" afterPath="$PROJECT_DIR$/classic/src/view/sync/SyncBase.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/temp/production/Admin/slicer-temp/theme-capture.png" afterPath="$PROJECT_DIR$/build/temp/production/Admin/slicer-temp/theme-capture.png" />
+    <list default="true" id="61e971d5-b08e-4d59-b333-e3de1794b27a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Readme.md" afterPath="$PROJECT_DIR$/Readme.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.json" afterPath="$PROJECT_DIR$/app.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/production/Admin/classic.json" afterPath="$PROJECT_DIR$/build/production/Admin/classic.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/production/Admin/classic/app.js" afterPath="$PROJECT_DIR$/build/production/Admin/classic/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/production/Admin/classic/resources/Admin-all_1.css" afterPath="$PROJECT_DIR$/build/production/Admin/classic/resources/Admin-all_1.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/production/Admin/classic/resources/Admin-all_2.css" afterPath="$PROJECT_DIR$/build/production/Admin/classic/resources/Admin-all_2.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/production/Admin/classic/resources/Admin-all_3.css" afterPath="$PROJECT_DIR$/build/production/Admin/classic/resources/Admin-all_3.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/temp/production/Admin/sass/Admin-all.scss" afterPath="$PROJECT_DIR$/build/temp/production/Admin/sass/Admin-all.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/temp/production/Admin/sass/Admin-all.scss.tmp" afterPath="$PROJECT_DIR$/build/temp/production/Admin/sass/Admin-all.scss.tmp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/temp/production/Admin/slicer-temp/Admin-example.css" afterPath="$PROJECT_DIR$/build/temp/production/Admin/slicer-temp/Admin-example.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/temp/production/Admin/slicer-temp/Admin-example.scss" afterPath="$PROJECT_DIR$/build/temp/production/Admin/slicer-temp/Admin-example.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/temp/production/Admin/slicer-temp/Admin-example.scss.tmp" afterPath="$PROJECT_DIR$/build/temp/production/Admin/slicer-temp/Admin-example.scss.tmp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bootstrap.js" afterPath="$PROJECT_DIR$/bootstrap.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classic.json" afterPath="$PROJECT_DIR$/classic.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classic/src/Application.js" afterPath="$PROJECT_DIR$/classic/src/Application.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classic/src/view/authentication/AuthenticationController.js" afterPath="$PROJECT_DIR$/classic/src/view/authentication/AuthenticationController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classic/src/view/authentication/AuthenticationModel.js" afterPath="$PROJECT_DIR$/classic/src/view/authentication/AuthenticationModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classic/src/view/main/MainContainerWrap.js" afterPath="$PROJECT_DIR$/classic/src/view/main/MainContainerWrap.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classic/src/view/main/Viewport.js" afterPath="$PROJECT_DIR$/classic/src/view/main/Viewport.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classic/src/view/main/ViewportController.js" afterPath="$PROJECT_DIR$/classic/src/view/main/ViewportController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classic/src/view/main/ViewportModel.js" afterPath="$PROJECT_DIR$/classic/src/view/main/ViewportModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ext/classic/locale/overrides/pt_PT/ext-locale-pt_PT.js" afterPath="$PROJECT_DIR$/ext/classic/locale/overrides/pt_PT/ext-locale-pt_PT.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sass/example/bootstrap.json" afterPath="$PROJECT_DIR$/sass/example/bootstrap.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/direct/DXLogin.js" afterPath="$PROJECT_DIR$/server/direct/DXLogin.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/direct/Users/User.js" afterPath="$PROJECT_DIR$/server/direct/Users/User.js" />
     </list>
     <ignored path="MyDashBoard.iws" />
@@ -59,54 +30,24 @@
     <favorites_list name="MyDashBoard" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.4725064">
+    <splitter split-orientation="horizontal" split-proportion="0.50703466">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="Application.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/classic/src/Application.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="50" column="74" selection-start-line="50" selection-start-column="26" selection-end-line="50" selection-end-column="74" />
+                  <caret line="55" column="68" selection-start-line="55" selection-start-column="52" selection-end-line="55" selection-end-column="68" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="ViewportController.js" pinned="false" current-in-tab="false">
+          <file leaf-file-name="ViewportController.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/classic/src/view/main/ViewportController.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-23.612904">
-                  <caret line="203" column="0" selection-start-line="203" selection-start-column="0" selection-end-line="203" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="server-config.json" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/server/server-config.json">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-12.666667">
-                  <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="64" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="server.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/server/server.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="PgPersonnel.js" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/server/direct/AppGeoExt3/PgPersonnel.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-3.2242596">
-                  <caret line="2" column="22" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="28" />
+                <state vertical-scroll-proportion="0.23152709">
+                  <caret line="88" column="38" selection-start-line="88" selection-start-column="38" selection-end-line="88" selection-end-column="38" />
                   <folding />
                 </state>
               </provider>
@@ -116,7 +57,7 @@
             <entry file="file://$PROJECT_DIR$/classic/src/view/authentication/AuthenticationController.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="2" column="37" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="37" />
+                  <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="64" selection-end-column="27" />
                   <folding />
                 </state>
               </provider>
@@ -135,7 +76,7 @@
           <file leaf-file-name="DXLogin.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/server/direct/DXLogin.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-15.67742">
+                <state vertical-scroll-proportion="0.0">
                   <caret line="27" column="15" selection-start-line="27" selection-start-column="15" selection-end-line="27" selection-end-column="15" />
                   <folding />
                 </state>
@@ -145,12 +86,32 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="ViewportModel.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/classic/src/view/main/ViewportModel.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+                  <caret line="34" column="65" selection-start-line="34" selection-start-column="65" selection-end-line="34" selection-end-column="65" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="User.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/server/direct/Users/User.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Viewport.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/classic/src/view/main/Viewport.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.578125">
+                  <caret line="110" column="31" selection-start-line="110" selection-start-column="31" selection-end-line="110" selection-end-column="31" />
                   <folding />
                 </state>
               </provider>
@@ -169,19 +130,19 @@
           <file leaf-file-name="Sensor.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/server/direct/ActiveEngCloud/Sensor.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-14.5161295">
+                <state vertical-scroll-proportion="0.0">
                   <caret line="148" column="27" selection-start-line="148" selection-start-column="27" selection-end-line="148" selection-end-column="27" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Readme.md" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Readme.md" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Readme.md">
               <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
                 <state split_layout="FIRST">
-                  <first_editor vertical-scroll-proportion="0.6061493">
-                    <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+                  <first_editor vertical-scroll-proportion="0.8209459">
+                    <caret line="66" column="16" selection-start-line="66" selection-start-column="16" selection-end-line="66" selection-end-column="16" />
                     <folding />
                   </first_editor>
                   <second_editor />
@@ -228,7 +189,6 @@
         <option value="$PROJECT_DIR$/classic/src/view/sync/SyncController.js" />
         <option value="$PROJECT_DIR$/app/model/sync/Temperature.js" />
         <option value="$PROJECT_DIR$/navtree.json" />
-        <option value="$PROJECT_DIR$/server/direct/Users/User.js" />
         <option value="$PROJECT_DIR$/classic/src/view/sync/Sync.js" />
         <option value="$PROJECT_DIR$/classic/src/view/sync/SyncReadWrite.js" />
         <option value="$PROJECT_DIR$/classic/src/view/sync/SyncReadOnly.js" />
@@ -237,18 +197,19 @@
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/classic/src/view/sync/SyncModel.js" />
         <option value="$PROJECT_DIR$/app/store/NavigationTree.js" />
-        <option value="$PROJECT_DIR$/classic/src/view/main/ViewportModel.js" />
         <option value="$PROJECT_DIR$/resources/languages/pt.js" />
-        <option value="$PROJECT_DIR$/classic/src/view/main/Viewport.js" />
         <option value="$PROJECT_DIR$/ext/classic/locale/overrides/pt_PT/ext-locale-pt_PT.js" />
         <option value="$PROJECT_DIR$/app.json" />
-        <option value="$PROJECT_DIR$/classic/src/Application.js" />
         <option value="$PROJECT_DIR$/classic/src/view/authentication/AuthenticationModel.js" />
         <option value="$PROJECT_DIR$/classic/src/view/authentication/AuthenticationController.js" />
         <option value="$PROJECT_DIR$/server/direct/DXLogin.js" />
-        <option value="$PROJECT_DIR$/classic/src/view/main/ViewportController.js" />
         <option value="$PROJECT_DIR$/node-postgresql.js" />
         <option value="$PROJECT_DIR$/Readme.md" />
+        <option value="$PROJECT_DIR$/server/direct/Users/User.js" />
+        <option value="$PROJECT_DIR$/classic/src/view/main/ViewportModel.js" />
+        <option value="$PROJECT_DIR$/classic/src/Application.js" />
+        <option value="$PROJECT_DIR$/classic/src/view/main/ViewportController.js" />
+        <option value="$PROJECT_DIR$/classic/src/view/main/Viewport.js" />
       </list>
     </option>
   </component>
@@ -288,16 +249,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MyDashBoard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="Scope">
         <subPane subId="Project Files">
           <PATH>
@@ -310,9 +261,61 @@
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="MyDashBoard">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="server">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="MyDashBoard">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="classic">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="MyDashBoard">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MyDashBoard" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -416,15 +419,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="49" y="24" width="1871" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15367965" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21103896" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295099" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31908238" sideWeight="0.43939394" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30135557" sideWeight="0.4832251" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30135557" sideWeight="0.4832251" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22940563" sideWeight="0.56060606" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32429615" sideWeight="0.56060606" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -459,7 +462,8 @@
     <MESSAGE value="Login and logout support" />
     <MESSAGE value="grid editing support" />
     <MESSAGE value="Support for removing temperatures" />
-    <option name="LAST_COMMIT_MESSAGE" value="Support for removing temperatures" />
+    <MESSAGE value="Login, logout and alive available for further test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Login, logout and alive available for further test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -595,13 +599,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/direct/Users/User.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/navtree.json">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.0">
@@ -689,13 +686,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classic/src/view/main/Viewport.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="79" column="42" selection-start-line="79" selection-start-column="42" selection-end-line="79" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ext/classic/locale/Readme.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -717,9 +707,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -751,65 +738,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classic/src/view/authentication/AuthenticationModel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="10" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classic/src/Application.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="50" column="74" selection-start-line="50" selection-start-column="26" selection-end-line="50" selection-end-column="74" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classic/src/view/authentication/AuthenticationController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="37" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classic/src/view/main/ViewportModel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classic/src/view/main/ViewportController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-23.612904">
-          <caret line="203" column="0" selection-start-line="203" selection-start-column="0" selection-end-line="203" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/direct/DXLogin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.67742">
-          <caret line="27" column="15" selection-start-line="27" selection-start-column="15" selection-end-line="27" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/direct/ActiveEngCloud/Sensor.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.5161295">
+        <state vertical-scroll-proportion="0.0">
           <caret line="148" column="27" selection-start-line="148" selection-start-column="27" selection-end-line="148" selection-end-column="27" />
           <folding />
         </state>
@@ -823,42 +754,113 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/server-config.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.666667">
-          <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Readme.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor vertical-scroll-proportion="0.6061493">
-            <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node-postgresql.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.30465445">
           <caret line="12" column="15" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/direct/AppGeoExt3/PgPersonnel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.2242596">
+        <state vertical-scroll-proportion="0.035433073">
           <caret line="2" column="22" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/server-config.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.03742204">
+          <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classic/src/view/authentication/AuthenticationController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="64" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classic/src/view/authentication/AuthenticationModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="10" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/direct/DXLogin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="27" column="15" selection-start-line="27" selection-start-column="15" selection-end-line="27" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Readme.md">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor vertical-scroll-proportion="0.8209459">
+            <caret line="66" column="16" selection-start-line="66" selection-start-column="16" selection-end-line="66" selection-end-column="16" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/direct/Users/User.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classic/src/view/main/ViewportModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="34" column="65" selection-start-line="34" selection-start-column="65" selection-end-line="34" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classic/src/Application.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="55" column="68" selection-start-line="55" selection-start-column="52" selection-end-line="55" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classic/src/view/main/Viewport.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.578125">
+          <caret line="110" column="31" selection-start-line="110" selection-start-column="31" selection-end-line="110" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classic/src/view/main/ViewportController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.23152709">
+          <caret line="88" column="38" selection-start-line="88" selection-start-column="38" selection-end-line="88" selection-end-column="38" />
           <folding />
         </state>
       </provider>

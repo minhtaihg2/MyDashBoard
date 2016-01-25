@@ -31,7 +31,8 @@ Ext.define('Admin.view.main.ViewportModel', {
         navigationTree: {
             type: 'tree',
             root: {
-                expanded: true    // the same as autoLoad: true
+                // expanded: true    // the same as autoLoad: true
+                expanded: false    // the same as autoLoad: false
             },
             fields: [
                 {
@@ -42,7 +43,7 @@ Ext.define('Admin.view.main.ViewportModel', {
                 type: 'direct',
                 directFn: 'Server.Users.User.readNavTree',
                 extraParams: {
-                    userid : 8192
+                    userid : null
                 }
             }
         }
