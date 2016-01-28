@@ -9,7 +9,7 @@ Ext.define('Admin.view.dashboard.Weather', {
     data: {
         icon: 'cloud-icon.png',
         forecast: 'Partly Cloudy',
-        temperature: 25
+        temperature: 17
     },
 
     tpl: '<div class="weather-image-container"><img src="resources/images/icons/{icon}" alt="{forecast}"/></div>'+

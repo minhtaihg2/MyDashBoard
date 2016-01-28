@@ -217,7 +217,7 @@ var Sensor = {
         if (params.hasOwnProperty('limit') && params.hasOwnProperty('start')) {
             console.log('params.limit: ' + params.limit);
             console.log('params.start: ' + params.start);
-            var paging = ' LIMIT ' + params.limit + ' OFFSET ' + params.start;
+            paging = ' LIMIT ' + params.limit + ' OFFSET ' + params.start;
         }
         sql += where;
         sql += order;

@@ -43,8 +43,13 @@ if (global.App.env === 'development') {
     global.App.connection = serverConfig.dbproduction;
 }
 
-console.log(global.App.env);
-console.log(global.App.connection);
+global.App.connectionide = serverConfig.dbide;
+global.App.connectionpublica = serverConfig.dbpublica;
+
+global.App.mssql2012 = serverConfig.mssqlserver; // require('./mssql-tunnel').init(serverConfig.mssqlserver, serverConfig.sshtunnel);
+
+//console.log(global.App.env);
+//console.log(global.App.connection);
 
 pg.on('error', function() {
     // https://github.com/brianc/node-postgres/issues/821

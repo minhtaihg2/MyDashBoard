@@ -15,7 +15,7 @@ Ext.define('Admin.view.dashboard.Sales', {
     headerPosition: 'bottom',
     iconCls: 'x-fa fa-briefcase',
 
-    title: 'Sales',
+    title: 'IP no Minuto',
     tools: [
         {
             xtype: 'tool',

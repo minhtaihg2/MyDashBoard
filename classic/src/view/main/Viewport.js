@@ -112,7 +112,7 @@ Ext.define('Admin.view.main.Viewport', {
                             disabled: '{!current.user.id}'
                         },
                         iconCls: 'x-fa fa-sign-out',
-                        itemId: 'botaoLogout',
+                        //itemId: 'botaoLogout',
                         handler: 'onLogoutClick'
                     }]
                 }]

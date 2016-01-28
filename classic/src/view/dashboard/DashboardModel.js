@@ -126,7 +126,8 @@ Ext.define('Admin.view.dashboard.DashboardModel', {
             ],
             proxy: {
                 type: 'ajax',
-                url: 'http://localhost/~jgr/Tarefas.json',
+                //url: 'http://localhost/~jgr/Tarefas.json',
+                url: '~api/dashboard/tasks',
                 reader: {
                     type: 'json',
                     rootProperty: 'data'

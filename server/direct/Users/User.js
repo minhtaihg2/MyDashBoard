@@ -41,7 +41,7 @@ var unflatten = function(arr) {
 
 var User = {
 
-    // curl -v -H "Content-type: application/json" -d '{"action":"Users.User","method":"readNavTree","data":[{"userid":25,"from":"test2","node":"root"}],"type":"rpc","tid":5}' http://localhost:3001/direct
+    // curl -v -H "Content-type: application/json" -d '{"action":"Users.User","method":"readNavTree","data":[{"userid":25,"from":"test2","node":"root"}],"type":"rpc","tid":5}' http://localhost:3000/direct
     readNavTree: function (params, callback) {
         console.log(params);
         //console.log(request.session);
