@@ -24,7 +24,11 @@
      */
     "classpath": [
         "app",
-        "${toolkit.name}/src"
+        "${toolkit.name}/src",
+        "packages/remote/GeoExt/src/component",
+        "packages/remote/GeoExt/src/data",
+        "packages/remote/GeoExt/src/mixin",
+        "packages/remote/GeoExt/src/util"
     ],
 
     /**
@@ -190,6 +194,9 @@
      *
      */
     "js": [{
+        "path": "http://openlayers.org/en/master/build/ol.js",
+        "remote": true
+    }, {
         "path": "app.js",
         "bundle": true
     }, {
@@ -251,6 +258,9 @@
         "path": "${build.out.css.path}",
         "bundle": true,
         "exclude": ["fashion"]
+    }, {
+        "path": "http://openlayers.org/en/master/css/ol.css",
+        "remote": true
     }],
 
     /**
@@ -554,7 +564,10 @@
     "builds": {
         "classic": {
             "toolkit": "classic",
-            "theme": "theme-triton"
+            "theme": "theme-triton",
+            "requires": [
+                "GeoExt"
+            ]
         }
         /*,
         "modern": {

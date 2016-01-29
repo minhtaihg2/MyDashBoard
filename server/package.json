@@ -34,7 +34,6 @@
     "serve-index": "^1.6.3",
     "serve-static": "^1.9.2",
     "tedious": "^1.13.2",
-    "tunnel-ssh": "^2.0.1",
     "useragent": "^2.1.7"
   }
 }

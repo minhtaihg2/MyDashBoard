@@ -10252,7 +10252,6 @@ var Ext = Ext || {};
         "dir": "${package.output}"
       },
       "creator": "Sencha",
-      "output": "${framework.dir}/build",
       "requires": [
         "ext",
         "core",
@@ -10261,12 +10260,14 @@ var Ext = Ext || {};
       "type": "toolkit",
       "version": "6.0.0.640"
     },
+    "cmd": {
+      "version": "6.0.2.14"
+    },
     "core": {
       "alternateName": [
         "sencha-core"
       ],
       "creator": "Sencha",
-      "output": "${package.dir}/build",
       "requires": [
         "ext"
       ],
@@ -10281,40 +10282,8 @@ var Ext = Ext || {};
         "dir": "${package.output.base}"
       },
       "creator": "Sencha",
-      "example": {
-        "path": [
-          "examples",
-          "templates"
-        ],
-        "apps": [
-          "admin-dashboard",
-          "executive-dashboard",
-          "kitchensink",
-          "classic/charts-kitchensink",
-          "classic/desktop",
-          "classic/ticket-app",
-          "classic/portal",
-          "classic/simple-tasks",
-          "classic/responsive-app",
-          "classic/aria",
-          "modern/addressbook",
-          "modern/energy",
-          "modern/stockapp",
-          "modern/states",
-          "modern/geocongress",
-          "modern/oreilly"
-        ]
-      },
-      "output": "${package.dir}/build",
+      "license": "gpl",
       "requires": [],
-      "subpkgs": [
-        "classic/classic",
-        "modern/modern",
-        "packages/charts",
-        "packages/amf",
-        "packages/soap",
-        "packages/ux"
-      ],
       "type": "framework",
       "version": "6.0.0.640"
     }
