@@ -7,3 +7,4 @@ build/development/
 build/temp/
 server/uploads/
 uploaded_images/
+sencha*.log
