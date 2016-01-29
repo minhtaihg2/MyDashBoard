@@ -1,8 +1,7 @@
 server/server-config.json
 server/mssql-only.js
+/.idea
 server/node_modules/
-.idea/
-.idea/workspace.xml
 build/development/
 build/temp/
 server/uploads/
