@@ -146,7 +146,7 @@ app.get(directConfig.classRouteUrl, function(req, res) {
 
 // POST request process route and calls class
 app.post(directConfig.classRouteUrl, function(req, res) {
-    console.log('directRouter.processRoute(req, res);');
+    //console.log('directRouter.processRoute(req, res);');
     //console.log(req.body);
     //console.log(req.route);
     directRouter.processRoute(req, res);

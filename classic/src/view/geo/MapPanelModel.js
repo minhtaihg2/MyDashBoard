@@ -48,6 +48,57 @@ Ext.define('Admin.view.geo.MapPanelModel', {
                 })
             })
         }),
+        // 38.716453, -009.136987
+        cidades: {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "properties": {
+                        "city": "Albergaria a Velha",
+                        "pop": 25252
+                    },
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [-8.479953, 40.691081]
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "properties": {
+                        "city": "Anadia",
+                        "pop": 29150
+                    },
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [-8.435021, 40.440821]
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "properties": {
+                        "city": "Oiã",
+                        "pop": 7722
+                    },
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [-8.541666, 40.543561]
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "properties": {
+                        "city": "Águeda",
+                        "pop": 47729
+                    },
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [-8.446523, 40.573965]
+
+                    }
+                }
+            ]
+        },
         cities: {
             "type": "FeatureCollection",
             "features": [
@@ -109,6 +160,10 @@ Ext.define('Admin.view.geo.MapPanelModel', {
                 }
             ]
         }
+    },
+
+    getStores: function () {
+        return this.storeInfo || null;
     }
 
 });

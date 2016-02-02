@@ -194,8 +194,19 @@
      *
      */
     "js": [{
-        "path": "http://openlayers.org/en/master/build/ol.js",
+//        "path": "http://openlayers.org/en/master/build/ol.js",
+//        "path": "http://openlayers.org/en/master/build/ol-debug.js",
+        "path": "resources/js/OL3/ol.js",
+        "remote": false
+    }, {
+        "path": "http://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.6/proj4.js",
         "remote": true
+    }, {
+        "path": "http://epsg.io/3763.js",
+        "remote": true
+    }, {
+        "path": "resources/js/OL3/ol3-layerswitcher.js",
+        "remote": false
     }, {
         "path": "app.js",
         "bundle": true
@@ -259,8 +270,12 @@
         "bundle": true,
         "exclude": ["fashion"]
     }, {
-        "path": "http://openlayers.org/en/master/css/ol.css",
-        "remote": true
+//        "path": "http://openlayers.org/en/master/css/ol.css",
+        "path": "resources/js/OL3/ol.css",
+        "remote": false
+    }, {
+        "path": "resources/js/OL3/ol3-layerswitcher.css",
+        "remote": false
     }],
 
     /**

@@ -5,6 +5,20 @@ Ext.define('Admin.view.sync.SyncController', {
 
     alias: 'controller.sync',
 
+    init: function() {
+        var me = this;
+
+        var geoLayersStore = me.getViewModel().getStore('sensor');
+
+        //Trigger local sorting once new data is available
+        geoLayersStore.on('load', function(store) {
+            console.log('store loaded');
+            console.log(store);
+        });
+
+        me.callParent(arguments);
+    },
+
     onSensorRefreshClick: function (button) {
         var sensor = this.getViewModel().get('sensorGrid.selection');
         if (sensor != null) {

@@ -1,7 +1,6 @@
 var table = 'activenglabs.sensor';
 
 var pg = global.App.postgres;
-var pgcfg = global.App.pgcfg;
 
 var dberror = function (text, log, err, callback) {
     console.error(text + ' ' + err.toString() + ' ' + log);
