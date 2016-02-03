@@ -12,6 +12,7 @@ Ext.define('Admin.view.geo.MapPanelModel', {
      }
      */
     data: {
+        // select: ol.interaction.Select
         blueStyle: new ol.style.Style({
             image: new ol.style.Circle({
                 radius: 6,
@@ -163,7 +164,7 @@ Ext.define('Admin.view.geo.MapPanelModel', {
     },
 
     getStores: function () {
-        return this.storeInfo || null;
+        return this.storeInfo || {};
     }
 
 });

@@ -14,6 +14,10 @@ Ext.define("Admin.view.geo.MapPanel", {
         type: "geo-map"
     },
 
+    listeners: {
+        beforedeactivate: 'onBeforeDeactivate'
+    },
+
     initComponent: function () {
         var me = this;
         console.log('Admin.view.geo.MapPanel initComponent');

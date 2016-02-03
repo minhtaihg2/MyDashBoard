@@ -15,8 +15,6 @@ Ext.define("Admin.view.geo.MapCanvas", {
 
     listeners: {
         beforerender: 'beforeMapCanvasRender'
-        //beforerender: 'afterMapCanvasRender'
-        //afterrender: 'afterMapCanvasRender'
     },
 
     initComponent: function () {
