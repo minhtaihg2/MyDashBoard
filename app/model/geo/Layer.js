@@ -32,13 +32,13 @@ Ext.define('Admin.model.geo.Layer', {
         type: 'bool'
     }, {
         name: 'singletile',
-        type: 'string'
+        type: 'bool'
     }, {
         name: 'active',
-        type: 'string'
+        type: 'bool'
     }, {
         name: 'visible',
-        type: 'string'
+        type: 'bool'
     }, {
         name: 'opacity',
         type: 'float'

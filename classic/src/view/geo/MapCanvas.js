@@ -28,6 +28,8 @@ Ext.define("Admin.view.geo.MapCanvas", {
 
         var projection = new ol.proj.Projection({
             code: 'EPSG:3763',
+            units: 'm',
+            axisOrientation: 'neu',
             // Gridset bounds
             // Computed from maximum extent of CRS
             // extent: [-127096.80687006014, -301702.02931375435, 173081.7938279003, 278541.6694684961]

@@ -46,6 +46,7 @@ Ext.define('Admin.view.geo.MapCanvasController', {
         });
 
         var groups = [];
+
         function addToGroup(layer, groupid) {
             var existent = null;
             groups.forEach(function (element, index, array) {
@@ -68,7 +69,7 @@ Ext.define('Admin.view.geo.MapCanvasController', {
         }
 
         var total = records.length;
-        var novolayer;
+        var novolayer, legend;
         for (var i = 0; i < total; i++) {
             novolayer = null;
             switch (records[i].get('service')) {
@@ -77,7 +78,7 @@ Ext.define('Admin.view.geo.MapCanvasController', {
                         title: records[i].get('title'), // layer switcher
                         name: records[i].get('title'),  // legend tree
                         type: 'base', // layer switcher
-                        //visible: records[i].get('visible'),
+                        visible: records[i].get('visible'),
                         opacity: records[i].get('opacity'),
                         source: new ol.source.WMTS({
                             url: records[i].get('url'),
@@ -88,15 +89,17 @@ Ext.define('Admin.view.geo.MapCanvasController', {
                             requestEncoding: 'REST',
                             matrixSet: 'pt_tm_06', // mapproxy grid
                             format: 'image/png',
-                            tileGrid: pt_tm_06_grid_mapproxy
-                        })
+                            tileGrid: pt_tm_06_grid_mapproxy,
+                            crossOrigin: 'anonymous'
+                        }),
+                        legendUrl: records[i].get('legendurl')
                     });
                     break;
                 case 'GWC-CMA':
                     novolayer = new ol.layer.Tile({
                         title: records[i].get('title'),
                         name: records[i].get('title'),
-                        //visible: records[i].get('visible'),
+                        visible: records[i].get('visible'),
                         opacity: records[i].get('opacity'),
                         source: new ol.source.TileWMS({
                             url: records[i].get('url'),
@@ -106,15 +109,17 @@ Ext.define('Admin.view.geo.MapCanvasController', {
                                 'TILED': true
                             },
                             serverType: 'geoserver',
-                            tileGrid: tileGridGWCSoftwareLivre
-                        })
+                            tileGrid: tileGridGWCSoftwareLivre,
+                            crossOrigin: 'anonymous'
+                        }),
+                        legendUrl: records[i].get('legendurl')
                     });
                     break;
                 case 'GWC-Geomaster':
                     novolayer = new ol.layer.Tile({
                         title: records[i].get('title'),
                         name: records[i].get('title'),
-                        //visible: records[i].get('visible'),
+                        visible: records[i].get('visible'),
                         opacity: records[i].get('opacity'),
                         source: new ol.source.TileWMS({
                             url: records[i].get('url'),
@@ -124,29 +129,67 @@ Ext.define('Admin.view.geo.MapCanvasController', {
                                 'TILED': true
                             },
                             serverType: 'geoserver',
-                            tileGrid: tileGridGWCGeomaster
-                        })
+                            tileGrid: tileGridGWCGeomaster,
+                            crossOrigin: 'anonymous'
+                        }),
+                        legendUrl: records[i].get('legendurl')
                     });
                     break;
                 case 'WMS':
-                    novolayer = new ol.layer.Tile({
-                        title: records[i].get('title'),
-                        name: records[i].get('title'),
-                        //visible: records[i].get('visible'),
-                        opacity: records[i].get('opacity'),
-                        source: new ol.source.TileWMS({
-                            url: records[i].get('url'),
-                            params: {
-                                'LAYERS': records[i].get('layer')
-                            },
-                            serverType: 'geoserver',
-                            projection: projection,
-                            crossOrigin: 'anonymous',
-                            attributions: [new ol.Attribution({
-                                html: records[i].get('attribution')
-                            })]
-                        })
-                    });
+                    if (records[i].get('legendurl')) {
+                        legend = records[i].get('legendurl');
+                    } else {
+                        legend = records[i].get('url') + '?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=' + records[i].get('layer');
+                    }
+                    console.log("typeof records[i].get('singletile') → " + typeof records[i].get('singletile'));
+                    if (records[i].get('singletile')) {
+                        console.log("Layer SINGLETILE: " + records[i].get('title') + " → records[i].get('singletile') → " + records[i].get('singletile'));
+                        novolayer = new ol.layer.Image({
+                            title: records[i].get('title'),
+                            name: records[i].get('title'),
+                            visible: records[i].get('visible'),
+                            opacity: records[i].get('opacity'),
+                            source: new ol.source.ImageWMS({
+                                ratio: 1,
+                                url: records[i].get('url'),
+                                params: {
+                                    format: 'image/png',
+                                    'VERSION': '1.1.1',
+                                    STYLES: records[i].get('style'),
+                                    LAYERS: records[i].get('layer')
+                                },
+                                projection: projection,
+                                crossOrigin: 'anonymous',
+                                attributions: [new ol.Attribution({
+                                    html: records[i].get('attribution')
+                                })]
+                            })
+                        });
+                    } else {
+                        console.log("Layer TILED: " + records[i].get('title') + " → records[i].get('singletile') → " + records[i].get('singletile'));
+                        novolayer = new ol.layer.Tile({
+                            title: records[i].get('title'),
+                            name: records[i].get('title'),
+                            visible: records[i].get('visible'),
+                            opacity: records[i].get('opacity'),
+                            source: new ol.source.TileWMS({
+                                url: records[i].get('url'),
+                                params: {
+                                    VERSION: '1.1.1',
+                                    tiled: true,
+                                    STYLES: records[i].get('style'),
+                                    LAYERS: records[i].get('layer')
+                                },
+                                //serverType: 'geoserver',
+                                projection: projection,
+                                crossOrigin: 'anonymous',
+                                attributions: [new ol.Attribution({
+                                    html: records[i].get('attribution')
+                                })]
+                            }),
+                            legendUrl: legend
+                        });
+                    }
                     break;
                 case 'OSM':
                     break;
@@ -296,6 +339,46 @@ Ext.define('Admin.view.geo.MapCanvasController', {
             me.popupWindow.show();
             me.popupWindow.doConstrain(me.getView().getConstrainRegion());
             me.popupWindow.constrain = true;
+
+            // load GetFeatureInfo
+
+            var source = null;
+            var hit = false;
+            //var pixel = olMap.getEventPixel(e);
+            hit = olMap.forEachLayerAtPixel(position, function (layer) {
+                if (layer.get('title') == vm.get('selectedlayer')) {
+                    console.log(layer.get('title') + ' == ' + vm.get('selectedlayer'));
+                    source = layer.getSource();
+                    return true;
+                } else {
+                    return false;
+                }
+            });
+            console.log(hit);
+            if (hit) {
+                console.log(source);
+                var v = me.popupWindow.getViewModel();
+                var s = v.getStore('gfinfo');
+
+                var mapView = olMap.getView();
+                var viewResolution = mapView.getResolution();
+                var url = source.getGetFeatureInfoUrl(
+                    coordinate, viewResolution, mapView.getProjection(),
+                    {'INFO_FORMAT': 'application/json', 'FEATURE_COUNT': 50});
+                if (url) {
+                    console.log(url);
+                    //console.log('store gfinfo');
+                    //console.log(s);
+                    // var url = 'http://localhost:8080/geoserver/geomaster/wms?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetFeatureInfo&FORMAT=image%2Fpng&TRANSPARENT=true&QUERY_LAYERS=geomaster%3Aagueda,geomaster%3Abgri2011_0101&STYLES&LAYERS=geomaster%3Aagueda,geomaster%3Abgri2011_0101&info_format=application/json&FEATURE_COUNT=50&X=50&Y=50&SRS=EPSG%3A3763&WIDTH=101&HEIGHT=101&BBOX=-29957.80798244231%2C102114.7105175374%2C-29837.31583317896%2C102235.20266680076';
+                    s.getProxy().setUrl(url);
+                    s.load();
+                } else {
+                    s.removeAll();
+                }
+            }
+
+
+
         });
 
         olMap.on('pointerdrag', function () {
@@ -309,6 +392,25 @@ Ext.define('Admin.view.geo.MapCanvasController', {
                 me.popupWindow.hide();
             }
         });
+
+        /*
+         * ok
+         *
+         olMap.on('pointermove', function(evt) {
+         if (evt.dragging) {
+         return;
+         }
+         var pixel = olMap.getEventPixel(evt.originalEvent);
+         var hit = olMap.forEachLayerAtPixel(pixel, function(layer) {
+         if (layer.get('title') == vm.get('selectedlayer')) {
+         console.log(layer.get('title') + ' == ' + vm.get('selectedlayer'));
+         return true;
+         } else
+         return false;
+         });
+         olMap.getTargetElement().style.cursor = hit ? 'pointer' : '';
+         });
+         */
 
         /*
          * forcing pan

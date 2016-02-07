@@ -14,6 +14,13 @@ Ext.define('Admin.view.geo.MapPanelController', {
             element.destroy();
         });
 
+    },
+
+    onGetFeatureInfo: function(tool, event, panel) {
+        console.log(arguments);
+        var vm = this.getViewModel();
+        var getfeatureinfoenabled = vm.get('getfeatureinfoenabled');
+        vm.set('getfeatureinfoenabled', !getfeatureinfoenabled);
     }
 
 });

@@ -1,23 +1,43 @@
-/**
- * This class provides the modal Ext.Window support for all Authentication forms.
- * It's layout is structured to center any Authentication dialog within it's center,
- * and provides a backGround image during such operations.
- */
 Ext.define('Admin.view.geo.PopupWindow', {
     extend: 'Ext.window.Window',
-    xtype: 'popup-window',
+    alias: 'widget.popup-window',
+
+    viewModel: {
+        type: "geo-popup"
+    },
+
     cls: 'geoext-popup-window',
-    width: 280,
-    height: 120,
+    width: 320,
+    height: 280,
     closeAction : 'hide',
     closable: true,
-    resizable: false,
+    resizable: true,
     autoShow: false,
     titleAlign: 'center',
     headerPosition: 'bottom',
     frameHeader: false,
+    title: '{title}',
     layout: 'fit',
-    items: {
-        border: false
-    }
+    items: [{
+        xtype: 'grid',
+        bind: {
+            store: '{gfinfo}'
+        },
+        viewConfig: {
+            emptyText: 'No data available'
+        },
+        columns: [{
+            text: 'id',
+            dataIndex: 'id',
+            width: 80
+        }, {
+            text: 'geometry_name',
+            dataIndex: 'geometry_name',
+            width: 140
+        }, {
+            text: 'property',
+            dataIndex: 'properties',
+            width: 140
+        }]
+    }]
 });

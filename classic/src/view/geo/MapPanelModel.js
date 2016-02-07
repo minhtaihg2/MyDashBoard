@@ -12,6 +12,8 @@ Ext.define('Admin.view.geo.MapPanelModel', {
      }
      */
     data: {
+        getfeatureinfoenabled: false,
+        selectedlayer: '', // set on MapTreeController
         // select: ol.interaction.Select
         blueStyle: new ol.style.Style({
             image: new ol.style.Circle({

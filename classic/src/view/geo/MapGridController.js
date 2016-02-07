@@ -17,7 +17,16 @@ Ext.define('Admin.view.geo.MapGridController', {
             var gridSelectedFeature = rec.getFeature();
             selectControl.getFeatures().push(gridSelectedFeature);
             if (!ol.extent.containsCoordinate(mapExtent, gridSelectedFeature.getGeometry().getCoordinates())) {
-                view.setCenter(ol.extent.getCenter(gridSelectedFeature.getGeometry().getExtent()));
+                var centerTo = ol.extent.getCenter(gridSelectedFeature.getGeometry().getExtent());
+                // without animation
+                //view.setCenter(centerTo);
+                // with animation
+                var pan = ol.animation.pan({
+                    duration: 1000,
+                    source: view.getCenter()
+                });
+                map.beforeRender(pan);
+                view.setCenter(centerTo);
             }
         });
     }

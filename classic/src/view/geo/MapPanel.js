@@ -18,6 +18,8 @@ Ext.define("Admin.view.geo.MapPanel", {
         beforedeactivate: 'onBeforeDeactivate'
     },
 
+    //title: 'Gestão Urbanística',
+
     initComponent: function () {
         var me = this;
         console.log('Admin.view.geo.MapPanel initComponent');
@@ -33,10 +35,37 @@ Ext.define("Admin.view.geo.MapPanel", {
         }
 
         me.items = [{
-            xtype: 'geo-mapcanvas',
-            geoExtViewId: me.geoExtViewId,
+            title: 'GeoExt.component.OverviewMap Example',
+            layout: 'fit',
+            border: false,
             responsiveCls: 'big-100',
-            height: 400 // good to know
+            items: [{
+                xtype: 'geo-mapcanvas',
+                geoExtViewId: me.geoExtViewId,
+                //responsiveCls: 'big-100',
+                height: 600 // good to know
+            }],
+            tools: [{
+                xtype: 'tool',
+                toggleValue: false,
+                cls: 'x-fa fa-info-circle dashboard-tools',
+                listeners: {
+                    click: 'onGetFeatureInfo'
+                },
+                width: 20,
+                height: 20
+            }, {
+                xtype: 'tool',
+                toggleValue: false,
+                cls: 'x-fa fa-refresh dashboard-tools',
+                width: 20,
+                height: 20
+            }, {
+                xtype: 'tool',
+                cls: 'x-fa fa-wrench dashboard-tools',
+                width: 20,
+                height: 20
+            }]
         }, {
             xtype: 'geo-mapgrid',
             reference: 'geo-mapgrid',

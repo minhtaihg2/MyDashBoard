@@ -1,4 +1,3 @@
-
 Ext.define("Admin.view.geo.MapTree",{
     extend: "Ext.tree.Panel",
     alias: 'widget.geo-tree',
@@ -21,16 +20,21 @@ Ext.define("Admin.view.geo.MapTree",{
     // The store will be set later
     // store: '{treeStore}',
 
-    title: 'Legend tree',
+    //title: 'Legend tree {mapTree.selection.text}', // not working
+    bind: {
+        title: 'Legend tree {selectedlayer}'
+    },
+
     rootVisible: false,
     hideHeaders: true,
     flex: 1,
     border: false,
 
+    reference: 'mapTree', // not working...
+
     columns: {
         header: false,
-        items: [
-            {
+        items: [{
                 xtype: 'treecolumn',
                 dataIndex: 'text',
                 flex: 1,
@@ -39,8 +43,16 @@ Ext.define("Admin.view.geo.MapTree",{
                         ptype: 'basic_tree_column_legend'
                     }
                 ]
-            }
-        ]
+            }]
+    },
+
+    selModel: {
+        allowDeselect: true
+    },
+
+    listeners: {
+        'selectionchange': 'mapTreeSelectionChanged'
     }
+
 
 });
