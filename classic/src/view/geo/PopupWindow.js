@@ -16,10 +16,19 @@ Ext.define('Admin.view.geo.PopupWindow', {
     titleAlign: 'center',
     headerPosition: 'bottom',
     frameHeader: false,
+    frame: true,
     title: '{title}',
-    layout: 'fit',
+    //layout: 'fit',
+    layout: {
+        type: 'vbox',
+        pack: 'start',
+        align: 'stretch'
+    },
     items: [{
         xtype: 'grid',
+        reference: 'featureGrid',
+        itemId: 'featureGrid',
+        flex: 1,
         bind: {
             store: '{gfinfo}'
         },
@@ -27,17 +36,40 @@ Ext.define('Admin.view.geo.PopupWindow', {
             emptyText: 'No data available'
         },
         columns: [{
-            text: 'id',
+            text: 'Feature ID',
             dataIndex: 'id',
-            width: 80
+            width: 120
         }, {
             text: 'geometry_name',
             dataIndex: 'geometry_name',
-            width: 140
+            width: 140,
+            hidden: true
         }, {
-            text: 'property',
-            dataIndex: 'properties',
-            width: 140
+            text: 'Geometry type',
+            dataIndex: 'geometry_type',
+            flex: 1
+            //width: 140
+        }]
+    }, {
+        xtype: 'grid',
+        itemId: 'propertyGrid',
+        flex: 2,
+        bind: {
+            title: 'Properties {featureGrid.selection.id}',
+            store: '{featureGrid.selection.featureproperty}'
+        },
+        viewConfig: {
+            emptyText: 'No data available'
+        },
+        columns: [{
+            text: 'Property',
+            dataIndex: 'prop',
+            width: 120
+        }, {
+            text: 'Value',
+            dataIndex: 'value',
+            // width: 140,
+            flex: 1
         }]
     }]
 });

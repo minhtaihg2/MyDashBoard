@@ -48,6 +48,12 @@ Ext.define('Admin.model.geo.Layer', {
     }, {
         name: 'viewid',
         type: 'int'
+    }, {
+        name : 'getfeatureinfo',
+        type : 'bool'
+    }, {
+        name : 'gficolumns',
+        type : 'string'
     }],
     proxy : {
         type : 'direct',

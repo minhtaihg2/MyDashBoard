@@ -75,6 +75,8 @@ Ext.define('Admin.view.geo.MapCanvasController', {
             switch (records[i].get('service')) {
                 case 'MapProxy':
                     novolayer = new ol.layer.Tile({
+                        getfeatureinfo: records[i].get('getfeatureinfo'),
+                        gficolumns: records[i].get('gficolumns'),
                         title: records[i].get('title'), // layer switcher
                         name: records[i].get('title'),  // legend tree
                         type: 'base', // layer switcher
@@ -97,6 +99,8 @@ Ext.define('Admin.view.geo.MapCanvasController', {
                     break;
                 case 'GWC-CMA':
                     novolayer = new ol.layer.Tile({
+                        getfeatureinfo: records[i].get('getfeatureinfo'),
+                        gficolumns: records[i].get('gficolumns'),
                         title: records[i].get('title'),
                         name: records[i].get('title'),
                         visible: records[i].get('visible'),
@@ -117,6 +121,8 @@ Ext.define('Admin.view.geo.MapCanvasController', {
                     break;
                 case 'GWC-Geomaster':
                     novolayer = new ol.layer.Tile({
+                        getfeatureinfo: records[i].get('getfeatureinfo'),
+                        gficolumns: records[i].get('gficolumns'),
                         title: records[i].get('title'),
                         name: records[i].get('title'),
                         visible: records[i].get('visible'),
@@ -145,6 +151,8 @@ Ext.define('Admin.view.geo.MapCanvasController', {
                     if (records[i].get('singletile')) {
                         console.log("Layer SINGLETILE: " + records[i].get('title') + " → records[i].get('singletile') → " + records[i].get('singletile'));
                         novolayer = new ol.layer.Image({
+                            getfeatureinfo: records[i].get('getfeatureinfo'),
+                            gficolumns: records[i].get('gficolumns'),
                             title: records[i].get('title'),
                             name: records[i].get('title'),
                             visible: records[i].get('visible'),
@@ -168,6 +176,8 @@ Ext.define('Admin.view.geo.MapCanvasController', {
                     } else {
                         console.log("Layer TILED: " + records[i].get('title') + " → records[i].get('singletile') → " + records[i].get('singletile'));
                         novolayer = new ol.layer.Tile({
+                            getfeatureinfo: records[i].get('getfeatureinfo'),
+                            gficolumns: records[i].get('gficolumns'),
                             title: records[i].get('title'),
                             name: records[i].get('title'),
                             visible: records[i].get('visible'),
@@ -318,7 +328,6 @@ Ext.define('Admin.view.geo.MapCanvasController', {
 
         });
 
-        //var popupWindow = Ext.create('Admin.view.geo.PopupWindow');
         me.popupwindow = null;
 
         olMap.getViewport().addEventListener("dblclick", function (e) {
@@ -340,45 +349,54 @@ Ext.define('Admin.view.geo.MapCanvasController', {
             me.popupWindow.doConstrain(me.getView().getConstrainRegion());
             me.popupWindow.constrain = true;
 
-            // load GetFeatureInfo
-
+            // clean both grids
             var source = null;
-            var hit = false;
-            //var pixel = olMap.getEventPixel(e);
-            hit = olMap.forEachLayerAtPixel(position, function (layer) {
-                if (layer.get('title') == vm.get('selectedlayer')) {
-                    console.log(layer.get('title') + ' == ' + vm.get('selectedlayer'));
+            var v = me.popupWindow.getViewModel();
+            var s = v.getStore('gfinfo');
+            s.removeAll();
+            var propertyGrid = me.popupWindow.down('#propertyGrid');
+            propertyGrid.getStore().removeAll();
+
+            var mapView = olMap.getView();
+            var viewResolution = mapView.getResolution();
+
+            olMap.forEachLayerAtPixel(position, function (layer) {
+                //console.log('LayerAtPixel → ' + layer.get('title') + ' → ' + layer.get('getfeatureinfo'));
+                //console.log(layer);
+                if (layer.get('getfeatureinfo')) {
+                    console.log('Request GFI from layer → ' + layer.get('title'));
                     source = layer.getSource();
-                    return true;
-                } else {
-                    return false;
+                    var url = source.getGetFeatureInfoUrl(
+                        coordinate, viewResolution, mapView.getProjection(),
+                        {'INFO_FORMAT': 'application/json', 'FEATURE_COUNT': 50});
+                    if (url) {
+                        //console.log(url);
+                        //console.log('Request GFI → ' + url);
+                        s.getProxy().setUrl(url);
+                        s.load({
+                            addRecords: true,
+                            scope: this,
+                            callback: function (records, operation, success) {
+                                var option = {
+                                    params: {
+                                        layer: layer.get('title'),
+                                        columns: layer.get('gficolumns')
+                                    }
+                                };
+                                me.onGFIStoreLoadedCallback(records, operation, success, option);
+
+                                if (records.length > 0) {
+                                    var grid = me.popupWindow.down('#featureGrid');
+                                    var sm = grid.getSelectionModel();
+                                    sm.select(0);
+                                }
+
+                            }
+                        });
+                    }
+
                 }
             });
-            console.log(hit);
-            if (hit) {
-                console.log(source);
-                var v = me.popupWindow.getViewModel();
-                var s = v.getStore('gfinfo');
-
-                var mapView = olMap.getView();
-                var viewResolution = mapView.getResolution();
-                var url = source.getGetFeatureInfoUrl(
-                    coordinate, viewResolution, mapView.getProjection(),
-                    {'INFO_FORMAT': 'application/json', 'FEATURE_COUNT': 50});
-                if (url) {
-                    console.log(url);
-                    //console.log('store gfinfo');
-                    //console.log(s);
-                    // var url = 'http://localhost:8080/geoserver/geomaster/wms?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetFeatureInfo&FORMAT=image%2Fpng&TRANSPARENT=true&QUERY_LAYERS=geomaster%3Aagueda,geomaster%3Abgri2011_0101&STYLES&LAYERS=geomaster%3Aagueda,geomaster%3Abgri2011_0101&info_format=application/json&FEATURE_COUNT=50&X=50&Y=50&SRS=EPSG%3A3763&WIDTH=101&HEIGHT=101&BBOX=-29957.80798244231%2C102114.7105175374%2C-29837.31583317896%2C102235.20266680076';
-                    s.getProxy().setUrl(url);
-                    s.load();
-                } else {
-                    s.removeAll();
-                }
-            }
-
-
-
         });
 
         olMap.on('pointerdrag', function () {
@@ -393,63 +411,47 @@ Ext.define('Admin.view.geo.MapCanvasController', {
             }
         });
 
-        /*
-         * ok
-         *
-         olMap.on('pointermove', function(evt) {
-         if (evt.dragging) {
-         return;
-         }
-         var pixel = olMap.getEventPixel(evt.originalEvent);
-         var hit = olMap.forEachLayerAtPixel(pixel, function(layer) {
-         if (layer.get('title') == vm.get('selectedlayer')) {
-         console.log(layer.get('title') + ' == ' + vm.get('selectedlayer'));
-         return true;
-         } else
-         return false;
-         });
-         olMap.getTargetElement().style.cursor = hit ? 'pointer' : '';
-         });
-         */
+    },
 
-        /*
-         * forcing pan
-         *
-         *
-         var showPopup = false;
-
-         olMap.getViewport().addEventListener("dblclick", function (e) {
-         var position = olMap.getEventPixel(e);
-         var coordinate = olMap.getEventCoordinate(e);
-         showPopup = true;
-         var pan = ol.animation.pan({
-         duration: 1000,
-         source: (olMap.getView().getCenter())
-         });
-         olMap.beforeRender(pan);
-         olMap.getView().setCenter(coordinate);
-         });
-
-         olMap.on('moveend', function () {
-         //if (popupWindow) {
-         //    popupWindow.hide();
-         //}
-         var coordinate = olMap.getView().getCenter();
-         var position = olMap.getPixelFromCoordinate(coordinate);
-
-         var hdms = ol.coordinate.toStringHDMS(ol.proj.transform(coordinate, 'EPSG:3857', 'EPSG:4326'));
-         popupWindow.setPosition(position[0] + me.getView().getX(), position[1] + me.getView().getY(), {});
-         //console.log(me.getView().getConstrainRegion());
-         //console.log(view.getConstrainRegion());
-         popupWindow.setTitle(hdms);
-         if (showPopup) {
-         popupWindow.show();
-         popupWindow.doConstrain(me.getView().getConstrainRegion());
-         popupWindow.constrain = true;
-         }
-         });
-         */
-
+    /**
+     * Called for each GetFeatureRequest for each layer
+     */
+    onGFIStoreLoadedCallback: function (records, operation, success, eOpts) {
+        //<debug>
+        console.log('onGFIStoreLoaded store loaded');
+        //</debug>
+        if (success) {
+            var fields2show = eOpts.params.columns;
+            console.log(fields2show);
+            //dtmn11, fr11, ss11 | Subseção , bgri11, lug11, lug11desig | Lugar
+            //dicofre | Cód. DI-CO-FRE, freguesia | Freguesia, concelho | Concelho, distrito | Distrito, area | Área, nut1, nut2, nut3
+            if (fields2show) {
+                var fields = fields2show.split(/ *, */);
+                var onlyfields = fields.map(function (obj) {
+                    return obj.split(/ *\| */)[0];
+                });
+                // maybe more than one feature is returned for the same layer
+                for (var i = 0; i < records.length; i++) {
+                    // Ext.data.Model geo.Feature hasMany config
+                    var storeproperty = records[i].featureproperty();
+                    var toremove = [];
+                    storeproperty.each(function (record, idx) {
+                        var val = record.get('prop');
+                        var idx = onlyfields.indexOf(val);
+                        if (idx > -1) {
+                            var a = fields[idx].split(/ *\| */);
+                            if (a.length == 2) {
+                                record.set('prop', a[1]);
+                                record.commit();
+                            }
+                        } else {
+                            toremove.push(record);
+                        }
+                    });
+                    storeproperty.remove(toremove);
+                }
+            }
+        }
     }
 
 });
