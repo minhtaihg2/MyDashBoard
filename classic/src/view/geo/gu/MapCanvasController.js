@@ -10,6 +10,54 @@ Ext.define('Admin.view.geo.gu.MapCanvasController', {
         var vm = view.up('geo-map').getViewModel();
         var olMap = view.map;
 
+
+        // a default style is good practice!
+        var defaultStyle = new ol.style.Style({
+            stroke: new ol.style.Stroke({
+                color: [153, 102, 0, 0.8],
+                width: 2
+            })
+        });
+
+        var anexoStyle = new ol.style.Style({
+            fill: new ol.style.Fill({
+                color: [204, 153, 0, 0.4]
+            }),
+            stroke: new ol.style.Stroke({
+                color: [204, 153, 0, 1],
+                width: 2
+            })
+        });
+
+        var edificioStyle = new ol.style.Style({
+            fill: new ol.style.Fill({
+                color: [255, 153, 0, 0.4]
+            }),
+            stroke: new ol.style.Stroke({
+                color: [255, 153, 0, 1],
+                width: 2
+            })
+        });
+
+        function styleFunction(feature, resolution) {
+            var res;
+            var funcao = feature.get('funcao_uso');
+
+            switch (funcao) {
+                case 'Edificio':
+                    res = edificioStyle;
+                    break;
+                case 'Anexo':
+                    res = anexoStyle;
+                    break;
+                default:
+                    res = defaultStyle;
+                    break;
+            }
+
+            return [res];
+        }
+
         // WFS
         // http://softwarelivre.cm-agueda.pt/geoserver/ide_local/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=ide_local:edificado_vt&maxFeatures=50&outputFormat=application/json
         // http://softwarelivre.cm-agueda.pt/geoserver/wfs?service=WFS&version=1.0.0&request=GetFeature&typeName=ide_local:edificado_vt&maxFeatures=50&outputFormat=application/json
@@ -17,7 +65,7 @@ Ext.define('Admin.view.geo.gu.MapCanvasController', {
         var vectorWFS = new ol.layer.Vector({
             title: 'Edificado (Local)',
             name: 'Edificado (Local)',
-            source:  new ol.source.Vector({
+            source: new ol.source.Vector({
                 format: new ol.format.GeoJSON(),
                 url: function (extent) {
                     return 'http://localhost:8080/geoserver/wfs?service=WFS&' +
@@ -27,6 +75,7 @@ Ext.define('Admin.view.geo.gu.MapCanvasController', {
                 },
                 strategy: ol.loadingstrategy.tile(ol.tilegrid.createXYZ())
             }),
+            style: styleFunction,
             /*
              style: new ol.style.Style({
              stroke: new ol.style.Stroke({
@@ -48,7 +97,7 @@ Ext.define('Admin.view.geo.gu.MapCanvasController', {
 
         featureStore.clearFilter();
         var selectedFeatures = [];
-        featureStore.filterBy(function(record, id) {
+        featureStore.filterBy(function (record, id) {
             return Ext.Array.indexOf(selectedFeatures, record.get("inspireid")) !== -1;
         }, this);
 
@@ -70,7 +119,7 @@ Ext.define('Admin.view.geo.gu.MapCanvasController', {
                 //console.log(selectedFeatures);
             }, view);
 
-            featureStore.filterBy(function(record, id) {
+            featureStore.filterBy(function (record, id) {
                 return Ext.Array.indexOf(selectedFeatures, record.get("inspireid")) !== -1;
             }, this);
             //console.log(featureStore);

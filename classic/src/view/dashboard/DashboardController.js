@@ -51,4 +51,5 @@ Ext.define('Admin.view.dashboard.DashboardController', {
     onHideView: function () {
         this.clearChartUpdates();
     }
+
 });

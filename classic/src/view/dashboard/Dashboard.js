@@ -18,7 +18,14 @@ Ext.define('Admin.view.dashboard.Dashboard', {
         hide: 'onHideView'
     },
 
-    items: [
+    /*
+     select funcao_uso, count(*)
+     from cartografia_de_base.edificado_vt_i
+     group by funcao_uso
+     order by 2 desc
+
+     */
+    items: [ /*
         {
             xtype: 'dashboardnetworkpanel',
 
@@ -35,11 +42,11 @@ Ext.define('Admin.view.dashboard.Dashboard', {
             responsiveCls: 'big-20 small-50'
         },
         {
-            xtype: 'dashboardsalespanel',
+            xtype: 'dashboardtopmoviepanel',
             responsiveCls: 'big-20 small-50'
         },
         {
-            xtype: 'dashboardtopmoviepanel',
+            xtype: 'dashboardsalespanel',
             responsiveCls: 'big-20 small-50'
         },
         {
@@ -53,6 +60,17 @@ Ext.define('Admin.view.dashboard.Dashboard', {
         {
             xtype: 'dashboardservicespanel',
             responsiveCls: 'big-40 small-100'
+        }, */
+        {
+            xtype: 'dashboard_funcao_panel',
+            // 60% width when viewport is big enough,
+            // 100% when viewport is small
+            responsiveCls: 'big-60 small-100'
+        },
+        {
+            xtype: 'dashboard_processo_tipo_panel',
+            responsiveCls: 'big-40 small-100'
         }
+
     ]
 });

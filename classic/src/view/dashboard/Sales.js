@@ -22,7 +22,7 @@ Ext.define('Admin.view.dashboard.Sales', {
             cls: 'quick-graph-panel-tool x-fa fa-ellipsis-v'
         }
     ],
-    
+
     items: [
         {
             xtype: 'cartesian',
