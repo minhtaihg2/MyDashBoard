@@ -15,8 +15,8 @@ Ext.define('Admin.view.geo.PopupWindow', {
     autoShow: false,
     titleAlign: 'center',
     headerPosition: 'bottom',
-    frameHeader: false,
-    frame: true,
+    frameHeader: true, // false,
+    //frame: true,
     title: '{title}',
     //layout: 'fit',
     layout: {
@@ -33,7 +33,8 @@ Ext.define('Admin.view.geo.PopupWindow', {
             store: '{gfinfo}'
         },
         viewConfig: {
-            emptyText: 'No data available'
+            emptyText: 'No data available',
+            deferEmptyText: false
         },
         columns: [{
             text: 'Feature ID',
@@ -59,7 +60,8 @@ Ext.define('Admin.view.geo.PopupWindow', {
             store: '{featureGrid.selection.featureproperty}'
         },
         viewConfig: {
-            emptyText: 'No data available'
+            emptyText: 'No data available',
+            deferEmptyText: false
         },
         columns: [{
             text: 'Property',

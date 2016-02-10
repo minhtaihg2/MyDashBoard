@@ -6,6 +6,7 @@ Ext.define('Admin.view.geo.MapGridController', {
         //<debug>
         console.log('featureGridSelectionChanged');
         //</debug>
+
         var vm = this.getView().up('geo-map').getViewModel();
         var featureStore = vm.getStore('featureStore');
         var selectControl = vm.data.select;
@@ -29,6 +30,7 @@ Ext.define('Admin.view.geo.MapGridController', {
                 view.setCenter(centerTo);
             }
         });
+
     }
 
 });

@@ -1,5 +1,15 @@
 # Admin Dashboard enhancement
 
+### Overrides
+
+[Sencha Guru](https://sencha.guru/2015/01/20/what-is-callparent-callsuper/)
+
+### Debug (to add to GeoDashboard example)
+
+```
+map
+```
+
 ### Login & Logout
 
 The current user data is assigned to the ViewportModel.

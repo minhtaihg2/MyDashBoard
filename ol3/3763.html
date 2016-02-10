@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    <title>OpenLayers 3.13 com MapProxy</title>
+    <title>OpenLayers v3.13.1 com EPSG:3763</title>
     <meta charset="UTF-8"/>
-    <link rel="stylesheet" type="text/css" href="http://openlayers.org/en/v3.13.0/css/ol.css"/>
+    <link rel="stylesheet" href="http://openlayers.org/en/v3.13.1/css/ol.css" type="text/css">
     <link rel="stylesheet" type="text/css" href="../resources/js/OL3/ol3-layerswitcher.css"/>
-    <!--<script src="http://openlayers.org/en/v3.2.1/build/ol.js"></script>-->
-    <script src="http://openlayers.org/en/v3.0.0/build/ol-debug.js"></script>
+    <script src="http://openlayers.org/en/v3.13.1/build/ol.js"></script>
+    <!--<script src="http://openlayers.org/en/v3.13.1/build/ol-debug.js"></script>-->
     <script src="../resources/js/OL3/ol3-layerswitcher.js"></script>
-
     <script src="http://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.6/proj4.js"></script>
     <script src="http://epsg.io/3763.js"></script>
 
@@ -30,6 +29,9 @@
                 extent: extent,
                 units: 'm'
             });
+
+            // alias super importante, para ler GeoJSON do Geoserver mais recente
+            proj4.defs('urn:ogc:def:crs:EPSG::3763', proj4.defs('EPSG:3763'));
 
             ol.proj.addProjection(projection);
 
@@ -89,6 +91,73 @@
                 }))
             });
 
+            // WFS
+//            http://softwarelivre.cm-agueda.pt/geoserver/ide_local/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=ide_local:edificado_vt&maxFeatures=50&outputFormat=application/json
+//            http://softwarelivre.cm-agueda.pt/geoserver/wfs?service=WFS&version=1.0.0&request=GetFeature&typeName=ide_local:edificado_vt&maxFeatures=50&outputFormat=application/json
+            var vectorWFSSource = new ol.source.Vector({
+                format: new ol.format.GeoJSON(),
+                url: function(extent) {
+                    return 'http://softwarelivre.cm-agueda.pt/geoserver/wfs?service=WFS&' +
+                            'version=1.1.0&request=GetFeature&typename=ide_local:edificado_vt_i&' +
+                            'outputFormat=application/json&srsname=EPSG:3763&' +
+                            'bbox=' + extent.join(',') + ',EPSG:3763';
+                },
+                strategy: ol.loadingstrategy.tile(ol.tilegrid.createXYZ({
+//                    maxZoom: 19
+                }))
+            });
+
+            var vectorWFS = new ol.layer.Vector({
+                title: 'Edificado (SW)',
+                name: 'Edificado (SW)',
+                source: vectorWFSSource,
+                style: new ol.style.Style({
+                    stroke: new ol.style.Stroke({
+                        color: 'rgba(0, 0, 255, 1.0)',
+                        width: 2
+                    })
+                }),
+                maxResolution: 2.199129376979828 // The maximum resolution (exclusive) below which this layer will be visible.
+            });
+
+            // http://localhost:8080/geoserver/ide_local/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=ide_local:edificado_vt_i&maxFeatures=50&outputFormat=application%2Fjson
+            var vectorWFSSourcelocal = new ol.source.Vector({
+                format: new ol.format.GeoJSON(),
+                url: function (extent) {
+                    return 'http://localhost:8080/geoserver/wfs?service=WFS&' +
+                            'version=1.1.0&request=GetFeature&typename=ide_local:edificado_vt_i&' +
+                            'outputFormat=application/json&srsname=EPSG:3763&' +
+                            'bbox=' + extent.join(',') + ',EPSG:3763';
+                },
+                strategy: ol.loadingstrategy.tile(ol.tilegrid.createXYZ({
+                    // maxZoom: 19
+                }))
+            });
+
+            var vectorWFSlocal = new ol.layer.Vector({
+                title: 'Edificado (Local)',
+                name: 'Edificado (Local)',
+                source:  new ol.source.Vector({
+                    format: new ol.format.GeoJSON(),
+                    url: function (extent) {
+                        return 'http://localhost:8080/geoserver/wfs?service=WFS&' +
+                                'version=1.1.0&request=GetFeature&typename=ide_local:edificado_vt_i&' +
+                                'outputFormat=application/json&srsname=EPSG:3763&' +
+                                'bbox=' + extent.join(',') + ',EPSG:3763';
+                    },
+                    strategy: ol.loadingstrategy.tile(ol.tilegrid.createXYZ())
+                }),
+                /*
+                style: new ol.style.Style({
+                    stroke: new ol.style.Stroke({
+                        color: 'rgba(0, 255, 0, 0.5)',
+                        width: 2.5
+                    })
+                }),
+                */
+                maxResolution: 2.199129376979828 // The maximum resolution (exclusive) below which this layer will be visible.
+            });
+
             // WMS
             var parque = new ol.layer.Tile({
                 title: 'Parque Urbano',
@@ -112,7 +181,7 @@
 //                    })
 //                ]),
                 target: 'map',
-                layers: [osm, parque],
+                layers: [osm, parque, vectorWFS, vectorWFSlocal],
                 view: new ol.View({
                     projection: projection,
                     center: [-26000, 100800],
@@ -131,3 +200,5 @@
 <div id='map'></div>
 </body>
 </html>
+
+

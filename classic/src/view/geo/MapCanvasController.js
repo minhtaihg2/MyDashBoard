@@ -7,14 +7,6 @@ Ext.define('Admin.view.geo.MapCanvasController', {
         me.callParent(arguments);
     },
 
-    //http://docs.sencha.com/extjs/6.0/application_architecture/view_controllers.html#Listeners_and_Event_Domains
-    initViewModel: function (vm) {
-        //<debug>
-        console.log('initViewModel');
-        //console.log(vm);
-        //</debug>
-    },
-
     onLayersStoreLoaded: function (records, operation, success) {
         //<debug>
         console.log('store loaded');
@@ -218,13 +210,11 @@ Ext.define('Admin.view.geo.MapCanvasController', {
                 }
             }
         }
-        //console.log('Missing ' + groups.length + ' groups' );
 
         groups.forEach(function (element, index, array) {
             olMap.addLayer(element);
         });
 
-        this.afterMapCanvasRender(me.getView());
     },
 
     beforeMapCanvasRender: function (view) {
@@ -233,33 +223,48 @@ Ext.define('Admin.view.geo.MapCanvasController', {
         //</debug>
         var me = this;
         var geoLayersStore = view.getViewModel().getStore('geolayers');
-
         var viewId = 0;
-
         if (view.hasOwnProperty('geoExtViewId') && (parseInt(view.geoExtViewId) > 0)) {
             viewId = parseInt(view.geoExtViewId);
         }
-        //console.log();
-
-        //<debug>
-        console.log('geoLayersStore');
-        //console.log(geoLayersStore);
-        console.log('geoLayersStore.load()');
-        //</debug>
-
         geoLayersStore.load({
             params: {
                 viewid: viewId
             },
-            callback: me.onLayersStoreLoaded,
+            //callback: me.onLayersStoreLoaded,
+            callback: function (records, operation, success) {
+                // not used
+                var option = {params: {viewid: viewId}};
+                me.onLayersStoreLoaded(records, operation, success, option);
+                me.setupLayerTreeStoreAndPanel(me.getView());
+                me.addVectorLayer(me.getView());
+                me.setupPopupWindow(me.getView());
+            },
             scope: me
         });
-
     },
 
-    afterMapCanvasRender: function (view) {
+    setupLayerTreeStoreAndPanel: function (view) {
         //<debug>
-        console.log('afterMapCanvasRender');
+        console.log('setupLayerTreeStoreAndPanel');
+        //</debug>
+        var me = this;
+        var vm = view.up('geo-map').getViewModel();
+        var olMap = view.map;
+
+        var treeStore = Ext.create('GeoExt.data.store.LayersTree', {
+            layerGroup: olMap.getLayerGroup()
+        });
+        //vm.setStores({'treeStore': treeStore});
+        vm.setStores(Ext.apply(vm.getStores(), {'treeStore': treeStore}));
+
+        var tree = view.up('geo-map').down('geo-tree');
+        tree.setStore(treeStore);
+    },
+
+    addVectorLayer: function (view) {
+        //<debug>
+        console.log('addVectorLayer');
         //</debug>
         var me = this;
         var vm = view.up('geo-map').getViewModel();
@@ -281,15 +286,6 @@ Ext.define('Admin.view.geo.MapCanvasController', {
             style: vm.data.redStyle
         });
         olMap.addLayer(vectorLayer);
-
-        var treeStore = Ext.create('GeoExt.data.store.LayersTree', {
-            layerGroup: olMap.getLayerGroup()
-        });
-        //vm.setStores({'treeStore': treeStore});
-        vm.setStores(Ext.apply(vm.getStores(), {'treeStore': treeStore}));
-
-        var tree = view.up('geo-map').down('geo-tree');
-        tree.setStore(treeStore);
 
         var featureStore = Ext.create('GeoExt.data.store.Features', {
             layer: vectorLayer,
@@ -328,6 +324,16 @@ Ext.define('Admin.view.geo.MapCanvasController', {
 
         });
 
+    },
+
+    setupPopupWindow: function (view) {
+        //<debug>
+        console.log('setupPopupWindow');
+        //</debug>
+        var me = this;
+        var vm = view.up('geo-map').getViewModel();
+        var olMap = view.map;
+
         me.popupwindow = null;
 
         olMap.getViewport().addEventListener("dblclick", function (e) {
@@ -354,8 +360,9 @@ Ext.define('Admin.view.geo.MapCanvasController', {
             var v = me.popupWindow.getViewModel();
             var s = v.getStore('gfinfo');
             s.removeAll();
-            var propertyGrid = me.popupWindow.down('#propertyGrid');
-            propertyGrid.getStore().removeAll();
+            // not necessary, if deferEmptyText: false
+            //var propertyGrid = me.popupWindow.down('#propertyGrid');
+            //propertyGrid.getStore().removeAll();
 
             var mapView = olMap.getView();
             var viewResolution = mapView.getResolution();
@@ -394,7 +401,6 @@ Ext.define('Admin.view.geo.MapCanvasController', {
                             }
                         });
                     }
-
                 }
             });
         });

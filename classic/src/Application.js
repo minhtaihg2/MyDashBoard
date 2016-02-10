@@ -26,6 +26,9 @@ Ext.define('Admin.Application', {
         // The 'directapi' is called from app.json
         console.log('Admin.Application launch()');
 
+        // alias for Geoserver WFS geojson requests
+        proj4.defs('urn:ogc:def:crs:EPSG::3763', proj4.defs('EPSG:3763'));
+
         // tradução da aplicação...
         // http://www.enovision.net/how-to-add-missing-extjs-6-locale-properties-in-your-application/
 
