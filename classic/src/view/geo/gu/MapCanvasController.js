@@ -101,8 +101,9 @@ Ext.define('Admin.view.geo.gu.MapCanvasController', {
             return Ext.Array.indexOf(selectedFeatures, record.get("inspireid")) !== -1;
         }, this);
 
-        var grid = view.up('geo-map').down('geo-mapgrid');
-        grid.setStore(featureStore);
+        // Alterar...
+        //var grid = view.up('geo-map').down('geo-mapgrid');
+        //grid.setStore(featureStore);
 
         // enable select elements
         var selectSingleClick = new ol.interaction.Select({

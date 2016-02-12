@@ -33,9 +33,9 @@ Ext.define('Admin.view.main.ViewportController', {
         var navigationTreeStore = me.getViewModel().getStore('navigationTree');
 
         navigationTreeStore.on('load', function (store) {
-            console.log('navigationTreeStore loaded');
+            //console.log('navigationTreeStore loaded');
             me.navigationTreeStoreLoaded = true;
-            console.log('this.redirectTo("dashboard");');
+            //console.log('this.redirectTo("dashboard");');
             //me.redirectTo("dashboard");
             me.setCurrentView("dashboard");
         });
@@ -172,10 +172,10 @@ Ext.define('Admin.view.main.ViewportController', {
     },
 
     onNavigationTreeSelectionChange: function (tree, node) {
-        console.log('onNavigationTreeSelectionChange');
+        //console.log('onNavigationTreeSelectionChange');
         if (node && node.get('extjsview')) {
             //console.log(node);
-            console.log('redirect to: ' + node.get("text") + ' routeId: ' + node.get("routeId"));
+            //console.log('redirect to: ' + node.get("text") + ' routeId: ' + node.get("routeId"));
             this.redirectTo(node.get("routeId"));
         }
     },

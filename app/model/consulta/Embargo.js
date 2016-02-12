@@ -40,7 +40,8 @@ Ext.define('Admin.model.consulta.Embargo', {
         },
         extraParams: {
             tableName: 'dbo.embargos',
-            defaultOrderColumn: 'rowid'
+            defaultOrderColumn: 'data_auto',
+            defaultOrderDirection: 'DESC'
         }
     }
 });

@@ -1,5 +1,17 @@
 # Admin Dashboard enhancement
 
+### Layers & Views
+
+```
+10 Infraestruturas
+20 Gestão Urbanística
+* 60 IP no minuto
+* 30 Publicidade
+* 40 Plantas de localização (mais layers atualmente)
+* 50 Rede Viária
+70 PDM (falta)
+```
+
 ### Overrides
 
 [Sencha Guru](https://sencha.guru/2015/01/20/what-is-callparent-callsuper/)

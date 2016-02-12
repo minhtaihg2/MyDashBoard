@@ -156,7 +156,7 @@ var SQLServer = {
         console.log(params);
         // { tableName: 'dbo.embargos', defaultOrderColumn: 'rowid', page : 1, start : 0, limit : 20 }
 
-        if (params.tableName && params.defaultOrderColumn) {
+        if (params.tableName && params.defaultOrderColumn && params.defaultOrderDirection) {
             var where = '';
             if (params.filter) {
                 console.log('Exitem filtros:' + JSON.stringify(params.filter));
@@ -206,7 +206,7 @@ var SQLServer = {
                 }
             }
 
-            var order = 'ORDER BY ' + params.defaultOrderColumn;
+            var order = 'ORDER BY ' + params.defaultOrderColumn + ' ' + params.defaultOrderDirection;
             if (params.sort) {
                 var s = params.sort[0];
                 order = 'ORDER BY ' + s.property + ' ' + s.direction;
@@ -255,7 +255,7 @@ var SQLServer = {
                     }
                 });
             });
-        } // if (params.tableName && params.defaultOrderColumn)
+        } // if (params.tableName && params.defaultOrderColumn && params.defaultOrderDirection)
     }
 };
 

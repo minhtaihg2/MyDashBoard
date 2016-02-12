@@ -39,7 +39,7 @@ Ext.define('Admin.view.main.Viewport', {
                     xtype: 'component',
                     reference: 'senchaLogo',
                     cls: 'sencha-logo',
-                    html: '<div class="main-logo"><img src="resources/images/geomaster-42x42.png">Geomaster</div>',
+                    html: '<div class="main-logo"><img src="resources/images/geomaster-white-48x48.png">Geomaster</div>',
                     width: 250
                 },
                 {
@@ -68,24 +68,24 @@ Ext.define('Admin.view.main.Viewport', {
                  hrefTarget: '_self',
                  tooltip: 'Check your email'
                  },
-                 */
-                {
-                    cls: 'delete-focus-bg',
-                    iconCls: 'x-fa fa-bell',
-                    handler: 'onBellClick'
-                },
-                {
-                    cls: 'delete-focus-bg',
-                    iconCls: 'x-fa fa-minus-circle',
-                    tooltip: 'Remove item',
-                    handler: 'onRemoveItemClick'
-                },
-                {
-                    cls: 'delete-focus-bg',
-                    iconCls: 'x-fa fa-plus-circle',
-                    tooltip: 'Add item',
-                    handler: 'onAddItemClick'
-                },
+
+                 {
+                 cls: 'delete-focus-bg',
+                 iconCls: 'x-fa fa-bell',
+                 handler: 'onBellClick'
+                 },
+                 {
+                 cls: 'delete-focus-bg',
+                 iconCls: 'x-fa fa-minus-circle',
+                 tooltip: 'Remove item',
+                 handler: 'onRemoveItemClick'
+                 },
+                 {
+                 cls: 'delete-focus-bg',
+                 iconCls: 'x-fa fa-plus-circle',
+                 tooltip: 'Add item',
+                 handler: 'onAddItemClick'
+                 },                 */
                 {
                     xtype: 'image',
                     cls: 'header-right-profile-image',

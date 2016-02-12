@@ -44,9 +44,9 @@ Ext.define("Admin.view.geo.MapPanel", {
                 collapsible: false
             };
             mapgrid = {
-                xtype: 'geo-mapgrid-gu',
-                reference: 'geo-mapgrid',
-                responsiveCls: 'big-60'
+                xtype: 'geo-mapgrid-gu'
+                //reference: 'geo-mapgrid',
+                //responsiveCls: 'big-100'
             };
         } else {
             canvas = {
@@ -104,12 +104,9 @@ Ext.define("Admin.view.geo.MapPanel", {
                 width: 20,
                 height: 20
             }]
-        }, mapgrid, {
-            xtype: 'panel',
-            title: 'Gosto de títulos',
-            html: 'Uma grid, ou algo do género',
-            responsiveCls: 'big-40'
-        }];
+        },
+            mapgrid
+        ];
 
         /*
          me.items = [{

@@ -51,7 +51,8 @@ Ext.define('Admin.model.consulta.Municipe', {
         },
         extraParams: {
             tableName: 'dbo.contrib',
-            defaultOrderColumn: 'rowid'
+            defaultOrderColumn: 'rowid',
+            defaultOrderDirection: 'ASC'
         }
     }
 });

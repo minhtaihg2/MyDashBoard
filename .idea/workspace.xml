@@ -2,17 +2,95 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61e971d5-b08e-4d59-b333-e3de1794b27a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/dashboard/UrbanismoFuncao.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/dashboard/UrbanismoFuncaoController.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/dashboard/UrbanismoProcessoTipo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/dashboard/UrbanismoProcessoTipoController.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/production/Admin/resources/images/cofinanciamento-compete.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/production/Admin/resources/images/geomaster-42x42.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/production/Admin/resources/images/geomaster-white-100x100.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/production/Admin/resources/images/geomaster-white-42x42.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/production/Admin/resources/images/geomaster-white-48x48.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/production/Admin/resources/images/geomaster-white-50x50.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/images/geomaster-42x42.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/images/geomaster-white-42x42.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/model/consulta/Fiscalizacao.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/model/consulta/Processo.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/infprevia/ConfrontacaoMapPanel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/infprevia/ConfrontacaoMapPanelController.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/infprevia/ConfrontacaoMapPanelModel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/infprevia/FullMapPanel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/infprevia/FullMapPanelController.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/infprevia/FullMapPanelModel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/infprevia/InfPrevia.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/infprevia/InfPreviaController.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/infprevia/InfPreviaModel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/infprevia/MapGrid.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/infprevia/MapGridController.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/infprevia/MapGridModel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/maps/BasicTreeColumnLegends.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/maps/FullMapPanel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/maps/FullMapPanelController.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/maps/FullMapPanelModel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/maps/MapCanvas.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/maps/MapCanvasController.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/maps/MapCanvasModel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/maps/MapTree.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/maps/MapTreeController.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/maps/MapTreeModel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/plantas/FullMapPanel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/plantas/FullMapPanelController.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/plantas/FullMapPanelModel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/plantas/Plantas.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/plantas/PlantasController.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/plantas/PlantasModel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/publicidade/FullMapPanel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/publicidade/FullMapPanelController.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/publicidade/FullMapPanelModel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/publicidade/Publicidade.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/publicidade/PublicidadeController.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/publicidade/PublicidadeModel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/redeviaria/FullMapPanel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/redeviaria/FullMapPanelController.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/redeviaria/FullMapPanelModel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/redeviaria/RedeViaria.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/redeviaria/RedeViariaController.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/redeviaria/RedeViariaModel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/urbanismo/FullMapPanel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/urbanismo/FullMapPanelController.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/urbanismo/FullMapPanelModel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/urbanismo/GridEdificado.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/urbanismo/GridProcesso.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/urbanismo/MapGridController.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/urbanismo/MapGridModel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/urbanismo/Urbanismo.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/urbanismo/UrbanismoController.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classic/src/view/urbanismo/UrbanismoModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/temp/production/Admin/slicer-temp/theme-capture.png" afterPath="$PROJECT_DIR$/build/temp/production/Admin/slicer-temp/theme-capture.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Readme.md" afterPath="$PROJECT_DIR$/Readme.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/model/consulta/Embargo.js" afterPath="$PROJECT_DIR$/app/model/consulta/Embargo.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/model/consulta/Municipe.js" afterPath="$PROJECT_DIR$/app/model/consulta/Municipe.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bootstrap.js" afterPath="$PROJECT_DIR$/bootstrap.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/production/Admin/classic.json" afterPath="$PROJECT_DIR$/build/production/Admin/classic.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/production/Admin/classic/app.js" afterPath="$PROJECT_DIR$/build/production/Admin/classic/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/production/Admin/classic/resources/Admin-all_1.css" afterPath="$PROJECT_DIR$/build/production/Admin/classic/resources/Admin-all_1.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/production/Admin/classic/resources/Admin-all_2.css" afterPath="$PROJECT_DIR$/build/production/Admin/classic/resources/Admin-all_2.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/production/Admin/classic/resources/Admin-all_3.css" afterPath="$PROJECT_DIR$/build/production/Admin/classic/resources/Admin-all_3.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/production/Admin/index.html" afterPath="$PROJECT_DIR$/build/production/Admin/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/temp/production/Admin/sass/Admin-all.scss" afterPath="$PROJECT_DIR$/build/temp/production/Admin/sass/Admin-all.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/temp/production/Admin/sass/Admin-all.scss.tmp" afterPath="$PROJECT_DIR$/build/temp/production/Admin/sass/Admin-all.scss.tmp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/temp/production/Admin/slicer-temp/Admin-example.scss" afterPath="$PROJECT_DIR$/build/temp/production/Admin/slicer-temp/Admin-example.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/temp/production/Admin/slicer-temp/Admin-example.scss.tmp" afterPath="$PROJECT_DIR$/build/temp/production/Admin/slicer-temp/Admin-example.scss.tmp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classic.json" afterPath="$PROJECT_DIR$/classic.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classic/src/view/dashboard/Dashboard.js" afterPath="$PROJECT_DIR$/classic/src/view/dashboard/Dashboard.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classic/src/view/dashboard/DashboardController.js" afterPath="$PROJECT_DIR$/classic/src/view/dashboard/DashboardController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classic/src/view/dashboard/DashboardModel.js" afterPath="$PROJECT_DIR$/classic/src/view/dashboard/DashboardModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classic/src/view/dashboard/Sales.js" afterPath="$PROJECT_DIR$/classic/src/view/dashboard/Sales.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classic/src/view/consulta/Embargo.js" afterPath="$PROJECT_DIR$/classic/src/view/consulta/Embargo.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classic/src/view/consulta/EmbargoModel.js" afterPath="$PROJECT_DIR$/classic/src/view/consulta/EmbargoModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classic/src/view/dashboard/UrbanismoFuncao.js" afterPath="$PROJECT_DIR$/classic/src/view/dashboard/UrbanismoFuncao.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classic/src/view/dashboard/UrbanismoProcessoTipo.js" afterPath="$PROJECT_DIR$/classic/src/view/dashboard/UrbanismoProcessoTipo.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classic/src/view/geo/MapPanel.js" afterPath="$PROJECT_DIR$/classic/src/view/geo/MapPanel.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classic/src/view/geo/gu/MapCanvasController.js" afterPath="$PROJECT_DIR$/classic/src/view/geo/gu/MapCanvasController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classic/src/view/geo/gu/MapGrid.js" afterPath="$PROJECT_DIR$/classic/src/view/geo/gu/MapGrid.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classic/src/view/main/Viewport.js" afterPath="$PROJECT_DIR$/classic/src/view/main/Viewport.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classic/src/view/main/ViewportController.js" afterPath="$PROJECT_DIR$/classic/src/view/main/ViewportController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sass/example/bootstrap.json" afterPath="$PROJECT_DIR$/sass/example/bootstrap.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/direct/Urbanismo/SQLServer.js" afterPath="$PROJECT_DIR$/server/direct/Urbanismo/SQLServer.js" />
     </list>
     <ignored path="server/server-config.json" />
     <ignored path="server/node_modules/" />
@@ -37,64 +115,104 @@
     <favorites_list name="MyDashBoard" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.51534617">
+    <splitter split-orientation="horizontal" split-proportion="0.4277498">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="UrbanismoFuncao.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/classic/src/view/dashboard/UrbanismoFuncao.js">
+          <file leaf-file-name="GridEdificado.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/classic/src/view/urbanismo/GridEdificado.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-4.4262295">
+                  <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="GridProcesso.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/classic/src/view/urbanismo/GridProcesso.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="19" column="43" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
+                  <caret line="2" column="40" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="40" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="UrbanismoFuncaoController.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/classic/src/view/dashboard/UrbanismoFuncaoController.js">
+          <file leaf-file-name="BasicTreeColumnLegends.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/classic/src/view/maps/BasicTreeColumnLegends.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="0" column="48" selection-start-line="0" selection-start-column="48" selection-end-line="0" selection-end-column="48" />
+                  <caret line="7" column="46" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="46" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="UrbanismoProcessoTipo.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/classic/src/view/dashboard/UrbanismoProcessoTipo.js">
+          <file leaf-file-name="MapGridController.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/classic/src/view/urbanismo/MapGridController.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="17" column="31" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
+                <state vertical-scroll-proportion="-0.0">
+                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="DashboardController.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/classic/src/view/dashboard/DashboardController.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-7.114754">
-                  <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="UrbanismoProcessoTipoController.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/classic/src/view/dashboard/UrbanismoProcessoTipoController.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="MapCanvasController.js" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/classic/src/view/geo/gu/MapCanvasController.js">
+          <file leaf-file-name="FullMapPanelModel.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/classic/src/view/urbanismo/FullMapPanelModel.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
                   <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="MapGridModel.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/classic/src/view/urbanismo/MapGridModel.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-0.0">
+                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="FullMapPanelController.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/classic/src/view/urbanismo/FullMapPanelController.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.82758623">
+                  <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="UrbanismoModel.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/classic/src/view/urbanismo/UrbanismoModel.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="UrbanismoController.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/classic/src/view/urbanismo/UrbanismoController.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Urbanismo.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/classic/src/view/urbanismo/Urbanismo.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -104,8 +222,68 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="Network.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/classic/src/view/dashboard/Network.js">
+          <file leaf-file-name="MapGrid.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/classic/src/view/geo/gu/MapGrid.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="111" column="19" selection-start-line="111" selection-start-column="19" selection-end-line="111" selection-end-column="19" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="MapGrid.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/classic/src/view/infprevia/MapGrid.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Publicidade.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/classic/src/view/publicidade/Publicidade.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="23" column="6" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Plantas.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/classic/src/view/plantas/Plantas.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="RedeViaria.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/classic/src/view/redeviaria/RedeViaria.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.6551724">
+                  <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="InfPrevia.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/classic/src/view/infprevia/InfPrevia.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="MapGridController.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/classic/src/view/geo/gu/MapGridController.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
                   <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -114,31 +292,21 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="MapGrid.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/classic/src/view/geo/gu/MapGrid.js">
+          <file leaf-file-name="MapGridModel.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/classic/src/view/geo/gu/MapGridModel.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="0" column="41" selection-start-line="0" selection-start-column="40" selection-end-line="86" selection-end-column="1" />
+                  <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="29" selection-end-column="5" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Dashboard.js" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/classic/src/view/dashboard/Dashboard.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.33802816">
-                  <caret line="27" column="15" selection-start-line="27" selection-start-column="15" selection-end-line="27" selection-end-column="15" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="DashboardModel.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/classic/src/view/dashboard/DashboardModel.js">
+          <file leaf-file-name="MapCanvasController.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/classic/src/view/geo/gu/MapCanvasController.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="179" column="3" selection-start-line="179" selection-start-column="3" selection-end-line="179" selection-end-column="3" />
+                  <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -162,57 +330,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/classic/src/view/consulta/EmbargoModel.js" />
-        <option value="$PROJECT_DIR$/classic/src/view/consulta/Embargo.js" />
-        <option value="$PROJECT_DIR$/classic/src/view/consulta/MunicipeModel.js" />
-        <option value="$PROJECT_DIR$/app/model/consulta/Municipe.js" />
-        <option value="$PROJECT_DIR$/classic/src/view/consulta/MunicipeController.js" />
-        <option value="$PROJECT_DIR$/classic/src/view/consulta/EmbargoController.js" />
-        <option value="$PROJECT_DIR$/classic/src/view/consulta/Municipe.js" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/server/direct/ActiveEngCloud/Sensor.js" />
-        <option value="$PROJECT_DIR$/classic/src/view/sync/SyncController.js" />
-        <option value="$PROJECT_DIR$/server/server.js" />
-        <option value="$PROJECT_DIR$/app.json" />
-        <option value="$PROJECT_DIR$/server/direct/DXSessao.js" />
-        <option value="$PROJECT_DIR$/classic/src/view/geo/MapCanvasModel.js" />
-        <option value="$PROJECT_DIR$/classic/src/view/geo/MapCanvas.js" />
-        <option value="$PROJECT_DIR$/classic/src/view/geo/MapPanelController.js" />
-        <option value="$PROJECT_DIR$/navtree.json" />
-        <option value="$PROJECT_DIR$/classic/src/view/geo/MapPanelModel.js" />
-        <option value="$PROJECT_DIR$/classic/src/view/geo/MapTree.js" />
-        <option value="$PROJECT_DIR$/classic/src/view/geo/MapTreeController.js" />
-        <option value="$PROJECT_DIR$/classic/src/view/main/Viewport.js" />
-        <option value="$PROJECT_DIR$/gfitransformed.json" />
-        <option value="$PROJECT_DIR$/gfi.js" />
-        <option value="$PROJECT_DIR$/gfioriginal.json" />
-        <option value="$PROJECT_DIR$/app/model/geo/FeatureProperty.js" />
-        <option value="$PROJECT_DIR$/classic/src/view/geo/PopupWindowModel.js" />
-        <option value="$PROJECT_DIR$/app/model/geo/Feature.js" />
-        <option value="$PROJECT_DIR$/app/model/geo/Layer.js" />
-        <option value="$PROJECT_DIR$/classic/src/view/geo/PopupWindow.js" />
-        <option value="$PROJECT_DIR$/ol3/ol3mapproxy.html" />
-        <option value="$PROJECT_DIR$/ol3/gwc.html" />
-        <option value="$PROJECT_DIR$/classic/src/view/geo/MapCanvasController.js" />
-        <option value="$PROJECT_DIR$/classic/src/view/geo/gu/MapCanvas.js" />
-        <option value="$PROJECT_DIR$/classic/src/view/geo/MapGrid.js" />
-        <option value="$PROJECT_DIR$/classic/src/view/geo/MapPanel.js" />
-        <option value="$PROJECT_DIR$/Readme.md" />
-        <option value="$PROJECT_DIR$/server/auto-db-tunnel.sh" />
-        <option value="$PROJECT_DIR$/classic/src/Application.js" />
-        <option value="$PROJECT_DIR$/ol3/3763.html" />
-        <option value="$PROJECT_DIR$/classic/src/view/geo/MapGridController.js" />
-        <option value="$PROJECT_DIR$/classic/src/view/geo/gu/MapGrid.js" />
-        <option value="$PROJECT_DIR$/classic/src/view/geo/gu/MapCanvasController.js" />
-        <option value="$PROJECT_DIR$/classic/src/view/dashboard/Sales.js" />
-        <option value="$PROJECT_DIR$/classic/src/view/dashboard/Funcao.js" />
-        <option value="$PROJECT_DIR$/classic/src/view/dashboard/UrbanismoProcessoTipoController.js" />
-        <option value="$PROJECT_DIR$/classic/src/view/dashboard/DashboardController.js" />
-        <option value="$PROJECT_DIR$/classic/src/view/dashboard/UrbanismoFuncaoController.js" />
-        <option value="$PROJECT_DIR$/classic/src/view/dashboard/DashboardModel.js" />
-        <option value="$PROJECT_DIR$/classic/src/view/dashboard/Dashboard.js" />
+        <option value="$PROJECT_DIR$/classic/src/view/publicidade/FullMapPanelController.js" />
+        <option value="$PROJECT_DIR$/classic/src/view/publicidade/FullMapPanelModel.js" />
+        <option value="$PROJECT_DIR$/classic/src/view/maps/MapCanvas.js" />
+        <option value="$PROJECT_DIR$/classic/src/view/maps/MapCanvasModel.js" />
+        <option value="$PROJECT_DIR$/classic/src/view/maps/BasicTreeColumnLegends.js" />
+        <option value="$PROJECT_DIR$/classic/src/view/maps/MapTree.js" />
+        <option value="$PROJECT_DIR$/classic/src/view/maps/MapTreeController.js" />
+        <option value="$PROJECT_DIR$/classic/src/view/maps/MapTreeModel.js" />
+        <option value="$PROJECT_DIR$/classic/src/view/redeviaria/Publicidade.js" />
+        <option value="$PROJECT_DIR$/classic/src/view/redeviaria/RedeViariaModel.js" />
+        <option value="$PROJECT_DIR$/classic/src/view/redeviaria/RedeViariaController.js" />
+        <option value="$PROJECT_DIR$/classic/src/view/redeviaria/FullMapPanel.js" />
+        <option value="$PROJECT_DIR$/classic/src/view/redeviaria/FullMapPanelModel.js" />
         <option value="$PROJECT_DIR$/classic/src/view/dashboard/UrbanismoProcessoTipo.js" />
         <option value="$PROJECT_DIR$/classic/src/view/dashboard/UrbanismoFuncao.js" />
+        <option value="$PROJECT_DIR$/classic/src/view/redeviaria/FullMapPanelController.js" />
+        <option value="$PROJECT_DIR$/Readme.md" />
+        <option value="$PROJECT_DIR$/classic/src/view/infprevia/RedeViaria.js" />
+        <option value="$PROJECT_DIR$/classic/src/view/infprevia/InfPreviaController.js" />
+        <option value="$PROJECT_DIR$/classic/src/view/infprevia/FullMapPanel.js" />
+        <option value="$PROJECT_DIR$/classic/src/view/main/ViewportController.js" />
+        <option value="$PROJECT_DIR$/classic/src/view/maps/FullMapPanel.js" />
+        <option value="$PROJECT_DIR$/classic/src/view/maps/MapCanvasController.js" />
+        <option value="$PROJECT_DIR$/classic/src/view/maps/FullMapPanelController.js" />
+        <option value="$PROJECT_DIR$/classic/src/view/infprevia/FullMapPanelModel.js" />
+        <option value="$PROJECT_DIR$/classic/src/view/infprevia/MapGridController.js" />
+        <option value="$PROJECT_DIR$/classic/src/view/infprevia/MapGridModel.js" />
+        <option value="$PROJECT_DIR$/classic/src/view/infprevia/ConfrontacaoMapPanelModel.js" />
+        <option value="$PROJECT_DIR$/classic/src/view/infprevia/InfPreviaModel.js" />
+        <option value="$PROJECT_DIR$/classic/src/view/infprevia/FullMapPanelController.js" />
+        <option value="$PROJECT_DIR$/classic/src/view/infprevia/ConfrontacaoMapPanel.js" />
+        <option value="$PROJECT_DIR$/classic/src/view/infprevia/ConfrontacaoMapPanelController.js" />
+        <option value="$PROJECT_DIR$/classic/src/view/main/Viewport.js" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/classic/src/view/urbanismo/InfPrevia.js" />
+        <option value="$PROJECT_DIR$/classic/src/view/urbanismo/UrbanismoController.js" />
+        <option value="$PROJECT_DIR$/classic/src/view/urbanismo/FullMapPanel.js" />
+        <option value="$PROJECT_DIR$/classic/src/view/urbanismo/FullMapPanelModel.js" />
+        <option value="$PROJECT_DIR$/classic/src/view/urbanismo/MapGridController.js" />
+        <option value="$PROJECT_DIR$/classic/src/view/urbanismo/MapGridModel.js" />
+        <option value="$PROJECT_DIR$/classic/src/view/urbanismo/UrbanismoModel.js" />
+        <option value="$PROJECT_DIR$/classic/src/view/urbanismo/MapGrid.js" />
+        <option value="$PROJECT_DIR$/classic/src/view/urbanismo/GridProcesso.js" />
+        <option value="$PROJECT_DIR$/classic/src/view/urbanismo/GridEdificado.js" />
+        <option value="$PROJECT_DIR$/classic/src/view/urbanismo/Urbanismo.js" />
+        <option value="$PROJECT_DIR$/classic/src/view/urbanismo/FullMapPanelController.js" />
+        <option value="$PROJECT_DIR$/classic/src/view/infprevia/InfPrevia.js" />
+        <option value="$PROJECT_DIR$/classic/src/view/infprevia/MapGrid.js" />
+        <option value="$PROJECT_DIR$/classic/src/view/publicidade/Publicidade.js" />
+        <option value="$PROJECT_DIR$/classic/src/view/plantas/Plantas.js" />
+        <option value="$PROJECT_DIR$/classic/src/view/redeviaria/RedeViaria.js" />
       </list>
     </option>
   </component>
@@ -297,6 +465,38 @@
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="resources">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="MyDashBoard">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="resources">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="images">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="MyDashBoard">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
             <PATH_ELEMENT USER_OBJECT="ol3">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
@@ -315,6 +515,10 @@
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT USER_OBJECT="Root">
@@ -325,7 +529,289 @@
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="app">
+            <PATH_ELEMENT USER_OBJECT="classic">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="view">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="MyDashBoard">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="classic">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="view">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="urbanismo">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="MyDashBoard">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="classic">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="view">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="redeviaria">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="MyDashBoard">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="classic">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="view">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="publicidade">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="MyDashBoard">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="classic">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="view">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="plantas">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="MyDashBoard">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="classic">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="view">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="maps">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="MyDashBoard">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="classic">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="view">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="main">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="MyDashBoard">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="classic">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="view">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="infprevia">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="MyDashBoard">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="classic">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="view">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="geo">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="MyDashBoard">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="classic">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="view">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="dashboard">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="MyDashBoard">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="classic">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="view">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="consulta">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="MyDashBoard">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="classic">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
@@ -365,15 +851,16 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/classic/src/view/maps" />
       <recent name="$PROJECT_DIR$/server/tmp" />
       <recent name="$PROJECT_DIR$/app" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/classic/src/view/dashboard" />
-      <recent name="$PROJECT_DIR$/classic/src/view/geo/gu" />
-      <recent name="$PROJECT_DIR$/app/model/geo" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/classic/src/view/geo" />
+      <recent name="$PROJECT_DIR$/classic/src/view/urbanismo" />
+      <recent name="$PROJECT_DIR$/classic/src/view" />
+      <recent name="$PROJECT_DIR$/classic/src/view/infprevia" />
+      <recent name="$PROJECT_DIR$/classic/src/view/maps" />
+      <recent name="$PROJECT_DIR$/classic/src/view/publicidade" />
     </key>
   </component>
   <component name="RunManager">
@@ -456,45 +943,25 @@
     <frame x="49" y="24" width="1871" height="1056" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24188311" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24729437" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295099" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31908238" sideWeight="0.43939394" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30135557" sideWeight="0.4832251" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.61105317" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30239832" sideWeight="0.56060606" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42440042" sideWeight="0.56060606" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30135557" sideWeight="0.4832251" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
     </layout>
-    <layout-to-restore>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295099" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31908238" sideWeight="0.43939394" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.61105317" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3211679" sideWeight="0.56060606" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17532468" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30135557" sideWeight="0.4832251" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -529,7 +996,8 @@
     <MESSAGE value="Improved layer management for tiled and non tiled WMS layers&#10;&#10;GetFeatureInfo supported for the layer selected in the layer tree&#10;Pan animation when selecting a feture in the feature grid&#10;GetFeatureInfo as JSON parsed to store&#10;" />
     <MESSAGE value="GetFeatureInfo: layers and columns can be configured&#10;" />
     <MESSAGE value="More specific application using maps, grid, etc, can be developed by overriding existing classes&#10;&#10;Urbanismo is adding a specific WFS and the necessary logic, distinct from the other applications.&#10;Add alias for the CRS returned by Geoserver WFS JSON request" />
-    <option name="LAST_COMMIT_MESSAGE" value="More specific application using maps, grid, etc, can be developed by overriding existing classes&#10;&#10;Urbanismo is adding a specific WFS and the necessary logic, distinct from the other applications.&#10;Add alias for the CRS returned by Geoserver WFS JSON request" />
+    <MESSAGE value="Attribute based style for WFS features&#10;&#10;Static charts added to the dashboard view" />
+    <option name="LAST_COMMIT_MESSAGE" value="Attribute based style for WFS features&#10;&#10;Static charts added to the dashboard view" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -540,223 +1008,119 @@
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="4" />
+      <option name="time" value="5" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/images/geomaster-42x38.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classic/src/view/main/Viewport.js">
+    <entry file="file://$PROJECT_DIR$/classic/src/view/authentication/AuthenticationController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="41" column="96" selection-start-line="41" selection-start-column="96" selection-end-line="41" selection-end-column="96" />
+          <caret line="36" column="45" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="45" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modern.json">
+    <entry file="file://$PROJECT_DIR$/classic/src/view/dashboard/UrbanismoFuncaoController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/mssql-only.js">
+    <entry file="file://$PROJECT_DIR$/classic/src/view/dashboard/UrbanismoProcessoTipoController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/model/sync/Sensor.js">
+    <entry file="file://$PROJECT_DIR$/classic/src/view/dashboard/UrbanismoProcessoTipo.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="27" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="27" />
+          <caret line="9" column="46" selection-start-line="8" selection-start-column="30" selection-end-line="9" selection-end-column="46" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classic/src/view/geo/MapTree.js">
+    <entry file="file://$PROJECT_DIR$/classic/src/view/plantas/FullMapPanel.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="53" column="38" selection-start-line="53" selection-start-column="38" selection-end-line="53" selection-end-column="38" />
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classic/src/view/geo/MapTreeController.js">
+    <entry file="file://$PROJECT_DIR$/classic/src/view/dashboard/UrbanismoFuncao.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Readme.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor vertical-scroll-proportion="0.45378152">
+            <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classic/src/view/infprevia/InfPreviaController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="37" selection-start-line="0" selection-start-column="37" selection-end-line="0" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classic/src/view/geo/MapPanelModel.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="40" selection-end-column="11" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/tmp/gfitransformed.json">
+    <entry file="file://$PROJECT_DIR$/classic/src/view/main/ViewportController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="62.48387">
+          <caret line="183" column="33" selection-start-line="183" selection-start-column="33" selection-end-line="183" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/direct/DXSessao.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.2041886">
-          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classic/src/view/sync/SyncModel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.036649216">
-          <caret line="37" column="25" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/tmp/gfioriginal.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1978022">
-          <caret line="6" column="19" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/model/sync/Calibration.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.0914397">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/model/geo/FeatureProperty.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.105058365">
-          <caret line="3" column="19" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/model/geo/Feature.js">
+    <entry file="file://$PROJECT_DIR$/classic/src/view/maps/FullMapPanel.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="39" selection-start-line="0" selection-start-column="39" selection-end-line="0" selection-end-column="39" />
+          <caret line="22" column="49" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/model/geo/Layer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42023346">
-          <caret line="54" column="26" selection-start-line="54" selection-start-column="16" selection-end-line="54" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/tmp/gfi.js">
+    <entry file="file://$PROJECT_DIR$/classic/src/view/infprevia/FullMapPanelModel.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="7" column="38" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="38" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classic/src/view/geo/PopupWindowModel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.56031126">
-          <caret line="16" column="55" selection-start-line="16" selection-start-column="55" selection-end-line="16" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ol3/ol3mapproxy.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ol3/gwc.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.0">
-          <caret line="3" column="37" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classic/src/view/geo/MapGridModel.js">
+    <entry file="file://$PROJECT_DIR$/classic/src/view/geo/MapGrid.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="0" column="37" selection-start-line="0" selection-start-column="37" selection-end-line="0" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Readme.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor vertical-scroll-proportion="0.0">
-            <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ol3/3763.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23529412">
-          <caret line="137" column="43" selection-start-line="137" selection-start-column="43" selection-end-line="137" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/auto-db-tunnel.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2535211">
-          <caret line="9" column="105" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="105" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classic/src/view/geo/PopupWindow.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36619717">
-          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="37" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/packages/remote/GeoExt/src/data/store/Features.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classic/src/view/consulta/Municipe.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7887324">
-          <caret line="34" column="18" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classic/src/Application.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.028169014">
-          <caret line="29" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.029411765">
-          <caret line="204" column="41" selection-start-line="204" selection-start-column="41" selection-end-line="204" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classic/src/view/geo/gu/MapCanvas.js">
+    <entry file="file://$PROJECT_DIR$/classic/src/view/infprevia/MapGridController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -764,31 +1128,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/packages/remote/GeoExt/src/grid/column/Symbolizer.js">
+    <entry file="file://$PROJECT_DIR$/classic/src/view/infprevia/MapGridModel.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="79" column="18" selection-start-line="79" selection-start-column="4" selection-end-line="79" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classic/src/view/geo/MapCanvasController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.028169014">
-          <caret line="30" column="159" selection-start-line="30" selection-start-column="146" selection-end-line="30" selection-end-column="159" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classic/src/view/geo/MapCanvas.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.04225352">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classic/src/view/geo/MapCanvasModel.js">
+    <entry file="file://$PROJECT_DIR$/classic/src/view/infprevia/InfPreviaModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="33" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/images/geomaster-white-100x100.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classic/src/view/infprevia/FullMapPanel.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -804,7 +1165,79 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classic/src/view/geo/MapGrid.js">
+    <entry file="file://$PROJECT_DIR$/classic/src/view/redeviaria/FullMapPanelController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.023968043">
+          <caret line="1" column="51" selection-start-line="1" selection-start-column="29" selection-end-line="1" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classic/src/view/infprevia/ConfrontacaoMapPanelController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.85619175">
+          <caret line="77" column="0" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classic/src/view/main/Viewport.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.024861878">
+          <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classic/src/view/geo/MapPanelController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6231691">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classic/src/view/maps/MapCanvasController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.425">
+          <caret line="32" column="16" selection-start-line="32" selection-start-column="16" selection-end-line="32" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classic/src/view/infprevia/ConfrontacaoMapPanelModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35952064">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classic/src/view/infprevia/ConfrontacaoMapPanel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.047936086">
+          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classic/src/view/maps/FullMapPanelController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.26364848">
+          <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classic/src/view/geo/gu/MapGridController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -814,13 +1247,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/classic/src/view/geo/MapGridController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29577464">
-          <caret line="17" column="35" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="35" />
+        <state vertical-scroll-proportion="0.1677763">
+          <caret line="7" column="18" selection-start-line="2" selection-start-column="35" selection-end-line="7" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classic/src/view/dashboard/Network.js">
+    <entry file="file://$PROJECT_DIR$/classic/src/view/geo/gu/MapGridModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="29" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classic/src/view/urbanismo/FullMapPanel.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -828,15 +1269,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classic/src/view/dashboard/Sales.js">
+    <entry file="file://$PROJECT_DIR$/classic/src/view/infprevia/FullMapPanelController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="36" selection-end-column="14" />
+        <state vertical-scroll-proportion="-1.9655173">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classic/src/view/sync/SyncBase.js">
+    <entry file="file://$PROJECT_DIR$/classic/src/view/maps/FullMapPanelModel.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -844,39 +1285,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classic/src/view/dashboard/DashboardController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.114754">
-          <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classic/src/view/dashboard/UrbanismoFuncaoController.js">
+    <entry file="file://$PROJECT_DIR$/classic/src/view/maps/BasicTreeColumnLegends.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="48" selection-start-line="0" selection-start-column="48" selection-end-line="0" selection-end-column="48" />
+          <caret line="7" column="46" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="46" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classic/src/view/geo/gu/MapGrid.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="41" selection-start-line="0" selection-start-column="40" selection-end-line="86" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classic/src/view/dashboard/UrbanismoProcessoTipoController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classic/src/view/dashboard/Services.js">
+    <entry file="file://$PROJECT_DIR$/classic/src/view/urbanismo/FullMapPanelModel.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -884,34 +1301,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classic/src/view/dashboard/DashboardModel.js">
+    <entry file="file://$PROJECT_DIR$/classic/src/view/urbanismo/UrbanismoController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="179" column="3" selection-start-line="179" selection-start-column="3" selection-end-line="179" selection-end-column="3" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classic/src/view/dashboard/Dashboard.js">
+    <entry file="file://$PROJECT_DIR$/classic/src/view/urbanismo/MapGridModel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33802816">
-          <caret line="27" column="15" selection-start-line="27" selection-start-column="15" selection-end-line="27" selection-end-column="15" />
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classic/src/view/dashboard/UrbanismoProcessoTipo.js">
+    <entry file="file://$PROJECT_DIR$/classic/src/view/urbanismo/MapGridController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="31" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classic/src/view/dashboard/UrbanismoFuncao.js">
+    <entry file="file://$PROJECT_DIR$/classic/src/view/urbanismo/UrbanismoModel.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="43" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -919,7 +1336,87 @@
     <entry file="file://$PROJECT_DIR$/classic/src/view/geo/gu/MapCanvasController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classic/src/view/urbanismo/GridEdificado.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.4262295">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classic/src/view/urbanismo/GridProcesso.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="40" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classic/src/view/urbanismo/Urbanismo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classic/src/view/geo/gu/MapGrid.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="111" column="19" selection-start-line="111" selection-start-column="19" selection-end-line="111" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classic/src/view/infprevia/InfPrevia.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classic/src/view/infprevia/MapGrid.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classic/src/view/publicidade/Publicidade.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="6" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classic/src/view/plantas/Plantas.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classic/src/view/redeviaria/RedeViaria.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6551724">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classic/src/view/urbanismo/FullMapPanelController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.82758623">
+          <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
           <folding />
         </state>
       </provider>

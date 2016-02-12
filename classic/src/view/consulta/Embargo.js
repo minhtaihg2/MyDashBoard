@@ -20,7 +20,7 @@ Ext.define('Admin.view.consulta.Embargo', {
         dockedItems: [{
             xtype: 'pagingtoolbar',
             bind: {
-                store: '{embargo}'
+                store: '{embargos}'
             },
             dock: 'top',
             displayInfo: true
