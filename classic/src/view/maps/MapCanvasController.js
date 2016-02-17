@@ -108,6 +108,7 @@ Ext.define('Admin.view.maps.MapCanvasController', {
                             attributions: [new ol.Attribution({
                                 html: records[i].get('attribution')
                             })],
+                            projection: projection,
                             requestEncoding: 'REST',
                             matrixSet: 'pt_tm_06', // mapproxy grid
                             format: 'image/png',
@@ -132,6 +133,7 @@ Ext.define('Admin.view.maps.MapCanvasController', {
                                 'LAYERS': records[i].get('layer'),
                                 'TILED': true
                             },
+                            projection: projection,
                             serverType: 'geoserver',
                             tileGrid: tileGridGWCSoftwareLivre,
                             crossOrigin: 'anonymous'
@@ -154,6 +156,7 @@ Ext.define('Admin.view.maps.MapCanvasController', {
                                 'LAYERS': records[i].get('layer'),
                                 'TILED': true
                             },
+                            projection: projection,
                             serverType: 'geoserver',
                             tileGrid: tileGridGWCGeomaster,
                             crossOrigin: 'anonymous'

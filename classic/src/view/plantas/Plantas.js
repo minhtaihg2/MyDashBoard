@@ -12,8 +12,8 @@ Ext.define('Admin.view.plantas.Plantas', {
     items: [{
         xtype: 'fullmap-plantas',
         geoExtViewId: 40,
-        responsiveCls: 'big-100',
-        title: 'Plantas de localização'
+        responsiveCls: 'big-100' //,
+        //title: 'Plantas de localização'
     }]
 
 });

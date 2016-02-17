@@ -11,7 +11,7 @@ Ext.define('Admin.view.urbanismo.Urbanismo', {
 
     items: [{
         xtype: 'fullmap-urbanismo',
-        geoExtViewId: 60,
+        geoExtViewId: 20,
         responsiveCls: 'big-100',
         title: 'Urbanismo'
     }, {
