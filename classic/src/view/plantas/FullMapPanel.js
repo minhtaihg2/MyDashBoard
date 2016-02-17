@@ -17,7 +17,26 @@ Ext.define("Admin.view.plantas.FullMapPanel", {
         var me = this;
         console.log('Admin.view.plantas.FullMapPanel');
 
-        me.tbar = [ '->', {
+        me.tbar = [{
+            xtype: 'combobox',
+            //reference: 'nominatim',
+            width: 400,
+            //publishes: 'value',
+            fieldLabel: 'Procurar',
+            labelWidth: 60,
+            displayField: 'name',
+            valueField: 'lonlat',
+            //anchor: '-15',
+            bind: {
+                store: '{nominatimdata}'
+            },
+            minChars: 4,
+            queryParam: 'q',
+            queryMode: 'remote',
+            listeners: {
+                change: 'onChange'
+            }
+        }, '->', {
             xtype: 'cycle',
             showText: true,
             textAlign: 'right',
@@ -29,7 +48,7 @@ Ext.define("Admin.view.plantas.FullMapPanel", {
                     text: 'Folha A4',
                     type: 'A4',
                     checked: true
-                },{
+                }, {
                     text: 'Folha A3',
                     type: 'A3'
                 }]
@@ -46,7 +65,7 @@ Ext.define("Admin.view.plantas.FullMapPanel", {
                     text: 'Vertical',
                     type: 'vertical',
                     checked: true
-                },{
+                }, {
                     text: 'Horizontal',
                     type: 'horizontal'
                 }]

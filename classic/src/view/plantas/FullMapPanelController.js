@@ -9,6 +9,52 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
         'GeoExt.data.serializer.XYZ',
         'Ext.form.action.StandardSubmit'],
 
+    onChange: function(combo, newValue, oldValue, eOpts) {
+        var me = this;
+        var vm = me.getView().getViewModel();
+
+        console.log('Pesquisa: ' + newValue);
+        console.log(newValue);
+
+        var vectorLayer = vm.get('nominatimLayer');
+        vectorLayer.getSource().clear(true);
+
+        if (Array.isArray(newValue)) {
+            console.log('É um array com ' + newValue.length);
+
+            var spot =  ol.proj.transform(newValue, 'EPSG:4326', 'EPSG:3763');
+            console.log(spot);
+
+            var geoMarker = new ol.Feature({
+                geometry: new ol.geom.Point(spot)
+            });
+
+            vectorLayer.getSource().addFeature(geoMarker);
+
+            //
+            var map = me.getView().down('mapcanvas').map;
+            var mapView = map.getView();
+            var pan = ol.animation.pan({
+                duration: 1000,
+                source: mapView.getCenter()
+            });
+            map.beforeRender(pan);
+            mapView.setCenter(spot);
+
+
+
+
+        } else {
+            console.log('Não é um array');
+        }
+        //var geoMarker = new ol.Feature({
+        //    geometry: new ol.geom.Point([-23000, 101000])
+        //});
+
+
+
+    },
+
     onPrintClick: function(item, e, eOpts) {
         var view = this.getView();
         var olMap = view.down('mapcanvas').map;
@@ -105,6 +151,7 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
         var vm = me.getView().getViewModel();
 
         var extentLayer = new ol.layer.Vector({
+            name: 'Área de Impressão--',  // legend tree
             source: new ol.source.Vector()
         });
 
@@ -119,6 +166,25 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
                 }
             }
         });
+
+        var geoMarker = new ol.Feature({
+            geometry: new ol.geom.Point([-23000, 101000])
+        });
+
+        var nominatimLayer = new ol.layer.Vector({
+            name: 'nominatim--',  // legend tree
+            source: new ol.source.Vector({
+                //features: [geoMarker]
+            }),
+            style: new ol.style.Style({
+                image: new ol.style.Icon({
+                    //anchor: [0.5, 1],
+                    src: 'resources/images/location-icon-24.svg'
+                })
+            })
+        });
+        olMap.addLayer(nominatimLayer);
+        vm.set('nominatimLayer', nominatimLayer);
 
     }
 
