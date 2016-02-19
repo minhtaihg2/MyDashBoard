@@ -40,6 +40,11 @@ Ext.define("Admin.view.maps.MapCanvas", {
             controls: ol.control.defaults().extend([
                 new ol.control.ZoomToExtent({
                     extent: [-36000, 91900, -9000, 114000]
+                }),
+                //new ol.control.ZoomSlider(),
+                new ol.control.ScaleLine(),
+                new ol.control.MousePosition({
+                    coordinateFormat: ol.coordinate.createStringXY(0)
                 })
             ]),
             layers: [],
@@ -58,6 +63,17 @@ Ext.define("Admin.view.maps.MapCanvas", {
         //me.map.addControl(layerSwitcher);
 
         me.callParent();
+    },
+
+    getCurrentScale: function () {
+        var map = this.getMap();
+        var view = map.getView();
+        var resolution = view.getResolution();
+        var units = map.getView().getProjection().getUnits();
+        var dpi = 25.4 / 0.28;
+        var mpu = ol.proj.METERS_PER_UNIT[units];
+        var scale = resolution * mpu * 39.37 * dpi;
+        return scale;
     }
 
 });

@@ -58,6 +58,26 @@ Ext.define('Admin.view.sync.SyncModel', {
                 type: 'string',
                 value: '{sensorGrid.selection.address}'
             }]
+        },
+        temperaturechart: {
+            fields: ['indicador', 'ind'],
+            data: [
+                {indicador: 'Industria', ind: 29},
+                {indicador: 'Varanda', ind: 37},
+                {indicador: 'Posto transformacao', ind: 50},
+                {indicador: 'Alpendre', ind: 54},
+                {indicador: 'Equipamentos', ind: 121},
+                {indicador: '', ind: 126},
+                {indicador: 'Escolar', ind: 168},
+                {indicador: 'Notavel', ind: 207},
+                {indicador: 'Religioso', ind: 219},
+                {indicador: 'Residencia_individual', ind: 294},
+                {indicador: 'Industrial', ind: 2881},
+                {indicador: 'Barraco', ind: 7532},
+                {indicador: 'Telheiro', ind: 8721},
+                {indicador: 'Anexo', ind: 33139},
+                {indicador: 'Edificio', ind: 36127}
+            ]
         }
     }
 

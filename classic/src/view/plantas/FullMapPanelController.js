@@ -9,7 +9,7 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
         'GeoExt.data.serializer.XYZ',
         'Ext.form.action.StandardSubmit'],
 
-    onChange: function(combo, newValue, oldValue, eOpts) {
+    onChange: function (combo, newValue, oldValue, eOpts) {
         var me = this;
         var vm = me.getView().getViewModel();
 
@@ -22,7 +22,7 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
         if (Array.isArray(newValue)) {
             console.log('É um array com ' + newValue.length);
 
-            var spot =  ol.proj.transform(newValue, 'EPSG:4326', 'EPSG:3763');
+            var spot = ol.proj.transform(newValue, 'EPSG:4326', 'EPSG:3763');
             console.log(spot);
 
             var geoMarker = new ol.Feature({
@@ -42,8 +42,6 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
             mapView.setCenter(spot);
 
 
-
-
         } else {
             console.log('Não é um array');
         }
@@ -52,10 +50,9 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
         //});
 
 
-
     },
 
-    onPrintClick: function(item, e, eOpts) {
+    onPrintClick: function (item, e, eOpts) {
         var view = this.getView();
         var olMap = view.down('mapcanvas').map;
 
@@ -79,10 +76,10 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
         var mapView = view.down('mapcanvas').getView();
         var serializedLayers = util.getSerializedLayers(
             olMap,
-            function(layer) {
+            function (layer) {
                 // do not print the extent layer
                 var isExtentLayer = (extent === layer);
-                console.log('Layer ' + layer.get('title') + ' → ' + (!isExtentLayer && layer.getVisible()) );
+                console.log('Layer ' + layer.get('title') + ' → ' + (!isExtentLayer && layer.getVisible()));
                 return !isExtentLayer && layer.getVisible();
             }
         );
@@ -108,22 +105,61 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
             ]
         }).submit();
 
+        /*
+        spec = {
+            "layout": "A4 portrait",
+            "attributes": {
+                "map": {
+                    "bbox": [-25639.676895325025, 100699.43356133146, -25519.769366045202, 100750.16366987293],
+                    "dpi": 72,
+                    "layers": [{
+                        "geoJson": {"type": "FeatureCollection", "features": []},
+                        "opacity": 1,
+                        "style": {
+                            "version": "2",
+                            "*": {
+                                "symbolizers": [{
+                                    "type": "point",
+                                    "strokeColor": "white",
+                                    "strokeOpacity": 1,
+                                    "strokeWidth": 4,
+                                    "strokeDashstyle": "solid",
+                                    "fillColor": "red"
+                                }]
+                            }
+                        },
+                        "type": "geojson"
+                    }, {
+                        "baseURL": "http://softwarelivre.cm-agueda.pt/geoserver/wms",
+                        "customParams": {"VERSION": "1.1.1", "tiled": true, "STYLES": "", "LAYERS": "carto2_5k"},
+                        "layers": ["carto2_5k"],
+                        "opacity": 1,
+                        "styles": [""],
+                        "type": "WMS"
+                    }],
+                    "projection": "EPSG:3763",
+                    "rotation": 0
+                }
+            }
+        };
+        */
+
 
     },
 
-    onPaperClick: function(btn, menuitem) {
+    onPaperClick: function (btn, menuitem) {
         var view = this.getView();
         var viewModel = view.getViewModel();
         viewModel.set('paper', menuitem.type);
     },
 
-    onOrientationClick: function(btn, menuitem) {
+    onOrientationClick: function (btn, menuitem) {
         var view = this.getView();
         var viewModel = view.getViewModel();
         viewModel.set('orientation', menuitem.type);
     },
 
-    onPrintProviderReady: function(provider, view, vm, map, extent) {
+    onPrintProviderReady: function (provider, view, vm, map, extent) {
         console.log('onPrintProviderReady');
 
         var capabilities = provider.capabilityRec;
@@ -136,7 +172,7 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
         var render = GeoExt.data.MapfishPrintProvider.renderPrintExtent;
 
         render(view, extent, clientInfo);
-        map.getView().on('propertychange', function(){
+        map.getView().on('propertychange', function () {
             extent.getSource().clear();
             render(view, extent, clientInfo);
         });
@@ -161,7 +197,7 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
         Ext.create('GeoExt.data.MapfishPrintProvider', {
             url: "http://localhost:8080/print/print/geoext/capabilities.json",
             listeners: {
-                ready: function(provider) {
+                ready: function (provider) {
                     me.onPrintProviderReady(provider, view, vm, olMap, extentLayer);
                 }
             }

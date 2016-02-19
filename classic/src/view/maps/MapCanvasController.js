@@ -246,6 +246,11 @@ Ext.define('Admin.view.maps.MapCanvasController', {
             olMap.addLayer(element);
         });
 
+        olMap.getView().on('change:resolution', function (e) {
+            console.log('change:resolution → ' + e.oldValue + ' → ' + olMap.getView().getResolution());
+            console.log('Escala 1:' + Math.round(me.getView().getCurrentScale()));
+        });
+
     },
 
     setupLayerTreeStoreAndPanel: function (view) {
