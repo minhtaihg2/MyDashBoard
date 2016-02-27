@@ -47,6 +47,12 @@ Ext.define('Admin.view.maps.MapCanvasController', {
 
         var projection = olMap.getView().getProjection();
 
+        var continente = new ol.tilegrid.WMTS({
+            origin: [-127104, 278544],
+            resolutions: [1399.9999999999998, 699.9999999999999, 419.99999999999994, 280.0, 140.0, 55.99999999999999, 27.999999999999996, 13.999999999999998, 6.999999999999999, 2.8, 1.4, 0.5599999999999999, 0.27999999999999997, 0.13999999999999999, 0.055999999999999994],
+            matrixIds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+        });
+
         var pt_tm_06_grid_mapproxy = new ol.tilegrid.WMTS({
             origin: [-119191.407499, 276083.7674],
             resolutions: [281.488560253, 140.744280127, 70.3721400634, 35.1860700317, 17.5930350158, 8.79651750792, 4.39825875396, 2.19912937698, 1.09956468849, 0.549782344245, 0.274891172122, 0.137445586061, 0.0687227930306],
@@ -110,9 +116,9 @@ Ext.define('Admin.view.maps.MapCanvasController', {
                             })],
                             projection: projection,
                             requestEncoding: 'REST',
-                            matrixSet: 'pt_tm_06', // mapproxy grid
+                            matrixSet: 'continente', // mapproxy grid
                             format: 'image/png',
-                            tileGrid: pt_tm_06_grid_mapproxy,
+                            tileGrid: continente,
                             crossOrigin: 'anonymous'
                         }),
                         legendUrl: records[i].get('legendurl')
@@ -158,7 +164,7 @@ Ext.define('Admin.view.maps.MapCanvasController', {
                             },
                             projection: projection,
                             serverType: 'geoserver',
-                            tileGrid: tileGridGWCGeomaster,
+                            tileGrid: continente,
                             crossOrigin: 'anonymous'
                         }),
                         legendUrl: records[i].get('legendurl')

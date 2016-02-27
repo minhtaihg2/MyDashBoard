@@ -28,12 +28,8 @@ Ext.define("Admin.view.maps.MapCanvas", {
 
         var projection = new ol.proj.Projection({
             code: 'EPSG:3763',
-            units: 'm',
-            axisOrientation: 'neu',
-            // Gridset bounds
-            // Computed from maximum extent of CRS
-            // extent: [-127096.80687006014, -301702.02931375435, 173081.7938279003, 278541.6694684961]
-            extent: [-119191.407499, -300404.803999, 162129.0811, 276083.7674]
+            extent: [-127104, -301712, 173088, 278544],
+            units: 'm'
         });
 
         me.map = new ol.Map({
@@ -43,6 +39,7 @@ Ext.define("Admin.view.maps.MapCanvas", {
                 }),
                 //new ol.control.ZoomSlider(),
                 new ol.control.ScaleLine(),
+                new ol.control.MapScale(),
                 new ol.control.MousePosition({
                     coordinateFormat: ol.coordinate.createStringXY(0)
                 })
@@ -50,8 +47,9 @@ Ext.define("Admin.view.maps.MapCanvas", {
             layers: [],
             view: new ol.View({
                 projection: projection,
+                resolutions: [1399.9999999999998, 699.9999999999999, 419.99999999999994, 280.0, 140.0, 55.99999999999999, 27.999999999999996, 13.999999999999998, 6.999999999999999, 2.8, 1.4, 0.5599999999999999, 0.27999999999999997, 0.13999999999999999, 0.055999999999999994],
                 center: [-26000, 100800],
-                zoom: 10
+                zoom: 55.99999999999999
             }),
             interactions: ol.interaction.defaults({doubleClickZoom: false})
         });
