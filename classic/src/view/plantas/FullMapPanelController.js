@@ -45,67 +45,46 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
         } else {
             console.log('Não é um array');
         }
-        //var geoMarker = new ol.Feature({
-        //    geometry: new ol.geom.Point([-23000, 101000])
-        //});
-
-
     },
 
     onPrintClick: function (item, e, eOpts) {
+        var me = this;
         var view = this.getView();
         var olMap = view.down('mapcanvas').map;
+        var mapView = view.down('mapcanvas').getView();
 
         var vm = view.getViewModel();
-
         var extent = vm.get('extent');
 
-        //var layout = vm.get('layout');
+        var center = olMap.getView().getCenter();
+        var layoutname = vm.get('paper') + '_' + vm.get('orientation');
 
-        var layouts = vm.get('layouts');
-        var layout;
-
-        var orientation = vm.get('orientation');
-
-        switch (orientation) {
-            case 'vertical':
-                layout = layouts.getAt(0);
-                break;
-            case 'horizontal':
-                layout = layouts.getAt(1);
-                break;
-            default:
-                return;
-        }
-
-        //console.log(layout);
-        var attr = layout.attributes().getAt(0);
-        var clientInfo = attr.get('clientInfo');
+        var stringifyFunc = ol.coordinate.createStringXY(0);
+        var out = stringifyFunc(center);
 
         var spec = {
-            layout: layout.get('name'),
-            attributes: {}
+            layout: layoutname,
+            outputFilename: "1999",
+            attributes: {
+                centro: out,
+                pedido: "1999/2016",
+                requerente: "Ana Isabel Gomes Vilar"
+            }
         };
 
-        var firstFeature = extent.getSource().getFeatures()[0];
-        var bbox = firstFeature.getGeometry().getExtent();
-        var center = ol.extent.getCenter(firstFeature.getGeometry().getExtent());
-        var util = GeoExt.data.MapfishPrintProvider;
+        //var util = GeoExt.data.MapfishPrintProvider;
+        //var serializedLayers = util.getSerializedLayers(
+        //    olMap,
+        //    function (layer) {
+        //        // do not print the extent layer
+        //        var isExtentLayer = (extent === layer);
+        //        console.log('Layer ' + layer.get('title') + ' → ' + (!isExtentLayer && layer.getVisible()));
+        //        return !isExtentLayer && layer.getVisible();
+        //    }
+        //);
+        //serializedLayers.reverse();
 
-        var mapView = view.down('mapcanvas').getView();
-        var serializedLayers = util.getSerializedLayers(
-            olMap,
-            function (layer) {
-                // do not print the extent layer
-                var isExtentLayer = (extent === layer);
-                console.log('Layer ' + layer.get('title') + ' → ' + (!isExtentLayer && layer.getVisible()));
-                return !isExtentLayer && layer.getVisible();
-            }
-        );
-
-        serializedLayers.reverse();
-        spec.attributes[attr.get('name')] = {
-            //bbox: bbox,
+        spec.attributes['map2k'] = {
             center: center,
             dpi: 200, // clientInfo.dpiSuggestions[0],
             //layers: serializedLayers,
@@ -122,92 +101,97 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
             scale: 2000
         };
 
-        Ext.create('Ext.form.Panel', {
-            standardSubmit: true,
-            url: 'http://localhost:8080/print/print/plantas/buildreport.pdf',
+        spec.attributes['map10k'] = {
+            center: center,
+            dpi: 200, // clientInfo.dpiSuggestions[0],
+            //layers: serializedLayers,
+            layers: [{
+                "baseURL": "http://softwarelivre.cm-agueda.pt/geoserver/wms",
+                "customParams": {"VERSION": "1.1.1", "tiled": true, "STYLES": "", "LAYERS": "carto10k"},
+                "layers": ["carto10k"],
+                "opacity": 1,
+                "styles": [""],
+                "type": "WMS"
+            }],
+            projection: mapView.getProjection().getCode(),
+            rotation: mapView.getRotation(),
+            scale: 10000
+        };
+
+        /*
+         Ext.create('Ext.form.Panel', {
+         standardSubmit: true,
+         url: 'http://localhost:8080/print/print/plantas/buildreport.pdf',
+         method: 'POST',
+         items: [{
+         xtype: 'textfield',
+         name: 'spec',
+         value: Ext.encode(spec)
+         }]
+         }).submit();
+         */
+
+        Ext.Ajax.request({
+            url: 'http://localhost:8080/print/print/plantas/report.pdf',
             method: 'POST',
-            items: [
-                {
-                    xtype: 'textfield',
-                    name: 'spec',
-                    value: Ext.encode(spec)
-                }
-            ]
-        }).submit();
+            headers: {'Content-Type': 'application/json'},
+            jsonData: spec,
+            success: function (response, opts) {
+                var obj = Ext.decode(response.responseText);
+                console.dir(obj);
 
-        spec = {
-            "layout": "A4 portrait",
-            "attributes": {
-                "map": {
-                    "bbox": [-25639.676895325025, 100699.43356133146, -25519.769366045202, 100750.16366987293],
-                    "dpi": 72,
-                    "layers": [{
-                        "baseURL": "http://softwarelivre.cm-agueda.pt/geoserver/wms",
-                        "customParams": {"VERSION": "1.1.1", "tiled": true, "STYLES": "", "LAYERS": "carto2_5k"},
-                        "layers": ["carto2_5k"],
-                        "opacity": 1,
-                        "styles": [""],
-                        "type": "WMS"
-                    }],
-                    "projection": "EPSG:3763",
-                    "rotation": 0
-                }
-            }
-        };
+                /*
+                 downloadURL: "/print/print/report/47470980-2975-418e-8841-08261c9fd6ea@dbfe37f9-02ef-4f4b-9441-4e3d0247733c"
+                 ref: "47470980-2975-418e-8841-08261c9fd6ea@dbfe37f9-02ef-4f4b-9441-4e3d0247733c"
+                 statusURL: "/print/print/status/47470980-2975-418e-8841-08261c9fd6ea@dbfe37f9-02ef-4f4b-9441-4e3d0247733c.json"
+                 */
 
-        // working!
-        specScale = {
-            "layout": "A4 landscape",
-            "attributes": {
-                "map": {
-                    "center": [-26177, 101169],
-                    "dpi": 300,
-                    "layers": [{
-                        "baseURL": "http://softwarelivre.cm-agueda.pt/geoserver/wms",
-                        "customParams": {
-                            "VERSION": "1.1.1",
-                            "tiled": true,
-                            "STYLES": "",
-                            "LAYERS": "carto2_5k"
-                        },
-                        "layers": ["carto2_5k"],
-                        "opacity": 1,
-                        "styles": [""],
-                        "type": "WMS"
-                    }
-                    ],
-                    "projection": "EPSG:3763",
-                    "rotation": 0,
-                    "scale": 2000
-                },
-                "map10k": {
-                    "center": [-26177, 101169],
-                    "dpi": 300,
-                    "layers": [{
-                        "baseURL": "http://softwarelivre.cm-agueda.pt/geoserver/wms",
-                        "customParams": {
-                            "VERSION": "1.1.1",
-                            "tiled": true,
-                            "STYLES": "",
-                            "LAYERS": "carto2_5k"
-                        },
-                        "layers": ["carto2_5k"],
-                        "opacity": 1,
-                        "styles": [""],
-                        "type": "WMS"
-                    }
-                    ],
-                    "projection": "EPSG:3763",
-                    "rotation": 0,
-                    "scale": 10000
-                }
+                var startTime = new Date().getTime();
+                me.downloadWhenReady(startTime, obj);
+
+            },
+
+            failure: function (response, opts) {
+                console.log('server-side failure with status code ' + response.status);
             }
-        };
+        });
 
 
     },
 
+    downloadWhenReady: function (startTime, data) {
+        var me = this;
+        if ((new Date().getTime() - startTime) > 50000) {
+            console.log('Gave up waiting after 50 seconds');
+        } else {
+            //updateWaitingMsg(startTime, data);
+            setTimeout(function () {
+                Ext.Ajax.request({
+                    url: 'http://localhost:8080' + data.statusURL,
+                    success: function(response, opts) {
+                        var statusData = Ext.decode(response.responseText);
+                        console.dir(statusData);
+
+                        if (!statusData.done) {
+                            me.downloadWhenReady(startTime, data);
+                        } else {
+                            // TODO
+                            // popups are usually blocked!
+                            //window.open('http://localhost:8080' + statusData.downloadURL, '_blank');
+                            window.location = 'http://localhost:8080' + statusData.downloadURL;
+                            console.log('Downloading: ' + data.ref);
+                        }
+                    },
+                    failure: function(response, opts) {
+                        console.log('server-side failure with status code ' + response.status);
+                    }
+                });
+            }, 1000);
+        }
+    },
+
     onPaperClick: function (btn, menuitem) {
+        var me = this;
         var view = this.getView();
         var canvas = view.down('mapcanvas');
         var olMap = canvas.map;
@@ -216,25 +200,11 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
         vm.set('paper', menuitem.type);
         console.log(menuitem.type);
 
-        var layouts = vm.get('layouts');
-        var layout = layouts.getAt(1);
-
-        var attr = layout.attributes().getAt(0);
-        var clientInfo = attr.get('clientInfo');
-        var render = GeoExt.data.MapfishPrintProvider.renderPrintExtent;
-
-        var extentLayer = vm.get('extent');
-
-        extentLayer.getSource().clear();
-        render(canvas, extentLayer, clientInfo);
-        olMap.getView().on('propertychange', function () {
-            extentLayer.getSource().clear();
-            render(canvas, extentLayer, clientInfo);
-        });
-
+        me.addPreviewPolygon(vm, olMap);
     },
 
     onOrientationClick: function (btn, menuitem) {
+        var me = this;
         var view = this.getView();
         var canvas = view.down('mapcanvas');
         var olMap = canvas.map;
@@ -243,49 +213,7 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
         vm.set('orientation', menuitem.type);
         console.log(menuitem.type);
 
-        var layouts = vm.get('layouts');
-        var layout;
-
-        var printWidthMeters2k, printHeightMeters2k;
-        var printWidthMeters10k, printHeightMeters10k;
-
-        switch (menuitem.type) {
-            case 'vertical':
-                layout = layouts.getAt(0);
-                printWidthMeters2k = 388.04;
-                printHeightMeters2k = 465.65;
-                printWidthMeters10k = 1940.2;
-                printHeightMeters10k = 2328.3;
-                break;
-            case 'horizontal':
-                layout = layouts.getAt(1);
-                printWidthMeters2k = 465.65;
-                printHeightMeters2k = 388.04;
-                printWidthMeters10k = 2328.3;
-                printHeightMeters10k = 1940.2;
-                break;
-            default:
-                return;
-        }
-
-        var attr = layout.attributes().getAt(0);
-        var clientInfo = attr.get('clientInfo');
-        var render = GeoExt.data.MapfishPrintProvider.renderPrintExtent;
-        var render10k = GeoExt.data.MapfishPrintProvider.renderPrintExtent10k;
-
-        var extentLayer = vm.get('extent');
-
-        extentLayer.getSource().clear();
-        //render(canvas, extentLayer, clientInfo);
-        render10k(canvas, extentLayer, clientInfo, printWidthMeters2k, printHeightMeters2k, '2000');
-        render10k(canvas, extentLayer, clientInfo, printWidthMeters10k, printHeightMeters10k, '10000');
-        olMap.getView().on('propertychange', function () {
-            extentLayer.getSource().clear();
-            //render(canvas, extentLayer, clientInfo);
-            render10k(canvas, extentLayer, clientInfo, printWidthMeters2k, printHeightMeters2k, '2000');
-            render10k(canvas, extentLayer, clientInfo, printWidthMeters10k, printHeightMeters10k, '10000');
-        });
-
+        me.addPreviewPolygon(vm, olMap);
     },
 
 //    plantas = Ext.ComponentQuery.query('fullmap-plantas')[0];
@@ -295,31 +223,65 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
 //l6s = l6.getSource()
 
 
-    addPreviewPolygon: function (provider, view, vm, map, extent) {
+    //addPreviewPolygon: function (provider, view, vm, map, extent) {
+    addPreviewPolygon: function (vm, map) {
         var center = map.getView().getCenter();
         console.log(center);
-        var polinates = [];
+        var layoutname = vm.get('paper') + '_' + vm.get('orientation');
+        console.log(vm.get(layoutname));
 
-        // saber a área de impressão...
-        // scale = 1:10000
-        var printWidthMeters = 1940.2;
-        var printHeightMeters = 2328.3;
+        var extentLayer = vm.get('extent');
+        extentLayer.getSource().clear();
 
-        polinates.push([center[0] - printWidthMeters / 2, center[1] - printHeightMeters / 2]);
-        polinates.push([center[0] - printWidthMeters / 2, center[1] + printHeightMeters / 2]);
-        polinates.push([center[0] + printWidthMeters / 2, center[1] + printHeightMeters / 2]);
-        polinates.push([center[0] + printWidthMeters / 2, center[1] - printHeightMeters / 2]);
-        polinates.push([center[0] - printWidthMeters / 2, center[1] - printHeightMeters / 2]);
+        var layout = vm.get(layoutname);
+        var attr = layout.attributes(); // attr is "Ext.data.Store"
+        // console.log(attr);
+        // debug
+        // Ext.getDisplayName(temp1)
+        // "Ext.data.Store"
 
-        console.log(polinates);
+        attr.each(function (record) {
+            console.log(record.get('name') + ' → ' + record.get('type'));
+            if (record.get('type') == 'MapAttributeValues') {
+                var clientInfo = record.get('clientInfo');
 
-        var feature = new ol.Feature({
-            geometry: new ol.geom.Polygon([polinates]),
-            name: '10000',
-            description: '1:10000 print area'
+                // saber a área de impressão
+                // clientInfo is layout size in pixels
+                var width_mm = clientInfo.width * 0.3527778;
+                var height_mm = clientInfo.height * 0.3527778;
+
+                // map2k → scale 2 (from mm → meters)
+                // map10k → scale 10 (from mm → meters)
+                var escala = record.get('name').match(/\d+/);
+                if (escala.length > 0 && parseInt(escala[0]) > 0) {
+                    var printWidthMeters = width_mm * parseInt(escala[0]);
+                    var printHeightMeters = height_mm * parseInt(escala[0]);
+                    var polinates = [];
+                    polinates.push([center[0] - printWidthMeters / 2, center[1] - printHeightMeters / 2]);
+                    polinates.push([center[0] - printWidthMeters / 2, center[1] + printHeightMeters / 2]);
+                    polinates.push([center[0] + printWidthMeters / 2, center[1] + printHeightMeters / 2]);
+                    polinates.push([center[0] + printWidthMeters / 2, center[1] - printHeightMeters / 2]);
+                    polinates.push([center[0] - printWidthMeters / 2, center[1] - printHeightMeters / 2]);
+                    console.log(polinates);
+                    var featureName = (parseInt(escala[0]) * 1000).toString();
+                    var featureDescription = '1:' + featureName + ' print area';
+                    var feature = new ol.Feature({
+                        geometry: new ol.geom.Polygon([polinates]),
+                        name: featureName,
+                        description: featureDescription
+                    });
+                    var fakefeature = new ol.Feature({
+                        geometry: new ol.geom.Point([center[0] + printWidthMeters / 2, center[1] - printHeightMeters / 2]),
+                        name: featureName,
+                        description: featureDescription
+                    });
+                    extentLayer.getSource().addFeature(feature);
+                    extentLayer.getSource().addFeature(fakefeature);
+                }
+
+            }
         });
 
-        extent.getSource().addFeature(feature);
     },
 
     onPrintProviderReady: function (provider, view, vm, map, extent) {
@@ -333,29 +295,19 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
         // all possible layouts
         vm.set('layouts', layouts);
         // current layout
-        var layout = layouts.getAt(0); // vertical → A4 portrait, config.yaml
-        vm.set('layout', layout);
+        var layout = layouts.getAt(0); // portrait → A4 portrait, config.yaml
 
-        var attr = layout.attributes().getAt(0);
-        var clientInfo = attr.get('clientInfo');
+        for (var i = 0; i < layouts.getCount(); i++) {
+            var name = layouts.getAt(i).get('name');
+            console.log('Layout ' + i + ' → ' + name);
+            vm.set(name, layouts.getAt(i));
+        }
 
-        var printWidthMeters = clientInfo.width * 2;    // assuming 1:2000
-        var printHeightMeters = clientInfo.height * 2;  // assuming 1:2000
-
-        var render = GeoExt.data.MapfishPrintProvider.renderPrintExtent;
-        var render10k = GeoExt.data.MapfishPrintProvider.renderPrintExtent10k;
-
-        //render(view, extent, clientInfo);
-        render10k(view, extent, clientInfo, 388.04, 465.65, '2000');
-        render10k(view, extent, clientInfo, 1940.2, 2328.3, '10000');
         //me.addPreviewPolygon(provider, view, vm, map, extent);
+        me.addPreviewPolygon(vm, map);
 
         map.getView().on('propertychange', function () {
-            extent.getSource().clear();
-            //render(view, extent, clientInfo);
-            render10k(view, extent, clientInfo, 388.04, 465.65, '2000');
-            render10k(view, extent, clientInfo, 1940.2, 2328.3, '10000');
-            //me.addPreviewPolygon(provider, view, vm, map, extent);
+            me.addPreviewPolygon(vm, map);
         });
 
     },
@@ -382,7 +334,7 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
                 case '2000':
                     res = new ol.style.Style({
                         stroke: new ol.style.Stroke({
-                            color: 'green',
+                            color: [153, 0, 204, 1],
                             lineDash: [4],
                             width: 2
                         }),
@@ -392,7 +344,7 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
                             font: '10px Verdana',
                             text: feature.get('description'),
                             //fill: new ol.style.Fill({color: [255, 153, 0, 0.4]}),
-                            stroke: new ol.style.Stroke({color: [0, 255, 0, 1], width: 1}),
+                            stroke: new ol.style.Stroke({color: [153, 0, 204, 1], width: 1}),
                             offsetX: 0,
                             offsetY: 0,
                             rotation: 0
@@ -402,8 +354,8 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
                 case '10000':
                     res = new ol.style.Style({
                         stroke: new ol.style.Stroke({
-                            color: 'blue',
-                            lineDash: [2],
+                            color: [255, 102, 204, 1],
+                            lineDash: [4],
                             width: 2
                         }),
                         text: new ol.style.Text({
@@ -412,7 +364,7 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
                             font: '10px Verdana',
                             text: feature.get('description'),
                             //fill: new ol.style.Fill({color: [255, 153, 0, 0.4]}),
-                            stroke: new ol.style.Stroke({color: [0, 0, 255, 1], width: 1}),
+                            stroke: new ol.style.Stroke({color: [255, 102, 204, 1], width: 1}),
                             offsetX: 0,
                             offsetY: 0,
                             rotation: 0
@@ -445,15 +397,9 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
             }
         });
 
-        var geoMarker = new ol.Feature({
-            geometry: new ol.geom.Point([-23000, 101000])
-        });
-
         var nominatimLayer = new ol.layer.Vector({
             name: 'nominatim--',  // legend tree
-            source: new ol.source.Vector({
-                //features: [geoMarker]
-            }),
+            source: new ol.source.Vector({}),
             style: new ol.style.Style({
                 image: new ol.style.Icon({
                     //anchor: [0.5, 1],

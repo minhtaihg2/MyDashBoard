@@ -36,7 +36,7 @@ Ext.define("Admin.view.plantas.FullMapPanel", {
             listeners: {
                 change: 'onSearchNominatim'
             }
-        }, '->', /*{
+        }, '->', {
             xtype: 'cycle',
             showText: true,
             textAlign: 'right',
@@ -53,7 +53,7 @@ Ext.define("Admin.view.plantas.FullMapPanel", {
                     type: 'A3'
                 }]
             }
-        }, '-',*/ {
+        }, '-', {
             xtype: 'cycle',
             showText: true,
             textAlign: 'right',
@@ -63,11 +63,11 @@ Ext.define("Admin.view.plantas.FullMapPanel", {
             menu: {
                 items: [{
                     text: 'Vertical',
-                    type: 'vertical',
+                    type: 'portrait',
                     checked: true
                 }, {
                     text: 'Horizontal',
-                    type: 'horizontal'
+                    type: 'landscape'
                 }]
             }
         }, '-', {

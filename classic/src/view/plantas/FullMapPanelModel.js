@@ -5,7 +5,7 @@ Ext.define('Admin.view.plantas.FullMapPanelModel', {
 
     data: {
         paper: 'A4',
-        orientation: 'vertical'
+        orientation: 'portrait'
     },
 
     stores: {
