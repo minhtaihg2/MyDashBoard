@@ -6,3 +6,4 @@ build/development/
 build/temp/
 uploaded_images/
 sencha*.log
+/print-apps

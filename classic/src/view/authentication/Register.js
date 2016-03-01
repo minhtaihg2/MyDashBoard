@@ -51,7 +51,7 @@ Ext.define('Admin.view.authentication.Register', {
                             cls: 'trigger-glyph-noop auth-email-trigger'
                         }
                     }
-                },
+                }, /*
                 {
                     xtype: 'textfield',
                     cls: 'auth-textbox',
@@ -66,7 +66,7 @@ Ext.define('Admin.view.authentication.Register', {
                             cls: 'trigger-glyph-noop auth-email-trigger'
                         }
                     }
-                },
+                }, */
                 {
                     xtype: 'textfield',
                     cls: 'auth-textbox',
@@ -98,7 +98,7 @@ Ext.define('Admin.view.authentication.Register', {
                             cls: 'trigger-glyph-noop auth-password-trigger'
                         }
                     }
-                },
+                }, /*
                 {
                     xtype: 'checkbox',
                     flex: 1,
@@ -114,7 +114,7 @@ Ext.define('Admin.view.authentication.Register', {
                         var me = this;
                         return me.checked || me.disabled;
                     }
-                },
+                }, */
                 {
                     xtype: 'button',
                     scale: 'large',

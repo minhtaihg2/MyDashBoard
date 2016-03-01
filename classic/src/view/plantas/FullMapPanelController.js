@@ -47,6 +47,16 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
         }
     },
 
+    onPrintCheck: function (item, e, eOpts) {
+        var me = this;
+        var view = this.getView();
+        var vm = view.getViewModel();
+        var user = vm.get('current.user');
+        console.log(user);
+        var userid = vm.get('current.user.id');
+        console.log(userid);
+    },
+
     onPrintClick: function (item, e, eOpts) {
         var me = this;
         var view = this.getView();
@@ -117,19 +127,6 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
             rotation: mapView.getRotation(),
             scale: 10000
         };
-
-        /*
-         Ext.create('Ext.form.Panel', {
-         standardSubmit: true,
-         url: 'http://localhost:8080/print/print/plantas/buildreport.pdf',
-         method: 'POST',
-         items: [{
-         xtype: 'textfield',
-         name: 'spec',
-         value: Ext.encode(spec)
-         }]
-         }).submit();
-         */
 
         Ext.Ajax.request({
             url: 'http://localhost:8080/print/print/plantas/report.pdf',

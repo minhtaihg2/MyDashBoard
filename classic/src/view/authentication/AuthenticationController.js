@@ -17,6 +17,7 @@ Ext.define('Admin.view.authentication.AuthenticationController', {
         var email = formpanel.getViewModel().get('userid');
         var pass = formpanel.getViewModel().get('password');
         var sha1 = CryptoJS.SHA1(pass).toString();
+        var md5 = CryptoJS.MD5(pass).toString();
         var remember = formpanel.getViewModel().get('persist');
 
         //<debug>
@@ -25,6 +26,7 @@ Ext.define('Admin.view.authentication.AuthenticationController', {
         Server.DXLogin.authenticate({
             email: email,
             password: sha1,
+            passwordold: md5,
             remember: remember
         }, function (result, event) {
             // result == event.result
@@ -108,11 +110,68 @@ Ext.define('Admin.view.authentication.AuthenticationController', {
         this.redirectTo("authentication.register");
     },
 
-    onSignupClick: function (button, e, eOpts) {
-        this.redirectTo("dashboard");
+    /*
+     onSignupClick: function (button, e, eOpts) {
+     console.log('onSignupClick');
+     Ext.Msg.alert('Verifique o email');
+     this.redirectTo("dashboard");
+     },
+     */
+
+    onSignupClick: function (button, e, options) {
+        var me = this;
+        //<debug>
+        console.log('registo submit');
+        //</debug>
+
+        var formpanel = button.up('authdialog');
+        var name = formpanel.getViewModel().get('fullName');
+        var email = formpanel.getViewModel().get('email');
+        var pass = formpanel.getViewModel().get('password');
+        var sha1 = CryptoJS.SHA1(pass).toString();
+
+        //if (formPanel.getForm().isValid())
+
+        //<debug>
+        console.log('Vai tentar com o registo com ' + email + ' e a password = ' + pass + ' codificada = ' + sha1);
+        //</debug>
+        Server.DXLogin.registration({
+            email: email,
+            name: name,
+            password: sha1
+        }, function (result, event) {
+            // result == event.result
+            // console.debug(result);
+            // console.debug(event);
+            if (result.success) {
+                Ext.Msg.alert('Processo de registo iniciado', 'Foi enviado um email para ' + email + '<br/>' + 'Siga as indicações enviadas.' + '<br/>' + 'Só pode entrar, depois de confirmado o endereço de email.');
+            } else {
+                Ext.Msg.alert('Problema no registo', result.message);
+            }
+            me.redirectTo("dashboard");
+        });
+
     },
 
     onResetClick: function (button, e, eOpts) {
-        this.redirectTo("dashboard");
+        var me = this;
+        //<debug>
+        console.log('onResetClick');
+        //</debug>
+
+        var formpanel = button.up('authdialog');
+        var email = formpanel.getViewModel().get('email');
+
+        Server.DXLogin.reset({
+            email: email
+        }, function (result, event) {
+            if (result.success) {
+                Ext.Msg.alert('Reposição da senha', 'Foi enviado um email para ' + email + '<br/>' + 'Siga as indicações enviadas.' );
+            } else {
+                Ext.Msg.alert('Problema ao repor a senha', result.message);
+            }
+            me.redirectTo("dashboard");
+        });
+
     }
 });

@@ -46,6 +46,7 @@ Ext.define('Admin.view.authentication.PasswordReset', {
                     allowBlank: false,
                     emptyText: 'user@example.com',
                     vtype: 'email',
+                    bind: '{email}',
                     triggers: {
                         glyphed: {
                             cls: 'trigger-glyph-noop auth-email-trigger'

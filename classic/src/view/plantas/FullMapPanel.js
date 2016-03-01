@@ -74,7 +74,8 @@ Ext.define("Admin.view.plantas.FullMapPanel", {
             iconCls: 'x-fa fa-print',
             text: 'Documento para impressão',
             listeners: {
-                click: 'onPrintClick'
+                //click: 'onPrintClick'
+                click: 'onPrintCheck'
             }
         }];
         this.callParent();
