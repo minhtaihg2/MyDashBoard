@@ -13,17 +13,17 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
         var me = this;
         var vm = me.getView().getViewModel();
 
-        console.log('Pesquisa: ' + newValue);
-        console.log(newValue);
+        //console.log('Pesquisa: ' + newValue);
+        //console.log(newValue);
 
         var vectorLayer = vm.get('nominatimLayer');
         vectorLayer.getSource().clear(true);
 
         if (Array.isArray(newValue)) {
-            console.log('É um array com ' + newValue.length);
+            //console.log('É um array com ' + newValue.length);
 
             var spot = ol.proj.transform(newValue, 'EPSG:4326', 'EPSG:3763');
-            console.log(spot);
+            //console.log(spot);
 
             var geoMarker = new ol.Feature({
                 geometry: new ol.geom.Point(spot)
@@ -43,7 +43,7 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
 
 
         } else {
-            console.log('Não é um array');
+            //console.log('Não é um array');
         }
     },
 
@@ -129,13 +129,16 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
         };
 
         Ext.Ajax.request({
-            url: 'http://localhost:8080/print/print/plantas/report.pdf',
+            //url: 'http://localhost:8080/print/print/plantas/report.pdf',
+            url: 'http://geoserver.sig.cm-agueda.pt/print/print/plantas/report.pdf',
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             jsonData: spec,
             success: function (response, opts) {
                 var obj = Ext.decode(response.responseText);
                 console.dir(obj);
+
+                Ext.Msg.alert('Pedido de Impressão submetido', 'A sua Planta de Localização poderá demorar entre 10 a 30 segundos.' + '<br/>' + 'Será descarregada automaticamente dentro de momentos.' + '<br/>' + 'Aguarde por favor.');
 
                 /*
                  downloadURL: "/print/print/report/47470980-2975-418e-8841-08261c9fd6ea@dbfe37f9-02ef-4f4b-9441-4e3d0247733c"
@@ -164,7 +167,7 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
             //updateWaitingMsg(startTime, data);
             setTimeout(function () {
                 Ext.Ajax.request({
-                    url: 'http://localhost:8080' + data.statusURL,
+                    url: 'http://geoserver.sig.cm-agueda.pt' + data.statusURL,
                     success: function(response, opts) {
                         var statusData = Ext.decode(response.responseText);
                         console.dir(statusData);
@@ -175,7 +178,7 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
                             // TODO
                             // popups are usually blocked!
                             //window.open('http://localhost:8080' + statusData.downloadURL, '_blank');
-                            window.location = 'http://localhost:8080' + statusData.downloadURL;
+                            window.location = 'http://geoserver.sig.cm-agueda.pt' + statusData.downloadURL;
                             console.log('Downloading: ' + data.ref);
                         }
                     },
@@ -195,7 +198,7 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
 
         var vm = view.getViewModel();
         vm.set('paper', menuitem.type);
-        console.log(menuitem.type);
+        //console.log(menuitem.type);
 
         me.addPreviewPolygon(vm, olMap);
     },
@@ -208,7 +211,7 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
 
         var vm = view.getViewModel();
         vm.set('orientation', menuitem.type);
-        console.log(menuitem.type);
+        //console.log(menuitem.type);
 
         me.addPreviewPolygon(vm, olMap);
     },
@@ -223,9 +226,9 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
     //addPreviewPolygon: function (provider, view, vm, map, extent) {
     addPreviewPolygon: function (vm, map) {
         var center = map.getView().getCenter();
-        console.log(center);
+        //console.log(center);
         var layoutname = vm.get('paper') + '_' + vm.get('orientation');
-        console.log(vm.get(layoutname));
+        //console.log(vm.get(layoutname));
 
         var extentLayer = vm.get('extent');
         extentLayer.getSource().clear();
@@ -238,7 +241,7 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
         // "Ext.data.Store"
 
         attr.each(function (record) {
-            console.log(record.get('name') + ' → ' + record.get('type'));
+            //console.log(record.get('name') + ' → ' + record.get('type'));
             if (record.get('type') == 'MapAttributeValues') {
                 var clientInfo = record.get('clientInfo');
 
@@ -259,7 +262,7 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
                     polinates.push([center[0] + printWidthMeters / 2, center[1] + printHeightMeters / 2]);
                     polinates.push([center[0] + printWidthMeters / 2, center[1] - printHeightMeters / 2]);
                     polinates.push([center[0] - printWidthMeters / 2, center[1] - printHeightMeters / 2]);
-                    console.log(polinates);
+                    //console.log(polinates);
                     var featureName = (parseInt(escala[0]) * 1000).toString();
                     var featureDescription = '1:' + featureName + ' print area';
                     var feature = new ol.Feature({
@@ -283,11 +286,11 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
 
     onPrintProviderReady: function (provider, view, vm, map, extent) {
         var me = this;
-        console.log('onPrintProviderReady');
+        //console.log('onPrintProviderReady');
 
         var capabilities = provider.capabilityRec;
         var layouts = capabilities.layouts();
-        console.log('Layouts disponíveis: ' + layouts.getCount());
+        //console.log('Layouts disponíveis: ' + layouts.getCount());
 
         // all possible layouts
         vm.set('layouts', layouts);
@@ -296,7 +299,7 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
 
         for (var i = 0; i < layouts.getCount(); i++) {
             var name = layouts.getAt(i).get('name');
-            console.log('Layout ' + i + ' → ' + name);
+            //console.log('Layout ' + i + ' → ' + name);
             vm.set(name, layouts.getAt(i));
         }
 
@@ -311,7 +314,7 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
 
     onAfterLayersLoaded: function (view) {
         var me = this;
-        console.log('afterlayersloaded()@fullmap-plantas');
+        //console.log('afterlayersloaded()@fullmap-plantas');
 
         var olMap = view.map;
         var mapView = olMap.getView();
@@ -330,47 +333,59 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
 
         function styleFunction(feature, resolution) {
             var res;
+            //console.log(feature);
+            var geotype = feature.getGeometry().getType();
             var funcao = feature.get('name');
             switch (funcao) {
-                case '2000':
-                    res = new ol.style.Style({
-                        stroke: new ol.style.Stroke({
-                            color: [153, 0, 204, 1],
-                            lineDash: [4],
-                            width: 2
-                        }),
-                        text: new ol.style.Text({
-                            textAlign: 'left',
-                            textBaseline: 'top',
-                            font: '10px Verdana',
-                            text: feature.get('description'),
-                            //fill: new ol.style.Fill({color: [255, 153, 0, 0.4]}),
-                            stroke: new ol.style.Stroke({color: [153, 0, 204, 1], width: 1}),
-                            offsetX: 0,
-                            offsetY: 0,
-                            rotation: 0
-                        })
-                    });
+                case '2000': // color: [153, 0, 204, 1],
+                    if (geotype == 'Polygon') {
+                        res = new ol.style.Style({
+                            stroke: new ol.style.Stroke({
+                                color: [153, 0, 204, 1],
+                                lineDash: [4],
+                                width: 2
+                            })
+                        });
+                    } else { // (geotype == 'Point')
+                        res = new ol.style.Style({
+                            text: new ol.style.Text({
+                                textAlign: 'right',
+                                textBaseline: 'bottom',
+                                font: '10px Verdana',
+                                text: feature.get('description'),
+                                //fill: new ol.style.Fill({color: [255, 153, 0, 0.4]}),
+                                stroke: new ol.style.Stroke({color: [153, 0, 204, 1], width: 1}),
+                                offsetX: 0,
+                                offsetY: 0,
+                                rotation: 0
+                            })
+                        });
+                    }
                     break;
-                case '10000':
-                    res = new ol.style.Style({
-                        stroke: new ol.style.Stroke({
-                            color: [255, 102, 204, 1],
-                            lineDash: [4],
-                            width: 2
-                        }),
-                        text: new ol.style.Text({
-                            textAlign: 'right',
-                            textBaseline: 'bottom',
-                            font: '10px Verdana',
-                            text: feature.get('description'),
-                            //fill: new ol.style.Fill({color: [255, 153, 0, 0.4]}),
-                            stroke: new ol.style.Stroke({color: [255, 102, 204, 1], width: 1}),
-                            offsetX: 0,
-                            offsetY: 0,
-                            rotation: 0
-                        })
-                    });
+                case '10000': // color: [255, 102, 204, 1],
+                    if (geotype == 'Polygon') {
+                        res = new ol.style.Style({
+                            stroke: new ol.style.Stroke({
+                                color: [255, 102, 204, 1],
+                                lineDash: [4],
+                                width: 2
+                            })
+                        });
+                    } else { // (geotype == 'Point')
+                        res = new ol.style.Style({
+                            text: new ol.style.Text({
+                                textAlign: 'right',
+                                textBaseline: 'bottom',
+                                font: '10px Verdana',
+                                text: feature.get('description'),
+                                //fill: new ol.style.Fill({color: [255, 153, 0, 0.4]}),
+                                stroke: new ol.style.Stroke({color: [255, 102, 204, 1], width: 1}),
+                                offsetX: 0,
+                                offsetY: 0,
+                                rotation: 0
+                            })
+                        });
+                    }
                     break;
                 default:
                     res = defaultStyle;
@@ -380,7 +395,7 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
         }
 
         var extentLayer = new ol.layer.Vector({
-            name: 'Área de Impressão', // 'Área de Impressão--',  // legend tree
+            name: 'Área de Impressão--', // 'Área de Impressão--',  // legend tree
             source: new ol.source.Vector(),
             style: styleFunction
         });
@@ -389,7 +404,8 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
         vm.set('extent', extentLayer);
 
         Ext.create('GeoExt.data.MapfishPrintProvider', {
-            url: "http://localhost:8080/print/print/plantas/capabilities.json",
+            //url: "http://localhost:8080/print/print/plantas/capabilities.json",
+            url: "http://geoserver.sig.cm-agueda.pt/print/print/plantas/capabilities.json",
             //url: "http://localhost:8080/print/print/geoext/capabilities.json",
             listeners: {
                 ready: function (provider) {

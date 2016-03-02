@@ -38,7 +38,7 @@ Ext.define("Admin.view.maps.MapCanvas", {
                     extent: [-36000, 91900, -9000, 114000]
                 }),
                 //new ol.control.ZoomSlider(),
-                new ol.control.ScaleLine(),
+                //new ol.control.ScaleLine(),
                 new ol.control.MapScale(),
                 new ol.control.MousePosition({
                     coordinateFormat: ol.coordinate.createStringXY(0)

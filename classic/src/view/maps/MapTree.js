@@ -20,10 +20,13 @@ Ext.define("Admin.view.maps.MapTree",{
     // The store will be set later
     // store: '{treeStore}',
 
-    //title: 'Legend tree {mapTree.selection.text}', // not working
+    title: 'Layers'.translate(),
+
+    /*
     bind: {
         title: 'Legend tree {selectedlayer}'
     },
+    */
 
     rootVisible: false,
     hideHeaders: true,

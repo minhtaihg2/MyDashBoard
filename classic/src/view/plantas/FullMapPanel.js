@@ -22,7 +22,7 @@ Ext.define("Admin.view.plantas.FullMapPanel", {
             //reference: 'nominatim',
             width: 400,
             //publishes: 'value',
-            fieldLabel: 'Procurar'.translate(),
+            fieldLabel: 'Search'.translate(),
             labelWidth: 60,
             displayField: 'name',
             valueField: 'lonlat',
@@ -74,8 +74,8 @@ Ext.define("Admin.view.plantas.FullMapPanel", {
             iconCls: 'x-fa fa-print',
             text: 'Documento para impressão',
             listeners: {
-                //click: 'onPrintClick'
-                click: 'onPrintCheck'
+                click: 'onPrintClick'
+                //click: 'onPrintCheck'
             }
         }];
         this.callParent();
