@@ -9,6 +9,12 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
         'GeoExt.data.serializer.XYZ',
         'Ext.form.action.StandardSubmit'],
 
+    control: {
+        '#': {  // matches the view itself
+            requestprintid: 'onPedidoId'
+        }
+    },
+
     onSearchNominatim: function (combo, newValue, oldValue, eOpts) {
         var me = this;
         var vm = me.getView().getViewModel();
@@ -55,9 +61,65 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
         console.log(user);
         var userid = vm.get('current.user.id');
         console.log(userid);
+
+        var olMap = view.down('mapcanvas').map;
+        var center = olMap.getView().getCenter();
+        var pedidoLayer = vm.get('pedidoLayer');
+
+        var newfeature = {};
+        var username;
+
+        if (userid) {
+            username = vm.get('current.user.nome');
+            newfeature = {
+                geometry: new ol.geom.Point(center),
+                nome: username,
+                nif: vm.get('current.user.nif'),
+                utilizador: vm.get('current.user.email'),
+                userid: userid,
+                coord_x: center[0],
+                coord_y: center[1],
+                obs: 'Pedido via internet'
+            };
+        } else {
+            username = '-';
+            newfeature = {
+                geometry: new ol.geom.Point(center),
+                nome: username,
+                utilizador: 'Anonymous', // required
+                coord_x: center[0],
+                coord_y: center[1],
+                obs: 'Pedido via internet'
+            };
+        }
+
+        var thecenterfeature = new ol.Feature(newfeature);
+        pedidoLayer.getSource().addFeature(thecenterfeature);
+
+        var dados = (new ol.format.GeoJSON()).writeFeature(thecenterfeature);
+        console.log(dados);
+        console.log(JSON.stringify(dados));
+
+        Server.Plantas.Pedidos.saveGeoJson({
+            feature: dados
+        }, function (result, event) {
+            if (result.success) {
+                console.log('Gravou bem', result.message);
+                console.log(result.data[0].gid);
+                view.fireEvent('requestprintid', view, result.data[0].gid, username);
+            } else {
+                console.log('Gravou mal', result.message);
+            }
+        });
+
     },
 
-    onPrintClick: function (item, e, eOpts) {
+    //onPrintClick: function (item, e, eOpts) {
+    onPedidoId: function (view, printid, name) {
+
+        //Ext.getDisplayName(temp2)
+        //console.log(arguments);
+
         var me = this;
         var view = this.getView();
         var olMap = view.down('mapcanvas').map;
@@ -74,11 +136,11 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
 
         var spec = {
             layout: layoutname,
-            outputFilename: "1999",
+            outputFilename: printid,
             attributes: {
                 centro: out,
-                pedido: "1999/2016",
-                requerente: "Ana Isabel Gomes Vilar"
+                pedido: printid,
+                requerente: name
             }
         };
 
@@ -138,7 +200,10 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
                 var obj = Ext.decode(response.responseText);
                 console.dir(obj);
 
-                Ext.Msg.alert('Pedido de Impressão submetido', 'A sua Planta de Localização poderá demorar entre 10 a 30 segundos.' + '<br/>' + 'Será descarregada automaticamente dentro de momentos.' + '<br/>' + 'Aguarde por favor.');
+                var startTime = new Date().getTime();
+                me.downloadWhenReady(startTime, obj);
+
+                Ext.Msg.alert('Pedido de Impressão ' + printid, 'A sua Planta de Localização poderá demorar entre 10 a 30 segundos.' + '<br/>' + 'Será descarregada automaticamente dentro de momentos.' + '<br/>' + 'Aguarde por favor.');
 
                 /*
                  downloadURL: "/print/print/report/47470980-2975-418e-8841-08261c9fd6ea@dbfe37f9-02ef-4f4b-9441-4e3d0247733c"
@@ -146,8 +211,16 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
                  statusURL: "/print/print/status/47470980-2975-418e-8841-08261c9fd6ea@dbfe37f9-02ef-4f4b-9441-4e3d0247733c.json"
                  */
 
-                var startTime = new Date().getTime();
-                me.downloadWhenReady(startTime, obj);
+                Server.Plantas.Pedidos.update({
+                    gid: printid,
+                    download_cod: obj.downloadURL
+                }, function (result, event) {
+                    if (result.success) {
+                        console.log('Correu bem o update', result.message);
+                    } else {
+                        console.log('Correu mal o update', result.message);
+                    }
+                });
 
             },
 
@@ -168,7 +241,7 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
             setTimeout(function () {
                 Ext.Ajax.request({
                     url: 'http://geoserver.sig.cm-agueda.pt' + data.statusURL,
-                    success: function(response, opts) {
+                    success: function (response, opts) {
                         var statusData = Ext.decode(response.responseText);
                         console.dir(statusData);
 
@@ -182,7 +255,7 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
                             console.log('Downloading: ' + data.ref);
                         }
                     },
-                    failure: function(response, opts) {
+                    failure: function (response, opts) {
                         console.log('server-side failure with status code ' + response.status);
                     }
                 });
@@ -309,6 +382,48 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
         map.getView().on('propertychange', function () {
             me.addPreviewPolygon(vm, map);
         });
+
+        var vectorSource = new ol.source.Vector({
+            format: new ol.format.GeoJSON(),
+            loader: function (extent, resolution, projection) {
+                Server.Plantas.Pedidos.asGeoJson({
+                    gid: 19347
+                }, function (result, event) {
+                    // result == event.result
+                    // console.debug(result);
+                    // console.debug(event);
+                    if (result.success) {
+                        console.log('SEM Problema no Server.Plantas.Pedidos.asGeoJson', result.message);
+                        console.log(result);
+                        var features = (new ol.format.GeoJSON()).readFeatures(result.data);
+                        vectorSource.addFeatures(features);
+                        //processo_layer.addFeatures(geojson_format.read(result.data));
+                    } else {
+                        console.log('Problema no Server.Plantas.Pedidos.asGeoJson', result.message);
+                    }
+                });
+            }
+        });
+
+        var vectorJSON = new ol.layer.Vector({
+            title: 'Pedidos',
+            name: 'Pedidos--',
+            source: vectorSource /*,
+             style: new ol.style.Style({
+             fill: new ol.style.Fill({
+             color: [0, 255, 0, 0.3]
+             }),
+             stroke: new ol.style.Stroke({
+             color: 'rgba(0, 255, 0, 0.8)',
+             width: 2
+             })
+             })
+             */
+        });
+
+        map.addLayer(vectorJSON);
+
+        vm.set('pedidoLayer', vectorJSON);
 
     },
 
