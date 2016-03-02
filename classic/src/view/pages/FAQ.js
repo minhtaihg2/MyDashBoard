@@ -40,12 +40,16 @@ Ext.define('Admin.view.pages.FAQ', {
             items: [
                 {
                     xtype: 'panel',
-                    title: 'Useful Tips',
+                    title: 'Bem vindo',
                     ui: 'light',
                     cls: 'shadow-panel pages-faq-container',
                     iconCls: 'x-fa fa-lightbulb-o',
-                    html: '<p>We have created the following list of tips for our users. We hope that they will help you get the most of this website.</p> \n<ul class=\'faq-tips-list\'><li class=\'pointone\'>Point One</li><li class=\'pointtwo\'>Point Two</li><li class=\'pointthree\'>Point Three</li>\n<li class=\'pointfour\'>Point Four</li></ul>',
-                    bodyPadding: 15
+                    html: '',
+                    bodyPadding: 15,
+                    loader: {
+                        url: 'resources/help/welcome.html',
+                        autoLoad: true
+                    }
                 },
                 {
                     xtype: 'panel',
@@ -53,7 +57,7 @@ Ext.define('Admin.view.pages.FAQ', {
                     ui: 'light',
                     cls: 'shadow-panel pages-faq-container',
                     iconCls: 'x-fa fa-question',
-                    title: 'Can\'t find the answer?',
+                    title: 'Precisa de Ajuda?',
                     layout: {
                         type: 'vbox',
                         align: 'stretch'
@@ -65,7 +69,7 @@ Ext.define('Admin.view.pages.FAQ', {
                         },
                         {
                             xtype: 'button',
-                            ui:'soft-blue',
+                            ui: 'soft-blue',
                             margin: '20 20 20 20',
                             text: 'Contact Us'
                         }
@@ -86,14 +90,14 @@ Ext.define('Admin.view.pages.FAQ', {
             cls: 'pages-faq-container shadow-panel',
 
             iconCls: 'x-fa fa-question-circle',
-            title: 'FAQs',
+            title: 'Questões típicas',
             bodyPadding: 15,
             items: [
                 {
                     xtype: 'panel',
                     cls: 'FAQPanel',
                     layout: 'accordion',
-                    title: 'General',
+                    title: 'Genéricas',
                     height: 340,
                     ui: 'light',
                     items: [
@@ -101,25 +105,25 @@ Ext.define('Admin.view.pages.FAQ', {
                             xtype: 'panel',
                             html: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
                             title: 'How can I access high resolution images?',
-                            iconCls:'x-fa fa-caret-down'
+                            iconCls: 'x-fa fa-caret-down'
                         },
                         {
                             xtype: 'panel',
                             html: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
                             title: 'Can I download the application on my PC?',
-                            iconCls:'x-fa fa-caret-down'
+                            iconCls: 'x-fa fa-caret-down'
                         },
                         {
                             xtype: 'panel',
                             html: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
                             title: 'How often does the database get updated?',
-                            iconCls:'x-fa fa-caret-down'
+                            iconCls: 'x-fa fa-caret-down'
                         },
                         {
                             xtype: 'panel',
                             html: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
                             title: 'Can I use the downloaded images on a commercial website?',
-                            iconCls:'x-fa fa-caret-down'
+                            iconCls: 'x-fa fa-caret-down'
                         }
                     ]
                 },
@@ -127,7 +131,7 @@ Ext.define('Admin.view.pages.FAQ', {
                     xtype: 'panel',
                     cls: 'FAQPanel',
                     layout: 'accordion',
-                    title: 'Account',
+                    title: 'Autenticação',
                     height: 340,
                     bodyPadding: 10,
                     ui: 'light',
@@ -136,25 +140,25 @@ Ext.define('Admin.view.pages.FAQ', {
                             xtype: 'panel',
                             html: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
                             title: 'What are the different membership plans?',
-                            iconCls:'x-fa fa-caret-down'
+                            iconCls: 'x-fa fa-caret-down'
                         },
                         {
                             xtype: 'panel',
                             html: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
                             title: 'Can I change my plan in between?',
-                            iconCls:'x-fa fa-caret-down'
+                            iconCls: 'x-fa fa-caret-down'
                         },
                         {
                             xtype: 'panel',
                             html: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
                             title: 'How can I deactivate my account?',
-                            iconCls:'x-fa fa-caret-down'
+                            iconCls: 'x-fa fa-caret-down'
                         },
                         {
                             xtype: 'panel',
                             html: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
                             title: 'Can I transfer my account to another user?',
-                            iconCls:'x-fa fa-caret-down'
+                            iconCls: 'x-fa fa-caret-down'
                         }
                     ]
                 },
@@ -162,7 +166,7 @@ Ext.define('Admin.view.pages.FAQ', {
                     xtype: 'panel',
                     cls: 'FAQPanel',
                     layout: 'accordion',
-                    title: 'Payment',
+                    title: 'Plantas de Localização',
                     height: 300,
                     bodyPadding: 10,
                     ui: 'light',
@@ -171,19 +175,19 @@ Ext.define('Admin.view.pages.FAQ', {
                             xtype: 'panel',
                             html: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
                             title: 'What are the payment methods you accept?',
-                            iconCls:'x-fa fa-caret-down'
+                            iconCls: 'x-fa fa-caret-down'
                         },
                         {
                             xtype: 'panel',
                             html: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
                             title: 'What is the refund policy?',
-                            iconCls:'x-fa fa-caret-down'
+                            iconCls: 'x-fa fa-caret-down'
                         },
                         {
                             xtype: 'panel',
                             html: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
                             title: 'How long does it take to process my payment?',
-                            iconCls:'x-fa fa-caret-down'
+                            iconCls: 'x-fa fa-caret-down'
                         }
                     ]
                 }
