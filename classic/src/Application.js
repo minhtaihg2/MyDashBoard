@@ -39,6 +39,8 @@ Ext.define('Admin.Application', {
             } else {
                 Ext.direct.Manager.addProvider(ns);
                 this.setMainView('Admin.view.main.Viewport');
+
+                /*
                 Server.DXLogin.alive({}, function(result, event) {
                     //<debug>
                     console.log('------------------- ALIVE --------------------');
@@ -59,6 +61,11 @@ Ext.define('Admin.Application', {
                         Ext.GlobalEvents.fireEvent('logoutComSucesso');
                     }
                 });
+
+                */
+
+                Ext.GlobalEvents.fireEvent('logoutComSucesso');
+
             }
         }
     },
