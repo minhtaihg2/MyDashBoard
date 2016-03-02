@@ -23894,7 +23894,7 @@ tr.x-grid-subtable-row {
 }
 /* http://localhost:2222/classic/sass/src/view/authentication/LockingWindow.scss:2 */
 .auth-locked-window .x-window-body {
-    background-image: url('images/lock-screen-background.jpg');
+    background-image: url('images/lock-screen-agueda-background.jpg');
     background-size: cover;
     background-repeat: repeat;
 }

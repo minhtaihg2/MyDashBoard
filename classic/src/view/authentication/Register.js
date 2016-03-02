@@ -10,7 +10,7 @@ Ext.define('Admin.view.authentication.Register', {
         'Ext.button.Button'
     ],
 
-    title: 'User Registration',
+    title: 'User Registration'.translate(),
     defaultFocus: 'authdialog',  // Focus the Auth Form to force field focus as well
 
     items: [
@@ -35,7 +35,7 @@ Ext.define('Admin.view.authentication.Register', {
                 {
                     xtype: 'label',
                     cls: 'lock-screen-top-label',
-                    text: 'Create an account'
+                    text: 'Create an account'.translate()
                 },
                 {
                     xtype: 'textfield',
@@ -43,7 +43,7 @@ Ext.define('Admin.view.authentication.Register', {
                     height: 55,
                     hideLabel: true,
                     allowBlank : false,
-                    emptyText: 'Fullname',
+                    emptyText: 'Fullname'.translate(),
                     name: 'fullName',
                     bind: '{fullName}',
                     triggers: {
@@ -74,7 +74,7 @@ Ext.define('Admin.view.authentication.Register', {
                     hideLabel: true,
                     allowBlank : false,
                     name: 'email',
-                    emptyText: 'user@example.com',
+                    emptyText: 'user@example.com'.translate(),
                     vtype: 'email',
                     bind: '{email}',
                     triggers: {
@@ -89,7 +89,7 @@ Ext.define('Admin.view.authentication.Register', {
                     height: 55,
                     hideLabel: true,
                     allowBlank : false,
-                    emptyText: 'Password',
+                    emptyText: 'Password'.translate(),
                     name: 'password',
                     inputType: 'password',
                     bind: '{password}',
@@ -125,14 +125,15 @@ Ext.define('Admin.view.authentication.Register', {
                     margin: '5 0',
                     iconAlign: 'right',
                     iconCls: 'x-fa fa-angle-right',
-                    text: 'Signup',
+                    text: 'Signup'.translate(),
                     listeners: {
                         click: 'onSignupClick'
                     }
-                },
+                }, /*
                 {
                     xtype: 'box',
-                    html: '<div class="outer-div"><div class="seperator">OR</div></div>'
+                    html: '<div class="outer-div"><div class="seperator">' + 'OR'.translate() + '</div></div>'
+
                 },
                 {
                     xtype: 'button',
@@ -141,16 +142,16 @@ Ext.define('Admin.view.authentication.Register', {
                     margin: '5 0',
                     iconAlign: 'right',
                     iconCls: 'x-fa fa-facebook',
-                    text: 'Login with Facebook',
+                    text: 'Login with Facebook'.translate(),
                     listeners: {
                         click: 'onFaceBookLogin'
                     }
-                },
+                }, */
                 {
                     xtype: 'component',
                     html: '<div style="text-align:right">' +
-                        '<a href="#authentication.login" class="link-forgot-password">'+
-                            'Back to Log In</a>' +
+                        '<a href="#dashboard">'+
+                            'Close'.translate() + '</a>' +
                         '</div>'
                 }
             ]

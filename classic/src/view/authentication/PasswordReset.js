@@ -10,7 +10,7 @@ Ext.define('Admin.view.authentication.PasswordReset', {
         'Ext.button.Button'
     ],
 
-    title: 'Reset Password',
+    title: 'Reset Password'.translate(),
 
     defaultFocus : 'authdialog',  // Focus the Auth Form to force field focus as well
 
@@ -35,7 +35,7 @@ Ext.define('Admin.view.authentication.PasswordReset', {
                 {
                     xtype: 'label',
                     cls: 'lock-screen-top-label',
-                    text: 'Enter your email address for further reset instructions'
+                    text: 'Enter your email address for further reset instructions'.translate()
                 },
                 {
                     xtype: 'textfield',
@@ -44,7 +44,7 @@ Ext.define('Admin.view.authentication.PasswordReset', {
                     name: 'email',
                     hideLabel: true,
                     allowBlank: false,
-                    emptyText: 'user@example.com',
+                    emptyText: 'user@example.com'.translate(),
                     vtype: 'email',
                     bind: '{email}',
                     triggers: {
@@ -61,7 +61,7 @@ Ext.define('Admin.view.authentication.PasswordReset', {
                     formBind: true,
                     iconAlign: 'right',
                     iconCls: 'x-fa fa-angle-right',
-                    text: 'Reset Password',
+                    text: 'Request password'.translate(),
                     listeners: {
                         click: 'onResetClick'
                     }
@@ -69,9 +69,9 @@ Ext.define('Admin.view.authentication.PasswordReset', {
                 {
                     xtype: 'component',
                     html: '<div style="text-align:right">' +
-                        '<a href="#authentication.login" class="link-forgot-password">'+
-                            'Back to Log In</a>' +
-                        '</div>'
+                    '<a href="#dashboard">'+
+                    'Close'.translate() + '</a>' +
+                    '</div>'
                 }
             ]
         }

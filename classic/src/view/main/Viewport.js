@@ -98,7 +98,7 @@ Ext.define('Admin.view.main.Viewport', {
                     }
                 }, {
                     xtype: 'splitbutton',
-                    text: 'Login',
+                    text: 'Login'.translate(),
                     iconCls: 'header-right-profile-image',
                     bind: {
                         //icon: '{current.user.fotografia}',
@@ -108,7 +108,7 @@ Ext.define('Admin.view.main.Viewport', {
                     scale: 'medium',
                     handler: 'onClickLogin',
                     menu: [{
-                        text: 'Logout',
+                        text: 'Logout'.translate(),
                         bind: {
                             disabled: '{!current.user.id}'
                         },

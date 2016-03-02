@@ -22,7 +22,7 @@ Ext.define("Admin.view.plantas.FullMapPanel", {
             //reference: 'nominatim',
             width: 400,
             //publishes: 'value',
-            fieldLabel: 'Procurar',
+            fieldLabel: 'Procurar'.translate(),
             labelWidth: 60,
             displayField: 'name',
             valueField: 'lonlat',

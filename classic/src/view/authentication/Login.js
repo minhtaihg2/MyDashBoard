@@ -10,7 +10,8 @@ Ext.define('Admin.view.authentication.Login', {
         'Ext.button.Button'
     ],
 
-    title: 'Let\'s Log In',
+    //title: "Let's Log In".translate(),
+    title: 'Log In'.translate(),
     defaultFocus: 'authdialog', // Focus the Auth Form to force field focus as well
 
     items: [
@@ -34,7 +35,7 @@ Ext.define('Admin.view.authentication.Login', {
             items: [
                 {
                     xtype: 'label',
-                    text: 'Sign into your account'
+                    text: 'Sign into your account'.translate()
                 },
                 {
                     xtype: 'textfield',
@@ -44,7 +45,7 @@ Ext.define('Admin.view.authentication.Login', {
                     height: 55,
                     hideLabel: true,
                     allowBlank : false,
-                    emptyText: 'user id',
+                    emptyText: 'user'.translate(),
                     triggers: {
                         glyphed: {
                             cls: 'trigger-glyph-noop auth-email-trigger'
@@ -56,7 +57,7 @@ Ext.define('Admin.view.authentication.Login', {
                     cls: 'auth-textbox',
                     height: 55,
                     hideLabel: true,
-                    emptyText: 'Password',
+                    emptyText: 'Password'.translate(),
                     inputType: 'password',
                     name: 'password',
                     bind: '{password}',
@@ -77,11 +78,11 @@ Ext.define('Admin.view.authentication.Login', {
                             cls: 'form-panel-font-color rememberMeCheckbox',
                             height: 30,
                             bind: '{persist}',
-                            boxLabel: 'Remember me'
+                            boxLabel: 'Remember me'.translate()
                         },
                         {
                             xtype: 'box',
-                            html: '<a href="#authentication.passwordreset" class="link-forgot-password"> Forgot Password ?</a>'
+                            html: '<a href="#authentication.passwordreset" class="link-forgot-password">' + 'Forgot Password?'.translate() + '</a>'
                         }
                     ]
                 },
@@ -92,15 +93,15 @@ Ext.define('Admin.view.authentication.Login', {
                     ui: 'soft-green',
                     iconAlign: 'right',
                     iconCls: 'x-fa fa-angle-right',
-                    text: 'Login',
+                    text: 'Login'.translate(),
                     formBind: true,
                     listeners: {
                         click: 'onLoginButton'
                     }
-                },
+                }, /*
                 {
                     xtype: 'box',
-                    html: '<div class="outer-div"><div class="seperator">OR</div></div>',
+                    html: '<div class="outer-div"><div class="seperator">' + 'OR'.translate() + '</div></div>',
                     margin: '10 0'
                 },
                 {
@@ -109,14 +110,14 @@ Ext.define('Admin.view.authentication.Login', {
                     ui: 'soft-blue',
                     iconAlign: 'right',
                     iconCls: 'x-fa fa-facebook',
-                    text: 'Login with Facebook',
+                    text: 'Login with Facebook'.translate(),
                     listeners: {
                         click: 'onFaceBookLogin'
                     }
-                },
+                }, */
                 {
                     xtype: 'box',
-                    html: '<div class="outer-div"><div class="seperator">OR</div></div>',
+                    html: '<div class="outer-div"><div class="seperator">' + 'OR'.translate() + '</div></div>',
                     margin: '10 0'
                 },
                 {
@@ -125,10 +126,17 @@ Ext.define('Admin.view.authentication.Login', {
                     ui: 'gray',
                     iconAlign: 'right',
                     iconCls: 'x-fa fa-user-plus',
-                    text: 'Create Account',
+                    text: 'Create Account'.translate(),
                     listeners: {
                         click: 'onNewAccount'
                     }
+                },
+                {
+                    xtype: 'component',
+                    html: '<div style="text-align:right">' +
+                    '<a href="#dashboard">'+
+                    'Close'.translate() + '</a>' +
+                    '</div>'
                 }
             ]
         }

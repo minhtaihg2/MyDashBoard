@@ -182,6 +182,9 @@
    *
    */
   "js": [{
+      "path": "/translation",
+      "remote": true
+    }, {
       //        "path": "http://openlayers.org/en/master/build/ol.js",
       //        "path": "http://openlayers.org/en/master/build/ol-debug.js",
       "path": "resources/js/OL3/ol.js",
@@ -206,13 +209,13 @@
       "remote": true
     }, {
       "path": "resources/js/core-min.js",
-      "update": "delta"
+      "remote": false
     }, {
       "path": "resources/js/sha1-min.js",
-      "update": "delta"
+      "remote": false
     }, {
       "path": "resources/js/md5-min.js",
-      "update": "delta"
+      "remote": false
     }],
   /**
    * Settings specific to classic toolkit builds.

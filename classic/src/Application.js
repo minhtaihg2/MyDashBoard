@@ -16,6 +16,34 @@ Ext.define('Admin.Application', {
     init: function() {
         console.log('Admin.Application init()');
         Ext.enableAriaButtons = false;
+
+        var db = Translation;
+        if (db) {
+            console.log('Com suporte a traduções');
+            String.prototype.translate = function() {
+                var s = this.valueOf();
+                // console.log('TRANSLATE: ' + s);
+                var t = {},
+                    i = 0,
+                    n = db.length;
+                while (i < n) {
+                    t = db[i];
+                    // console.log(t);
+                    if (t.id == s) {
+                        return t.translation;
+                    }
+                    i++;
+                }
+                return s;
+            };
+        } else {
+            console.log('Sem suporte a traduções');
+            String.prototype.translate = function() {
+                var s = this.valueOf();
+                return s;
+            };
+        }
+
     },
 
     //https://sencha.guru/2015/09/22/loading-ext-direct-api/

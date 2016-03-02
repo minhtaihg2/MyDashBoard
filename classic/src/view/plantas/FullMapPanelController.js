@@ -314,6 +314,10 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
         console.log('afterlayersloaded()@fullmap-plantas');
 
         var olMap = view.map;
+        var mapView = olMap.getView();
+
+        //mapView.setResolution(13.999999999999998);
+
         var vm = me.getView().getViewModel();
 
         // a default style is good practice!
