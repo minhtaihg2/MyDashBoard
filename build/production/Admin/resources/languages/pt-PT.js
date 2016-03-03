@@ -76,6 +76,39 @@ Translation = [{
 }, {
     "id": 'Invalid user or password',
     "translation": 'O email ou a senha não estão corretos. Se for necessário, pode repor a senha'
+}, {
+    "id": 'Draw',
+    "translation": 'Desenhar'
+}, {
+    "id": 'Point',
+    "translation": 'Ponto'
+}, {
+    "id": 'Line',
+    "translation": 'Linha'
+}, {
+    "id": 'Polygon',
+    "translation": 'Polígono'
+}, {
+    "id": 'Circle',
+    "translation": 'Círculo'
+}, {
+    "id": 'Square',
+    "translation": 'Quadrado'
+}, {
+    "id": 'Box',
+    "translation": 'Caixa'
+}, {
+    "id": 'Select/Modify',
+    "translation": 'Selecionar/Editar'
+}, {
+    "id": 'Remove last',
+    "translation": 'Apagar último'
+}, {
+    "id": 'Remove all',
+    "translation": 'Apagar tudo'
+}, {
+    "id": 'PDF document',
+    "translation": 'Documento para impressão'
 }];
 
 String.prototype.translate = function() {

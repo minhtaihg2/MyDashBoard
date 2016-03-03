@@ -1,5 +1,11 @@
 # Admin Dashboard enhancement
 
+### MapFish Print issue
+
+`GeoExt/src/data/serializer/Vector.js`
+
+Only style defined by function are used.
+
 ### Layers & Views
 
 ```

@@ -17,13 +17,13 @@ Ext.define('Admin.view.plantas.FullMapPanelModel', {
         geometrias: {
             fields: ['value', 'name'],
             data: [
-                {value: "Point", name: "Point"},
-                {value: "LineString", name: "Line"},
-                {value: "Polygon", name: "Polygon"},
-                {value: "Circle", name: "Circle"},
-                {value: "Square", name: "Square"},
-                {value: "Box", name: "Box"},
-                {value: "None", name: "None"}
+                {value: "Point", name: "Point".translate()},
+                {value: "LineString", name: "Line".translate()},
+                {value: "Polygon", name: "Polygon".translate()},
+                //{value: "Circle", name: "Circle".translate()},
+                //{value: "Square", name: "Square".translate()},
+                //{value: "Box", name: "Box".translate()},
+                {value: "None", name: "Select/Modify".translate()}
             ]
         }
     }

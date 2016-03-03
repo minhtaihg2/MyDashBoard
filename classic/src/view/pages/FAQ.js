@@ -70,13 +70,27 @@ Ext.define('Admin.view.pages.FAQ', {
                                 autoLoad: true
                             }
                         } /*,
+                         {
+                         xtype: 'button',
+                         ui: 'soft-blue',
+                         margin: '20 20 20 20',
+                         text: 'Contact Us'
+                         }
+                         */
+                    ]
+                }, {
+                    xtype: 'panel',
+                    title: 'STORM Clouds',
+                    ui: 'light',
+                    cls: 'shadow-panel pages-faq-container',
+                    iconCls: 'x-fa fa-lightbulb-o',
+                    flex: 1,
+                    items: [
                         {
-                            xtype: 'button',
-                            ui: 'soft-blue',
-                            margin: '20 20 20 20',
-                            text: 'Contact Us'
+                            xtype: 'image',
+                            src: 'resources/images/storm.png',
+                            height: 144
                         }
-                        */
                     ]
                 }
             ],
@@ -133,32 +147,32 @@ Ext.define('Admin.view.pages.FAQ', {
                     height: 340,
                     bodyPadding: 10,
                     ui: 'light',
-                    items: [ /*
-                        {
-                            xtype: 'panel',
-                            html: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
-                            title: 'Migração das contas',
-                            iconCls: 'x-fa fa-caret-down'
-                        },
-                        {
-                            xtype: 'panel',
-                            html: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
-                            title: 'Can I change my plan in between?',
-                            iconCls: 'x-fa fa-caret-down'
-                        },
-                        {
-                            xtype: 'panel',
-                            html: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
-                            title: 'How can I deactivate my account?',
-                            iconCls: 'x-fa fa-caret-down'
-                        },
-                        {
-                            xtype: 'panel',
-                            html: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
-                            title: 'Can I transfer my account to another user?',
-                            iconCls: 'x-fa fa-caret-down'
-                        }
-                        */
+                    items: [/*
+                     {
+                     xtype: 'panel',
+                     html: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+                     title: 'Migração das contas',
+                     iconCls: 'x-fa fa-caret-down'
+                     },
+                     {
+                     xtype: 'panel',
+                     html: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+                     title: 'Can I change my plan in between?',
+                     iconCls: 'x-fa fa-caret-down'
+                     },
+                     {
+                     xtype: 'panel',
+                     html: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+                     title: 'How can I deactivate my account?',
+                     iconCls: 'x-fa fa-caret-down'
+                     },
+                     {
+                     xtype: 'panel',
+                     html: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+                     title: 'Can I transfer my account to another user?',
+                     iconCls: 'x-fa fa-caret-down'
+                     }
+                     */
                     ]
                 },
                 {
@@ -182,13 +196,13 @@ Ext.define('Admin.view.pages.FAQ', {
                             title: 'Que geometrias posso desenhar?',
                             iconCls: 'x-fa fa-caret-down'
                         } /*,
-                        {
-                            xtype: 'panel',
-                            html: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
-                            title: 'How long does it take to process my payment?',
-                            iconCls: 'x-fa fa-caret-down'
-                        }
-                        */
+                         {
+                         xtype: 'panel',
+                         html: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+                         title: 'How long does it take to process my payment?',
+                         iconCls: 'x-fa fa-caret-down'
+                         }
+                         */
                     ]
                 }
             ]

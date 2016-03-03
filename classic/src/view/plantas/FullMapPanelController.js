@@ -26,41 +26,61 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
         var printrequestdetaillayer = vm.get('printrequestdetaillayer');
 
         var draw = vm.get('draw');
+        var selectInteraction = vm.get('selectInteraction');
+        var modify = vm.get('modify');
+
+        //function addInteraction() {
+        //    var value = newValue;
+        //    if (value !== 'None') {
+        //        var geometryFunction, maxPoints;
+        //        if (value === 'Square') {
+        //            value = 'Circle';
+        //            geometryFunction = ol.interaction.Draw.createRegularPolygon(4);
+        //        } else if (value === 'Box') {
+        //            value = 'LineString';
+        //            maxPoints = 2;
+        //            geometryFunction = function(coordinates, geometry) {
+        //                if (!geometry) {
+        //                    geometry = new ol.geom.Polygon(null);
+        //                }
+        //                var start = coordinates[0];
+        //                var end = coordinates[1];
+        //                geometry.setCoordinates([
+        //                    [start, [start[0], end[1]], end, [end[0], start[1]], start]
+        //                ]);
+        //                return geometry;
+        //            };
+        //        }
+        //        draw = new ol.interaction.Draw({
+        //            source: printrequestdetaillayer.getSource(),
+        //            type: /** @type {ol.geom.GeometryType} */ (value),
+        //            geometryFunction: geometryFunction,
+        //            maxPoints: maxPoints
+        //        });
+        //        olMap.addInteraction(draw);
+        //        vm.set('draw', draw);
+        //    }
+        //}
 
         function addInteraction() {
-            var value = newValue;
-            if (value !== 'None') {
-                var geometryFunction, maxPoints;
-                if (value === 'Square') {
-                    value = 'Circle';
-                    geometryFunction = ol.interaction.Draw.createRegularPolygon(4);
-                } else if (value === 'Box') {
-                    value = 'LineString';
-                    maxPoints = 2;
-                    geometryFunction = function(coordinates, geometry) {
-                        if (!geometry) {
-                            geometry = new ol.geom.Polygon(null);
-                        }
-                        var start = coordinates[0];
-                        var end = coordinates[1];
-                        geometry.setCoordinates([
-                            [start, [start[0], end[1]], end, [end[0], start[1]], start]
-                        ]);
-                        return geometry;
-                    };
-                }
+            if (newValue != 'None') {
                 draw = new ol.interaction.Draw({
+                    //features: features,
                     source: printrequestdetaillayer.getSource(),
-                    type: /** @type {ol.geom.GeometryType} */ (value),
-                    geometryFunction: geometryFunction,
-                    maxPoints: maxPoints
+                    type: /** @type {ol.geom.GeometryType} */ (newValue)
                 });
                 olMap.addInteraction(draw);
                 vm.set('draw', draw);
+            } else {
+                olMap.addInteraction(selectInteraction);
+                olMap.addInteraction(modify);
             }
         }
 
         olMap.removeInteraction(draw);
+        olMap.removeInteraction(modify);
+        olMap.removeInteraction(selectInteraction);
+
         addInteraction();
 
     },
@@ -77,7 +97,7 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
         console.log(features.length);
         console.log(features);
         if (features.length) {
-            var last = features[features.length-1];
+            var last = features[features.length - 1];
             printrequestdetaillayer.getSource().removeFeature(last);
             printrequestdetaillayer.getSource().changed();
         }
@@ -523,11 +543,35 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
         map.addLayer(vectorJSON);
         vm.set('pedidoLayer', vectorJSON);
 
+        function styleFunction(feature, resolution) {
+            var res;
+            //console.log(feature);
+            var geotype = feature.getGeometry().getType();
+
+           res = new ol.style.Style({
+                fill: new ol.style.Fill({
+                    color: 'rgba(255, 51, 0, 0.2)'
+                }),
+                stroke: new ol.style.Stroke({
+                    color: '#ff3300',
+                    width: 2
+                }),
+                image: new ol.style.Circle({
+                    radius: 7,
+                    fill: new ol.style.Fill({
+                        color: '#ff3300'
+                    })
+                })
+            });
+            return [res];
+        }
+
         // Each print request can have several features
         var printrequestdetaillayer = new ol.layer.Vector({
             title: 'Detail',
             name: 'Detail--',
-            source: new ol.source.Vector()
+            source: new ol.source.Vector(),
+            style: styleFunction // must be a style function for the Vector serializer
         });
         map.addLayer(printrequestdetaillayer);
         vm.set('printrequestdetaillayer', printrequestdetaillayer);
@@ -537,25 +581,35 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
             toggleCondition: ol.events.condition.shiftKeyOnly,
             layers: [printrequestdetaillayer],
             style: new ol.style.Style({
+                fill: new ol.style.Fill({
+                    color: 'rgba(255, 255, 255, 0.2)'
+                }),
                 stroke: new ol.style.Stroke({
-                    color: '#ff0000',
+                    color: '#ffcc33',
                     width: 3
+                }),
+                image: new ol.style.Circle({
+                    radius: 7,
+                    fill: new ol.style.Fill({
+                        color: '#ffcc33'
+                    })
                 })
             })
         });
 
-        map.addInteraction(selectInteraction);
+        //map.addInteraction(selectInteraction);
+        vm.set('selectInteraction', selectInteraction);
 
         var modify = new ol.interaction.Modify({
             features: selectInteraction.getFeatures(),
-            deleteCondition: function(event) {
+            deleteCondition: function (event) {
                 return ol.events.condition.shiftKeyOnly(event) &&
                     ol.events.condition.singleClick(event);
             }
         });
 
-        map.addInteraction(modify);
-
+        //map.addInteraction(modify);
+        vm.set('modify', modify);
 
     },
 
