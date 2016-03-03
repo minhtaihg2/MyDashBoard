@@ -87,6 +87,8 @@ $include-admin-view-dashboard-earnings: dynamic(true);;
 $include-admin-view-dashboard-hddusage: dynamic(true);;
 $include-admin-view-dashboard-members: dynamic(true);;
 $include-admin-view-dashboard-network: dynamic(true);;
+$include-admin-view-dashboard-plantas: dynamic(true);;
+$include-admin-view-dashboard-plantascontroller: dynamic(true);;
 $include-admin-view-dashboard-sales: dynamic(true);;
 $include-admin-view-dashboard-services: dynamic(true);;
 $include-admin-view-dashboard-todos: dynamic(true);;

@@ -188,6 +188,7 @@
       //        "path": "http://openlayers.org/en/master/build/ol.js",
       //        "path": "http://openlayers.org/en/master/build/ol-debug.js",
       "path": "resources/js/OL3/ol.js",
+//      "path": "resources/js/OL3/ol-debug.js",
       "remote": false
     }, {
       "path": "http://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.6/proj4.js",

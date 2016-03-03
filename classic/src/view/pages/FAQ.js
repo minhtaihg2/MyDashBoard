@@ -120,7 +120,7 @@ Ext.define('Admin.view.pages.FAQ', {
                         {
                             xtype: 'panel',
                             html: 'Em breve.',
-                            title: 'Quando estão mais aplicaçõe disponíveis?',
+                            title: 'Quando estão mais aplicações disponíveis?',
                             iconCls: 'x-fa fa-caret-down'
                         }
                     ]
@@ -172,16 +172,16 @@ Ext.define('Admin.view.pages.FAQ', {
                     items: [
                         {
                             xtype: 'panel',
-                            html: 'As plantas de localização são impressas usando <b>apenas</b> a cartografia oficial do município, nas escalas 1:2000, 1:5000 e 1:10000.',
+                            html: 'As plantas de localização são impressas usando <b>apenas</b> a cartografia oficial do município, nas escalas 1:2000, 1:5000 e 1:10000.<br/>Sobre essa cartografia, deve desenhar as peças que achar convenientes.',
                             title: 'Os ortofotomapas não aparecem na impressão',
                             iconCls: 'x-fa fa-caret-down'
-                        } /*,
+                        },
                         {
                             xtype: 'panel',
-                            html: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
-                            title: 'What is the refund policy?',
+                            html: 'Pode desenhar pontos, linhas de polígonos, assim como círculos, retângulos e caixas.<br/>Depois de desenhar algo, pode selecionar o mesmo e editar os vértices. Para remover um vértice, depois de escolher o vértice, tem que premir a tecla shift.',
+                            title: 'Que geometrias posso desenhar?',
                             iconCls: 'x-fa fa-caret-down'
-                        },
+                        } /*,
                         {
                             xtype: 'panel',
                             html: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',

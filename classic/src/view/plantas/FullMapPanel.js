@@ -78,6 +78,36 @@ Ext.define("Admin.view.plantas.FullMapPanel", {
                 click: 'onPrintCheck'
             }
         }];
+        me.bbar = [{
+            xtype: 'combobox',
+            width: 200,
+            fieldLabel: 'Draw'.translate(),
+            labelWidth: 60,
+            displayField: 'name',
+            valueField: 'value',
+            value: 'None',
+            forceSelection: true,
+            editable: false,
+            bind: {
+                store: '{geometrias}'
+            },
+            queryMode: 'local',
+            listeners: {
+                change: 'onChangeGeometry'
+            }
+        }, '-', {
+            xtype: 'button',
+            text: 'Apagar último',
+            listeners: {
+                click: 'onDeleteLast'
+            }
+        }, {
+            xtype: 'button',
+            text: 'Apagar tudo',
+            listeners: {
+                click: 'onDeleteAll'
+            }
+        }];
         this.callParent();
     }
 

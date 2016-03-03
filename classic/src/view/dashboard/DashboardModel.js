@@ -134,6 +134,20 @@ Ext.define('Admin.view.dashboard.DashboardModel', {
                 }
             }
         },
+
+        plantas: {
+            fields: ['indicador', 'ind'],
+            data: [
+                {created: '2010', value: 2618},
+                {created: '2011', value: 3479},
+                {created: '2012', value: 3717},
+                {created: '2013', value: 3039},
+                {created: '2014', value: 2464},
+                {created: '2015', value: 2535},
+                {created: '2016', value: 485}
+            ]
+        },
+
         urbanismo_funcao: {
             fields: ['indicador', 'ind'],
             data: [

@@ -28,7 +28,9 @@ Ext.define('Admin.view.maps.MapCanvasController', {
                 me.onLayersStoreLoaded(records, operation, success, option);
                 me.setupLayerTreeStoreAndPanel(me.getView());
                 //me.addVectorLayer(me.getView());
-                me.setupPopupWindow(me.getView());
+                // TODO
+                // Not necessary for the moment, but instances should be able to use or not use popups...
+                //me.setupPopupWindow(me.getView());
                 console.log('Disparar o evento: afterlayersloaded');
                 view.fireEvent('afterlayersloaded', view);
             },

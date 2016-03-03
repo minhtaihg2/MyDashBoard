@@ -39,7 +39,8 @@ Ext.define('Admin.view.main.Viewport', {
                     xtype: 'component',
                     reference: 'senchaLogo',
                     cls: 'sencha-logo',
-                    html: '<div class="main-logo"><img src="resources/images/geomaster-white-48x48.png">UT SIG</div>',
+                    html: '<div class="main-logo"><img width="56" src="resources/images/dadosagueda_sem.png">UT SIG</div>',
+                    //html: '<div class="main-logo"><img src="resources/images/geomaster-white-48x48.png">UT SIG</div>',
                     //html: '<div class="main-logo"><img src="resources/images/ic_launcher.png">ActivEng</div>',
                     width: 250
                 },

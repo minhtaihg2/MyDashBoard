@@ -15,6 +15,86 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
         }
     },
 
+    onChangeGeometry: function (combo, newValue, oldValue, eOpts) {
+        console.log('onChangeGeometry: ' + newValue);
+        var me = this;
+
+        var view = this.getView();
+        var vm = view.getViewModel();
+        var olMap = view.down('mapcanvas').map;
+        var center = olMap.getView().getCenter();
+        var printrequestdetaillayer = vm.get('printrequestdetaillayer');
+
+        var draw = vm.get('draw');
+
+        function addInteraction() {
+            var value = newValue;
+            if (value !== 'None') {
+                var geometryFunction, maxPoints;
+                if (value === 'Square') {
+                    value = 'Circle';
+                    geometryFunction = ol.interaction.Draw.createRegularPolygon(4);
+                } else if (value === 'Box') {
+                    value = 'LineString';
+                    maxPoints = 2;
+                    geometryFunction = function(coordinates, geometry) {
+                        if (!geometry) {
+                            geometry = new ol.geom.Polygon(null);
+                        }
+                        var start = coordinates[0];
+                        var end = coordinates[1];
+                        geometry.setCoordinates([
+                            [start, [start[0], end[1]], end, [end[0], start[1]], start]
+                        ]);
+                        return geometry;
+                    };
+                }
+                draw = new ol.interaction.Draw({
+                    source: printrequestdetaillayer.getSource(),
+                    type: /** @type {ol.geom.GeometryType} */ (value),
+                    geometryFunction: geometryFunction,
+                    maxPoints: maxPoints
+                });
+                olMap.addInteraction(draw);
+                vm.set('draw', draw);
+            }
+        }
+
+        olMap.removeInteraction(draw);
+        addInteraction();
+
+    },
+
+    onDeleteLast: function (item, e, eOpts) {
+        console.log('Apaga tudo');
+        var me = this;
+        var view = this.getView();
+        var vm = view.getViewModel();
+        var olMap = view.down('mapcanvas').map;
+        var center = olMap.getView().getCenter();
+        var printrequestdetaillayer = vm.get('printrequestdetaillayer');
+        var features = printrequestdetaillayer.getSource().getFeatures();
+        console.log(features.length);
+        console.log(features);
+        if (features.length) {
+            var last = features[features.length-1];
+            printrequestdetaillayer.getSource().removeFeature(last);
+            printrequestdetaillayer.getSource().changed();
+        }
+    },
+
+    onDeleteAll: function (item, e, eOpts) {
+        console.log('Apaga tudo');
+        var me = this;
+        var view = this.getView();
+        var vm = view.getViewModel();
+        var olMap = view.down('mapcanvas').map;
+        var center = olMap.getView().getCenter();
+        var printrequestdetaillayer = vm.get('printrequestdetaillayer');
+        printrequestdetaillayer.getSource().clear();
+        printrequestdetaillayer.getSource().changed();
+    },
+
     onSearchNominatim: function (combo, newValue, oldValue, eOpts) {
         var me = this;
         var vm = me.getView().getViewModel();
@@ -144,30 +224,45 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
             }
         };
 
-        //var util = GeoExt.data.MapfishPrintProvider;
-        //var serializedLayers = util.getSerializedLayers(
-        //    olMap,
-        //    function (layer) {
-        //        // do not print the extent layer
-        //        var isExtentLayer = (extent === layer);
-        //        console.log('Layer ' + layer.get('title') + ' → ' + (!isExtentLayer && layer.getVisible()));
-        //        return !isExtentLayer && layer.getVisible();
-        //    }
-        //);
+        var util = GeoExt.data.MapfishPrintProvider;
+        var serializedLayers = util.getSerializedLayers(
+            olMap,
+            function (layer) {
+                //console.log(layer);
+                // do not print the extent layer
+                //var isExtentLayer = (extent === layer);
+                //console.log('Layer ' + layer.get('title') + ' → ' + (!isExtentLayer && layer.getVisible()));
+                //console.log('Layer ' + layer.get('title') + ' → ' + (layer.get('layer') == 'carto2_5k' || layer.get('layer') == 'carto10k') );
+                return (layer.get('title') == 'Detail')
+                //return !isExtentLayer && layer.getVisible();
+            }
+        );
+        console.log('----------------------------------');
+        console.log(serializedLayers);
+        console.log('----------------------------------');
+
+        serializedLayers.push({
+            "baseURL": "http://softwarelivre.cm-agueda.pt/geoserver/wms",
+            "customParams": {"VERSION": "1.1.1", "tiled": true, "STYLES": "", "LAYERS": "carto2_5k"},
+            "layers": ["carto2_5k"],
+            "opacity": 1,
+            "styles": [""],
+            "type": "WMS"
+        });
         //serializedLayers.reverse();
 
         spec.attributes['map2k'] = {
             center: center,
             dpi: 200, // clientInfo.dpiSuggestions[0],
-            //layers: serializedLayers,
-            layers: [{
-                "baseURL": "http://softwarelivre.cm-agueda.pt/geoserver/wms",
-                "customParams": {"VERSION": "1.1.1", "tiled": true, "STYLES": "", "LAYERS": "carto2_5k"},
-                "layers": ["carto2_5k"],
-                "opacity": 1,
-                "styles": [""],
-                "type": "WMS"
-            }],
+            layers: serializedLayers,
+            //layers: [{
+            //    "baseURL": "http://softwarelivre.cm-agueda.pt/geoserver/wms",
+            //    "customParams": {"VERSION": "1.1.1", "tiled": true, "STYLES": "", "LAYERS": "carto2_5k"},
+            //    "layers": ["carto2_5k"],
+            //    "opacity": 1,
+            //    "styles": [""],
+            //    "type": "WMS"
+            //}],
             projection: mapView.getProjection().getCode(),
             rotation: mapView.getRotation(),
             scale: 2000
@@ -176,15 +271,15 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
         spec.attributes['map10k'] = {
             center: center,
             dpi: 200, // clientInfo.dpiSuggestions[0],
-            //layers: serializedLayers,
-            layers: [{
-                "baseURL": "http://softwarelivre.cm-agueda.pt/geoserver/wms",
-                "customParams": {"VERSION": "1.1.1", "tiled": true, "STYLES": "", "LAYERS": "carto10k"},
-                "layers": ["carto10k"],
-                "opacity": 1,
-                "styles": [""],
-                "type": "WMS"
-            }],
+            layers: serializedLayers,
+            //layers: [{
+            //    "baseURL": "http://softwarelivre.cm-agueda.pt/geoserver/wms",
+            //    "customParams": {"VERSION": "1.1.1", "tiled": true, "STYLES": "", "LAYERS": "carto10k"},
+            //    "layers": ["carto10k"],
+            //    "opacity": 1,
+            //    "styles": [""],
+            //    "type": "WMS"
+            //}],
             projection: mapView.getProjection().getCode(),
             rotation: mapView.getRotation(),
             scale: 10000
@@ -387,7 +482,7 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
             format: new ol.format.GeoJSON(),
             loader: function (extent, resolution, projection) {
                 Server.Plantas.Pedidos.asGeoJson({
-                    gid: 19347
+                    gid: 0
                 }, function (result, event) {
                     // result == event.result
                     // console.debug(result);
@@ -395,8 +490,11 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
                     if (result.success) {
                         console.log('SEM Problema no Server.Plantas.Pedidos.asGeoJson', result.message);
                         console.log(result);
-                        var features = (new ol.format.GeoJSON()).readFeatures(result.data);
-                        vectorSource.addFeatures(features);
+                        if (result.data.features) {
+                            var features = (new ol.format.GeoJSON()).readFeatures(result.data);
+                            console.log(features);
+                            vectorSource.addFeatures(features);
+                        }
                         //processo_layer.addFeatures(geojson_format.read(result.data));
                     } else {
                         console.log('Problema no Server.Plantas.Pedidos.asGeoJson', result.message);
@@ -405,6 +503,8 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
             }
         });
 
+        // Each feature represents a print request
+        // The geometry of the print request is the center point
         var vectorJSON = new ol.layer.Vector({
             title: 'Pedidos',
             name: 'Pedidos--',
@@ -420,10 +520,42 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
              })
              */
         });
-
         map.addLayer(vectorJSON);
-
         vm.set('pedidoLayer', vectorJSON);
+
+        // Each print request can have several features
+        var printrequestdetaillayer = new ol.layer.Vector({
+            title: 'Detail',
+            name: 'Detail--',
+            source: new ol.source.Vector()
+        });
+        map.addLayer(printrequestdetaillayer);
+        vm.set('printrequestdetaillayer', printrequestdetaillayer);
+
+        var selectInteraction = new ol.interaction.Select({
+            condition: ol.events.condition.singleClick,
+            toggleCondition: ol.events.condition.shiftKeyOnly,
+            layers: [printrequestdetaillayer],
+            style: new ol.style.Style({
+                stroke: new ol.style.Stroke({
+                    color: '#ff0000',
+                    width: 3
+                })
+            })
+        });
+
+        map.addInteraction(selectInteraction);
+
+        var modify = new ol.interaction.Modify({
+            features: selectInteraction.getFeatures(),
+            deleteCondition: function(event) {
+                return ol.events.condition.shiftKeyOnly(event) &&
+                    ol.events.condition.singleClick(event);
+            }
+        });
+
+        map.addInteraction(modify);
+
 
     },
 

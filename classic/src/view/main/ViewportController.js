@@ -94,7 +94,7 @@ Ext.define('Admin.view.main.ViewportController', {
         if (id) {
             Server.DXLogin.deauthenticate({}, function (result, event) {
                 if (result.success) {
-                    Ext.Msg.alert(result.message);
+                    //Ext.Msg.alert(result.message);
                     //viewModel.set('current.user', null);
 
                     //me.application.fireEvent('logoutComSucesso');

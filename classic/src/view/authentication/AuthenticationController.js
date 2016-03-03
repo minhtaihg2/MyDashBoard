@@ -34,7 +34,7 @@ Ext.define('Admin.view.authentication.AuthenticationController', {
             // console.debug(event);
             if (result.success) {
                 // We have a valid user data
-                Ext.Msg.alert('Successful login', Ext.encode(result));
+                //Ext.Msg.alert('Successful login', Ext.encode(result));
 
                 me.fireEvent('loginComSucesso', result.data[0]);
 
@@ -97,7 +97,7 @@ Ext.define('Admin.view.authentication.AuthenticationController', {
                 me.redirectTo("dashboard");
             } else {
                 //Ext.Msg.alert('Error starting session'.translate(), 'Invalid user or password'.translate()); // Ext.encode(result)
-                Ext.Msg.alert('Error starting session', 'Invalid user or password'); // Ext.encode(result)
+                Ext.Msg.alert('Error starting session'.translate(), 'Invalid user or password'.translate()); // Ext.encode(result)
             }
         });
     },

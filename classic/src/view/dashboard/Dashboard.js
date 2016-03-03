@@ -62,6 +62,11 @@ Ext.define('Admin.view.dashboard.Dashboard', {
             responsiveCls: 'big-40 small-100'
         }, */
         {
+            xtype: 'dashboard_plantas',
+            // 60% width when viewport is big enough,
+            // 100% when viewport is small
+            responsiveCls: 'big-60 small-100'
+        } /*, {
             xtype: 'dashboard_funcao_panel',
             // 60% width when viewport is big enough,
             // 100% when viewport is small
@@ -70,7 +75,7 @@ Ext.define('Admin.view.dashboard.Dashboard', {
         {
             xtype: 'dashboard_processo_tipo_panel',
             responsiveCls: 'big-40 small-100'
-        }
+        } */
 
     ]
 });
