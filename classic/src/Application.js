@@ -1,26 +1,26 @@
 Ext.define('Admin.Application', {
     extend: 'Ext.app.Application',
-    
+
     name: 'Admin',
 
-    requires:[
+    requires: [
         'Ext.direct.*', 'Ext.data.proxy.Direct'
     ],
 
-    defaultToken : 'dashboard',
+    defaultToken: 'dashboard',
 
     //controllers: [
-        // TODO - Add Global View Controllers here
+    // TODO - Add Global View Controllers here
     //],
 
-    init: function() {
+    init: function () {
         console.log('Admin.Application init()');
         Ext.enableAriaButtons = false;
 
         var db = Translation;
         if (db) {
             console.log('Com suporte a traduções');
-            String.prototype.translate = function() {
+            String.prototype.translate = function () {
                 var s = this.valueOf();
                 // console.log('TRANSLATE: ' + s);
                 var t = {},
@@ -38,7 +38,7 @@ Ext.define('Admin.Application', {
             };
         } else {
             console.log('Sem suporte a traduções');
-            String.prototype.translate = function() {
+            String.prototype.translate = function () {
                 var s = this.valueOf();
                 return s;
             };
@@ -68,31 +68,31 @@ Ext.define('Admin.Application', {
                 Ext.direct.Manager.addProvider(ns);
                 this.setMainView('Admin.view.main.Viewport');
 
-                /*
-                Server.DXLogin.alive({}, function(result, event) {
+                Server.DXLogin.alive({}, function (result, event) {
                     //<debug>
                     console.log('------------------- ALIVE --------------------');
                     //</debug>
-                    // console.debug(result);
-                    // console.debug(event);
-                    if (result.success) {
-                        // We have a valid user data
-                        Ext.Msg.alert('Successful login: session was recovered', Ext.encode(result));
-                        //GeoPublic.LoggedInUser = Ext.create('GeoPublic.model.Utilizador', result.data[0]);
-                        //GeoPublic.LoggedInUser["login"] = "local";
-                        //// console.log(GeoPublic.LoggedInUser);
-                        //me.fireEvent('loginComSucesso', result.data[0]);
-                        Ext.GlobalEvents.fireEvent('loginComSucesso', result.data[0]);
+                    if (result) {
+                        if (result.success) {
+                            // We have a valid user data
+                            console.log('------------------- ALIVE: Success --------------------');
+                            Ext.Msg.alert('Successful login: session was recovered', Ext.encode(result));
+                            //GeoPublic.LoggedInUser = Ext.create('GeoPublic.model.Utilizador', result.data[0]);
+                            //GeoPublic.LoggedInUser["login"] = "local";
+                            //// console.log(GeoPublic.LoggedInUser);
+                            //me.fireEvent('loginComSucesso', result.data[0]);
+                            Ext.GlobalEvents.fireEvent('loginComSucesso', result.data[0]);
+                        } else {
+                            //Ext.Msg.alert('No session available', Ext.encode(result));
+                            //Ext.Msg.alert('No session available', result.message.text);
+                            console.log('------------------- ALIVE: not success --------------------');
+                            Ext.GlobalEvents.fireEvent('logoutComSucesso');
+                        }
                     } else {
-                        //Ext.Msg.alert('No session available', Ext.encode(result));
-                        Ext.Msg.alert('No session available', result.message.text);
+                        console.log('------------------- ALIVE: Error --------------------');
                         Ext.GlobalEvents.fireEvent('logoutComSucesso');
                     }
                 });
-
-                */
-
-                Ext.GlobalEvents.fireEvent('logoutComSucesso');
 
             }
         }

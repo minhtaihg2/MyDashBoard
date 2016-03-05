@@ -109,6 +109,9 @@ Translation = [{
 }, {
     "id": 'PDF document',
     "translation": 'Documento para impressão'
+}, {
+    "id": 'Download',
+    "translation": 'Descarregar'
 }];
 
 String.prototype.translate = function() {

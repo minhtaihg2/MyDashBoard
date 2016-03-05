@@ -20,85 +20,28 @@ Ext.define('Admin.view.authentication.AuthenticationController', {
         var md5 = CryptoJS.MD5(pass).toString();
         var remember = formpanel.getViewModel().get('persist');
 
-        //<debug>
-        console.log('Vai tentar com o login com ' + email + ' e a password = ' + pass + ' codificada = ' + sha1);
-        //</debug>
         Server.DXLogin.authenticate({
             email: email,
             password: sha1,
             passwordold: md5,
             remember: remember
         }, function (result, event) {
-            // result == event.result
-            console.debug(result);
-            // console.debug(event);
-            if (result.success) {
-                // We have a valid user data
-                //Ext.Msg.alert('Successful login', Ext.encode(result));
-
-                me.fireEvent('loginComSucesso', result.data[0]);
-
-                //console.log(result.data[0]);
-                var viewModel = me.getViewModel();
-                //// global: ViewportModel
-                //viewModel.set('currentUser', Ext.create('Admin.model.Utilizador', result.data[0]));
-                //// untested
-                //viewModel.set('current.user.login', "local");
-
-                //console.log(me.getViewModel().getData());
-                // local: AuthenticationModel
-                // local: was already set by the form
-                //viewModel.set('userid', result.data[0].email);
-                viewModel.set('fullName', result.data[0].nome);
-                //viewModel.set('password', result.data[0].password);
-                viewModel.set('email', result.data[0].email);
-
-                /*
-                 ativo: true
-                 codpostal: "4715-281"
-                 datacriacao: "2014-04-12T22:14:17.698Z"
-                 datamodificacao: "2014-11-05T19:07:40.388Z"
-                 despostal: "Braga"
-                 dicofre: null
-                 email: "jorgegustavo@sapo.pt"
-                 emailconfirmacao: true
-                 fotografia: "uploaded_images/profiles/32x32/31_d20496d979674f34ee15943489a2ca91.jpg"
-                 id: 31
-                 idgrupo: 1
-                 latitude: 5178696
-                 localidade: ""
-                 login: null
-                 longitude: -950770
-                 masculino: true
-                 morada: ""
-                 nic: "8432271"
-                 nif: "196628865"
-                 nome: "Gustavo Bastos"
-                 observacoes: null
-                 password: "93a82c2918a591d2de3144585e5666b7cf717079"
-                 pessoacoletiva: null
-                 ponto: "0101000020B30E000000000000E4032DC10000000052C15341"
-                 preferencias: null
-                 telefone: ""
-                 telemovel: "910333888"
-                 token: null
-                 ultimologin: null
-                 */
-
-                //GeoPublic.LoggedInUser = Ext.create('GeoPublic.model.Utilizador', result.data[0]);
-                //GeoPublic.LoggedInUser["login"] = "local";
-                /*
-                 * se remember, altero o cookie para sobreviver mais tempo
-                 * se o cookie sobreviver, ele será loginado na próxima vez
-                 * não preciso de usar o local storage ou qualquer outro cookie
-                 */
-                // login.close(); // passou para o evento
-                //me.application.fireEvent('loginComSucesso');
-                me.redirectTo("dashboard");
+            if (result) {
+                // event.type : "rpc"
+                if (result.success) {
+                    me.fireEvent('loginComSucesso', result.data[0]);
+                    var viewModel = me.getViewModel();
+                    // TODO: is this necessary?
+                    viewModel.set('fullName', result.data[0].nome);
+                    viewModel.set('email', result.data[0].email);
+                } else {
+                    Ext.Msg.alert('Error starting session'.translate(), 'Invalid user or password'.translate()); // Ext.encode(result)
+                }
             } else {
-                //Ext.Msg.alert('Error starting session'.translate(), 'Invalid user or password'.translate()); // Ext.encode(result)
-                Ext.Msg.alert('Error starting session'.translate(), 'Invalid user or password'.translate()); // Ext.encode(result)
+                // event.type: "exception"
+                Ext.Msg.alert('Problema na autenticação', 'Neste momento, não foi possível verificar o utilizador.<br/>Por favor tente mais tarde.');
             }
+            me.redirectTo("dashboard");
         });
     },
 
@@ -109,14 +52,6 @@ Ext.define('Admin.view.authentication.AuthenticationController', {
     onNewAccount: function (button, e, eOpts) {
         this.redirectTo("authentication.register");
     },
-
-    /*
-     onSignupClick: function (button, e, eOpts) {
-     console.log('onSignupClick');
-     Ext.Msg.alert('Verifique o email');
-     this.redirectTo("dashboard");
-     },
-     */
 
     onSignupClick: function (button, e, options) {
         var me = this;
@@ -140,17 +75,19 @@ Ext.define('Admin.view.authentication.AuthenticationController', {
             name: name,
             password: sha1
         }, function (result, event) {
-            // result == event.result
-            // console.debug(result);
-            // console.debug(event);
-            if (result.success) {
-                Ext.Msg.alert('Processo de registo iniciado', 'Foi enviado um email para ' + email + '<br/>' + 'Siga as indicações enviadas.' + '<br/>' + 'Só pode entrar, depois de confirmado o endereço de email.');
+            if (result) {
+                // event.type : "rpc"
+                if (result.success) {
+                    Ext.Msg.alert('Processo de registo iniciado', 'Foi enviado um email para ' + email + '<br/>' + 'Siga as indicações enviadas.' + '<br/>' + 'Só pode entrar, depois de confirmado o endereço de email.');
+                } else {
+                    Ext.Msg.alert('Problema no registo', result.message);
+                }
             } else {
-                Ext.Msg.alert('Problema no registo', result.message);
+                // event.type: "exception"
+                Ext.Msg.alert('Problema no registo', 'Neste momento, não foi possível fazer o registo de um novo utilizador.<br/>Por favor tente mais tarde.');
             }
             me.redirectTo("dashboard");
         });
-
     },
 
     onResetClick: function (button, e, eOpts) {
@@ -165,10 +102,18 @@ Ext.define('Admin.view.authentication.AuthenticationController', {
         Server.DXLogin.reset({
             email: email
         }, function (result, event) {
-            if (result.success) {
-                Ext.Msg.alert('Reposição da senha', 'Foi enviado um email para ' + email + '<br/>' + 'Siga as indicações enviadas.' );
+            if (result) {
+                // event.type : "rpc"
+                if (result.success) {
+                    Ext.Msg.alert('Reposição da senha', 'Foi enviado um email para ' + email + '<br/>' + 'Siga as indicações enviadas.');
+                } else {
+                    Ext.Msg.alert('Pedido sem efeito', result.message);
+                    //Ext.Msg.alert('Pedido sem efeito', 'O email ' + email + ' não corresponde a nenhum utilizador registado.');
+                    //Ext.Msg.alert('Pedido sem efeito', 'Falhou o envio para o endereço ' + email + '.');
+                }
             } else {
-                Ext.Msg.alert('Problema ao repor a senha', result.message);
+                // event.type: "exception"
+                Ext.Msg.alert('Problema ao repor a senha', 'Neste momento, não foi possível verificar se o utilizador ' + email + ' existe.<br/>Por favor tente mais tarde.');
             }
             me.redirectTo("dashboard");
         });

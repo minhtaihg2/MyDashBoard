@@ -49,7 +49,17 @@ Ext.define('Admin.view.dashboard.DashboardController', {
     },
     
     onHideView: function () {
+        console.log('onHideView dashboard');
         this.clearChartUpdates();
+    },
+
+    onShowView: function () {
+        console.log('onShowView dashboard');
+        var me = this,
+            storeplantastodas = this.getViewModel().getStore('plantastodas'),
+            storeplantasmes = this.getViewModel().getStore('plantasmes');
+        storeplantastodas.load();
+        storeplantasmes.load();
     }
 
 });

@@ -20,9 +20,14 @@ Ext.define('Admin.view.dashboard.PlantasController', {
 
     onSeriesTooltipRender: function(tooltip, record, item) {
         var formatString = '0';
+        tooltip.setHtml('Ano: ' + record.get('ano') + ' → ' +
+            Ext.util.Format.number(record.get('contador'), formatString) + ' plantas emitidas');
+    },
 
-        tooltip.setHtml('Ano: ' + record.get('created') + ' → ' +
-            Ext.util.Format.number(record.get('value'), formatString) + ' ocorrências');
+    onSeriesMesTooltipRender: function(tooltip, record, item) {
+        var formatString = '0';
+        tooltip.setHtml('Mês: ' + record.get('abrmes') + ' → ' +
+            Ext.util.Format.number(record.get('contador'), formatString) + ' plantas emitidas');
     },
 
     onColumnRender: function (v) {
@@ -32,6 +37,17 @@ Ext.define('Admin.view.dashboard.PlantasController', {
     onPreview: function () {
         var chart = this.lookupReference('chart');
         chart.preview();
+    },
+
+    onDownload: function() {
+        var chart = this.lookupReference('chart');
+        if (Ext.os.is.Desktop) {
+            chart.download({
+                filename: 'Plantas de Localização Emitidas'
+            });
+        } else {
+            chart.preview();
+        }
     }
 
 });

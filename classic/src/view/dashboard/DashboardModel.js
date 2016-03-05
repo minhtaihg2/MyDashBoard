@@ -9,6 +9,10 @@ Ext.define('Admin.view.dashboard.DashboardModel', {
         'Ext.data.field.Boolean'
     ],
 
+    data: {
+        ano: new Date().getFullYear()
+    },
+
     stores: {
         'dashboard.QGAreaStore': {
             autoLoad: true,
@@ -135,17 +139,23 @@ Ext.define('Admin.view.dashboard.DashboardModel', {
             }
         },
 
-        plantas: {
-            fields: ['indicador', 'ind'],
-            data: [
-                {created: '2010', value: 2618},
-                {created: '2011', value: 3479},
-                {created: '2012', value: 3717},
-                {created: '2013', value: 3039},
-                {created: '2014', value: 2464},
-                {created: '2015', value: 2535},
-                {created: '2016', value: 485}
-            ]
+        plantastodas: {
+            model: 'plantas.Estatisticas',
+            autoLoad: true, // important to set autoLoad to false. If there is an error on the backend, Ext will still try to resolve Direct method names and crash the app.
+            autoSync: false
+        },
+
+        plantasmes: {
+            model: 'plantas.Estatisticas',
+            autoLoad: true, // important to set autoLoad to false. If there is an error on the backend, Ext will still try to resolve Direct method names and crash the app.
+            autoSync: false,
+            //remoteSort: true,
+            remoteFilter: true,
+            filters: [{
+                property: 'datahora',
+                type: 'date',
+                value: '{ano}'
+            }]
         },
 
         urbanismo_funcao: {
