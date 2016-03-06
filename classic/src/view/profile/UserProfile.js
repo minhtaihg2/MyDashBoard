@@ -14,30 +14,18 @@ Ext.define('Admin.view.profile.UserProfile', {
 
     layout: 'responsivecolumn',
 
-    items: [
-        {
-            xtype: 'profilesharepanel',
-            
-            // Always 100% of container
-            responsiveCls: 'big-100'
-        },
-        {
-            xtype: 'profilesocialpanel',
-            
-            // Use 50% of container when viewport is big enough, 100% otherwise
-            responsiveCls: 'big-50 small-100'
-        },
-        {
-            xtype: 'profiledescriptionpanel',
-            responsiveCls: 'big-50 small-100'
-        },
-        {
-            xtype: 'profiletimelinepanel',
-            responsiveCls: 'big-50 small-100'
-        },
-        {
-            xtype: 'profilenotificationspanel',
-            responsiveCls: 'big-50 small-100'
-        }
-    ]
+    items: [{
+        xtype: 'profilesocialpanel',
+        // Use 50% of container when viewport is big enough, 100% otherwise
+        responsiveCls: 'big-50 small-100'
+    }, {
+        xtype: 'passwordform',
+        cls: 'shadow-panel',
+        responsiveCls: 'big-50 small-100'
+    }, {
+        xtype: 'personaldataform',
+        cls: 'shadow-panel',
+        //colorScheme: 'soft-purple',
+        responsiveCls: 'big-50 small-100'
+    }]
 });

@@ -25,14 +25,54 @@ Ext.define('Admin.view.profile.Social', {
             height: 120,
             width: 120,
             alt: 'profile-picture',
-            src: 'resources/images/user-profile/20.png'
+            bind: {
+                src: '{current.user.fotografia}'
+            }
         },
         {
             xtype: 'component',
             cls: 'userProfileName',
-            height: '',
-            html: 'Jessica Warren'
+            //height: '',
+            bind: {
+                html: '{current.user.nome}'
+            }
         },
+        {
+            xtype: 'container',
+            layout: {
+                type: 'vbox',
+                align: 'stretch'
+            },
+            cls:'timeline-items-wrap user-profile-desc shadow-panel',
+            items: [
+                {
+                    xtype: 'box',
+                    componentCls: 'x-fa fa-envelope',
+                    bind: {
+                        html: '{current.user.email}'
+                    },
+                    padding: '0 0 12 0'
+                }, {
+                    xtype: 'box',
+                    componentCls: 'x-fa fa-home',
+                    bind: {
+                        html: '{current.user.codpostal}' + '-' + '{current.user.despostal}'
+                    },
+                    padding: '0 0 12 0'
+                },
+                {
+                    xtype: 'box',
+                    componentCls: 'x-fa fa-clock-o',
+                    bind: {
+                        html: 'Membro desde {current.user.datacriacaoiso}'
+                    },
+                    padding: '0 0 12 0'
+                }
+            ]
+        }
+
+
+        /*
         {
             xtype: 'component',
             cls: 'userProfileDesc',
@@ -71,5 +111,6 @@ Ext.define('Admin.view.profile.Social', {
             width: 220,
             text: 'Follow'
         }
+        */
     ]
 });

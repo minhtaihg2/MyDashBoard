@@ -13,14 +13,23 @@ Ext.define('Admin.view.profile.Description', {
     items: [
         {
             xtype: 'box',
+            componentCls: 'x-fa fa-envelope',
+            bind: {
+                html: '{current.user.email}'
+            },
+            padding: '0 0 12 0'
+        }, {
+            xtype: 'box',
             componentCls: 'x-fa fa-home',
-            html: 'San Jose, CA',
+            bind: {
+                html: '{current.user.codpostal}' + '-' + '{current.user.despostal}'
+            },
             padding: '0 0 12 0'
         },
         {
             xtype: 'box',
             componentCls: 'x-fa fa-clock-o',
-            html: 'Member since 1 years ago',
+            html: 'Membro desde {current.user.datacriacao}',
             padding: '0 0 12 0'
         },
         {

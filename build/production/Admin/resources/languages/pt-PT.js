@@ -2,6 +2,54 @@ Translation = [{
     "id": "Log In",
     "translation": "Autenticação"
 }, {
+    "id": "Personal data",
+    "translation": "Dados pessoais"
+}, {
+    "id": "Identification",
+    "translation": "Identificação"
+}, {
+    "id": "Name",
+    "translation": "Nome"
+}, {
+    "id": "VAT number",
+    "translation": "NIF"
+}, {
+    "id": "Civil ID",
+    "translation": "BI ou CC"
+}, {
+    "id": "Sex",
+    "translation": "Sexo"
+}, {
+    "id": "Male",
+    "translation": "Masculino"
+}, {
+    "id": "Female",
+    "translation": "Feminino"
+}, {
+    "id": "Telephone numbers",
+    "translation": "Números de telefone"
+}, {
+    "id": "Telephone",
+    "translation": "Telefone"
+}, {
+    "id": "Mobile",
+    "translation": "Telemóvel"
+}, {
+    "id": "Postal address",
+    "translation": "Endereço postal"
+}, {
+    "id": "Address",
+    "translation": "Morada"
+}, {
+    "id": "Location",
+    "translation": "Localidade"
+}, {
+    "id": "Zip code",
+    "translation": "Cód. postal"
+}, {
+    "id": "Save",
+    "translation": "Gravar"
+}, {
     "id": 'Sign into your account',
     "translation": "Use os dados da sua conta"
 }, {
@@ -10,6 +58,15 @@ Translation = [{
 }, {
     "id": 'Password',
     "translation": "Senha"
+}, {
+    "id": 'Change password',
+    "translation": "Alterar a senha"
+}, {
+    "id": 'New password',
+    "translation": "Nova senha"
+}, {
+    "id": 'New password (repeat)',
+    "translation": "Nova senha (repita)"
 }, {
     "id": 'Remember me',
     "translation": "Estou no meu computador"

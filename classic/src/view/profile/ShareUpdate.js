@@ -9,7 +9,7 @@ Ext.define('Admin.view.profile.ShareUpdate', {
     items: [
         {
             xtype: 'textareafield',
-            emptyText: "What's on your mind?"
+            emptyText: "Comentários ou sugestões que queira partilhar sobre esta aplicação"
         }
     ],
     
@@ -18,10 +18,6 @@ Ext.define('Admin.view.profile.ShareUpdate', {
                 margin:'0 10 5 0'
         },
         items:[
-            {
-                xtype: 'button',
-                iconCls: 'x-fa fa-video-camera'
-            },
             {
                 xtype: 'button',
                 iconCls: 'x-fa fa-camera'
@@ -33,7 +29,7 @@ Ext.define('Admin.view.profile.ShareUpdate', {
             '->',
             {
                 xtype: 'button',
-                text: 'Share',
+                text: 'Enviar',
                 ui: 'soft-blue'
             }
         ]
