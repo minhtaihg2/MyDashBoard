@@ -75,7 +75,7 @@ Translation = [{
     "translation": 'Erro de autenticação'
 }, {
     "id": 'Invalid user or password',
-    "translation": 'O email ou a senha não estão corretos. Se for necessário, pode repor a senha'
+    "translation": 'O email ou a senha não estão corretos.<br/>Certifique-se que já se registou e validou o email.<br/>Se for necessário, pode repor a senha'
 }, {
     "id": 'Draw',
     "translation": 'Desenhar'

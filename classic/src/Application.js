@@ -67,7 +67,6 @@ Ext.define('Admin.Application', {
             } else {
                 Ext.direct.Manager.addProvider(ns);
                 this.setMainView('Admin.view.main.Viewport');
-
                 Server.DXLogin.alive({}, function (result, event) {
                     //<debug>
                     console.log('------------------- ALIVE --------------------');
@@ -75,8 +74,8 @@ Ext.define('Admin.Application', {
                     if (result) {
                         if (result.success) {
                             // We have a valid user data
-                            console.log('------------------- ALIVE: Success --------------------');
-                            Ext.Msg.alert('Successful login: session was recovered', Ext.encode(result));
+                            //console.log('------------------- ALIVE: Success --------------------');
+                            //Ext.Msg.alert('Successful login: session was recovered', Ext.encode(result));
                             //GeoPublic.LoggedInUser = Ext.create('GeoPublic.model.Utilizador', result.data[0]);
                             //GeoPublic.LoggedInUser["login"] = "local";
                             //// console.log(GeoPublic.LoggedInUser);
@@ -93,7 +92,6 @@ Ext.define('Admin.Application', {
                         Ext.GlobalEvents.fireEvent('logoutComSucesso');
                     }
                 });
-
             }
         }
     },
