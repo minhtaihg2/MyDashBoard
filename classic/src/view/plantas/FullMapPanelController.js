@@ -257,14 +257,26 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
                 //return !isExtentLayer && layer.getVisible();
             }
         );
-        console.log('----------------------------------');
-        console.log(serializedLayers);
-        console.log('----------------------------------');
 
-        serializedLayers.push({
+        //console.log('----------------------------------');
+        //console.log(serializedLayers);
+        //console.log('----------------------------------');
+
+        var serializedLayers2k = JSON.parse(JSON.stringify(serializedLayers));
+        var serializedLayers10k = JSON.parse(JSON.stringify(serializedLayers));
+
+        serializedLayers2k.push({
             "baseURL": "http://softwarelivre.cm-agueda.pt/geoserver/wms",
-            "customParams": {"VERSION": "1.1.1", "tiled": true, "STYLES": "", "LAYERS": "carto2_5k"},
+            "customParams": {"VERSION": "1.1.1", "tiled": true},
             "layers": ["carto2_5k"],
+            "opacity": 1,
+            "styles": [""],
+            "type": "WMS"
+        });
+        serializedLayers10k.push({
+            "baseURL": "http://softwarelivre.cm-agueda.pt/geoserver/wms",
+            "customParams": {"VERSION": "1.1.1", "tiled": true},
+            "layers": ["carto10k"],
             "opacity": 1,
             "styles": [""],
             "type": "WMS"
@@ -274,15 +286,7 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
         spec.attributes['map2k'] = {
             center: center,
             dpi: 200, // clientInfo.dpiSuggestions[0],
-            layers: serializedLayers,
-            //layers: [{
-            //    "baseURL": "http://softwarelivre.cm-agueda.pt/geoserver/wms",
-            //    "customParams": {"VERSION": "1.1.1", "tiled": true, "STYLES": "", "LAYERS": "carto2_5k"},
-            //    "layers": ["carto2_5k"],
-            //    "opacity": 1,
-            //    "styles": [""],
-            //    "type": "WMS"
-            //}],
+            layers: serializedLayers2k,
             projection: mapView.getProjection().getCode(),
             rotation: mapView.getRotation(),
             scale: 2000
@@ -291,15 +295,7 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
         spec.attributes['map10k'] = {
             center: center,
             dpi: 200, // clientInfo.dpiSuggestions[0],
-            layers: serializedLayers,
-            //layers: [{
-            //    "baseURL": "http://softwarelivre.cm-agueda.pt/geoserver/wms",
-            //    "customParams": {"VERSION": "1.1.1", "tiled": true, "STYLES": "", "LAYERS": "carto10k"},
-            //    "layers": ["carto10k"],
-            //    "opacity": 1,
-            //    "styles": [""],
-            //    "type": "WMS"
-            //}],
+            layers: serializedLayers10k,
             projection: mapView.getProjection().getCode(),
             rotation: mapView.getRotation(),
             scale: 10000
@@ -330,13 +326,16 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
                     gid: printid,
                     download_cod: obj.downloadURL
                 }, function (result, event) {
-                    if (result.success) {
-                        console.log('Correu bem o update', result.message);
+                    if (result) {
+                        if (result.success) {
+                            console.log('Correu bem o update', result.message);
+                        } else {
+                            console.log('Correu mal o update', result.message);
+                        }
                     } else {
                         console.log('Correu mal o update', result.message);
                     }
                 });
-
             },
 
             failure: function (response, opts) {
