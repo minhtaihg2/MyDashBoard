@@ -324,7 +324,9 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
 
                 Server.Plantas.Pedidos.update({
                     gid: printid,
-                    download_cod: obj.downloadURL
+                    download_cod: obj.downloadURL,
+                    //ref: obj.ref,
+                    statusURL: obj.statusURL
                 }, function (result, event) {
                     if (result) {
                         if (result.success) {

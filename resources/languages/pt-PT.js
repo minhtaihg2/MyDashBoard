@@ -110,6 +110,9 @@ Translation = [{
     "id": 'Reset Password',
     "translation": 'Reposição da senha'
 }, {
+    "id": 'The minimum are {0} characters',
+    "translation": 'Use pelo menos {0} carateres'
+}, {
     "id": 'Enter your email address for further reset instructions',
     "translation": 'Indique o seu email para receber as indicações necessárias'
 }, {

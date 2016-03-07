@@ -45,7 +45,7 @@ Ext.define('Admin.view.dashboard.PlantasMes', {
             position: 'left',
             fields: 'contador',
             grid: true,
-            maximum: 4000,
+            maximum: 500,
             majorTickSteps: 8,
             title: 'Nº de Plantas Emitidas'
             //renderer: 'onAxisLabelRender'
