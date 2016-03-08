@@ -24,7 +24,7 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
         }
     },
 
-    loadDraw: function (gid, pretensao) {
+    doLoadDraw: function (gid, pretensao) {
         var me = this;
         var view = me.getView();
         var vm = view.getViewModel();
@@ -76,11 +76,11 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
             Ext.Msg.confirm('Recuperar edições anteriores', 'Já existem elementos desenhados.<br/>Quer perder os elementos desenhados e recuperar o pedido?', function (action, value) {
                 //console.log(arguments);
                 if (action === 'yes') {
-                    this.loadDraw(gid, pretensao);
+                    me.doLoadDraw(gid, pretensao);
                 }
             });
         } else {
-            this.loadDraw(gid, pretensao);
+            me.doLoadDraw(gid, pretensao);
         }
     },
 
