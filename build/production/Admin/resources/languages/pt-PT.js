@@ -59,6 +59,9 @@ Translation = [{
     "id": 'Password',
     "translation": "Senha"
 }, {
+    "id": 'Choose photo',
+    "translation": "Alterar fotografia"
+}, {
     "id": 'Change password',
     "translation": "Alterar a senha"
 }, {
@@ -94,6 +97,12 @@ Translation = [{
 }, {
     "id": 'user@example.com',
     "translation": 'nome@servidor.com'
+}, {
+    "id": 'Success',
+    "translation": 'Sucesso'
+}, {
+    "id": 'Your photo has been uploaded',
+    "translation": 'A sua fotografia foi carregada com sucesso'
 }, {
     "id": 'Signup',
     "translation": 'Registar'

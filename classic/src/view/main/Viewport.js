@@ -93,9 +93,9 @@ Ext.define('Admin.view.main.Viewport', {
                     cls: 'header-right-profile-image',
                     height: 35,
                     width: 35,
-                    alt: 'Profile image',
+                    //alt: 'Profile image',
                     bind: {
-                        src: '{current.user.fotografia}'
+                        src: '{current.user.fotografia32}'
                     }
                 }, {
                     xtype: 'splitbutton',

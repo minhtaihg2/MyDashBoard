@@ -21,6 +21,28 @@ Ext.define('Admin.model.Utilizador', {
         type: 'string',
         persist: false
     }, {
+        name: 'fotografia160',
+        convert: function (value, record) {
+            var foto = record.get('fotografia');
+            if (foto.length > 0)
+                return foto.replace(/32x32/, '160x160');
+            else {
+                return 'resources/images/Man-Silhouette-Clip-Art-160.jpg';
+            }
+        },
+        depends: ['fotografia']
+    }, {
+        name: 'fotografia32',
+        convert: function (value, record) {
+            var foto = record.get('fotografia');
+            if (foto.length > 0)
+                return foto;
+            else {
+                return 'resources/images/Man-Silhouette-Clip-Art-32.jpg';
+            }
+        },
+        depends: ['fotografia']
+    }, {
         name: 'nome',
         type: 'string',
         persist: false

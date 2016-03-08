@@ -111,7 +111,7 @@ Ext.define('Ext.form.action.DirectSubmit', {
         
         fn       = me.resolveMethod('submit');
         formInfo = me.buildForm();
-        
+
         args = fn.directCfg.method.getArgs({
             params: formInfo.formEl,
             options: timeout != null ? { timeout: timeout * 1000 } : null,

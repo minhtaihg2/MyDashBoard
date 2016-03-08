@@ -5,10 +5,15 @@ Ext.define('Admin.view.profile.Social', {
     requires: [
         'Ext.button.Button',
         'Ext.container.Container',
-        'Ext.layout.container.VBox'
+        'Ext.layout.container.VBox',
+        'Ext.form.FieldSet',
+        'Ext.form.action.DirectLoad',
+        'Ext.form.action.DirectSubmit'
     ],
 
-    height: 300,
+    controller: 'profilesocialpanel',
+
+    height: 350, // 300,
     bodyPadding: 10,
 
     layout: {
@@ -24,9 +29,10 @@ Ext.define('Admin.view.profile.Social', {
             cls: 'userProfilePic',
             height: 120,
             width: 120,
-            alt: 'profile-picture',
+            //alt: 'profile-picture',
+            //src: 'resources/images/Man-Silhouette-Clip-Art-160.jpg',
             bind: {
-                src: '{current.user.fotografia}'
+                src: '{current.user.fotografia160}'
             }
         },
         {
@@ -36,6 +42,27 @@ Ext.define('Admin.view.profile.Social', {
             bind: {
                 html: '{current.user.nome}'
             }
+        }, {
+            xtype: 'form',
+            reference: 'photoform',
+            api: {
+                submit: 'Server.DXFormUploads.filesubmit'
+            },
+            items: [{
+                xtype: 'filefield',
+                name: 'photo',
+                itemId: 'photo',
+                // fieldLabel : 'Photo',
+                labelWidth: 50,
+                msgTarget: 'side',
+                allowBlank: true,
+                anchor: '40%',
+                buttonText: 'Choose photo'.translate(),
+                buttonOnly: true,
+                listeners: {
+                    change: 'onButtonUpload'
+                }
+            }]
         },
         {
             xtype: 'container',

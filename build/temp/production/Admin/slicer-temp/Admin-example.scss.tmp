@@ -190,6 +190,7 @@ $include-admin-view-profile-personaldataformcontroller: dynamic(true);;
 $include-admin-view-profile-personaldataformmodel: dynamic(true);;
 $include-admin-view-profile-shareupdate: dynamic(true);;
 $include-admin-view-profile-social: dynamic(true);;
+$include-admin-view-profile-socialcontroller: dynamic(true);;
 $include-admin-view-profile-timeline: dynamic(true);;
 $include-admin-view-profile-userprofile: dynamic(true);;
 $include-admin-view-profile-userprofilecontroller: dynamic(true);;
