@@ -19,6 +19,7 @@ Ext.define('Admin.view.sync.SyncModel', {
         }
     },
 
+
     stores: {
         sensor: {
             model: 'sync.Sensor',
@@ -80,5 +81,4 @@ Ext.define('Admin.view.sync.SyncModel', {
             ]
         }
     }
-
 });

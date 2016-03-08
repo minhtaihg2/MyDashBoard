@@ -9,14 +9,83 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
         'GeoExt.data.serializer.XYZ',
         'Ext.form.action.StandardSubmit'],
 
+    listen: {
+        controller: {
+            'plantas': {
+                loaddraw: 'onLoadDrawClick'
+                //redownload: 'onReDownloadClick'
+            }
+        }
+    },
+
     control: {
         '#': {  // matches the view itself
             requestprintid: 'onPedidoId'
         }
     },
 
+    loadDraw: function (gid, pretensao) {
+        var me = this;
+        var view = me.getView();
+        var vm = view.getViewModel();
+        var olMap = view.down('mapcanvas').map;
+        var geo = (new ol.format.GeoJSON()).readGeometry(pretensao);
+        //console.log(geo.getCoordinates());
+        var mapView = olMap.getView();
+        var printrequestdetaillayer = vm.get('printrequestdetaillayer');
+        var features = printrequestdetaillayer.getSource().getFeatures();
+        //console.log(features.length);
+        printrequestdetaillayer.getSource().clear();
+        var pan = ol.animation.pan({
+            duration: 1000,
+            source: mapView.getCenter()
+        });
+        olMap.beforeRender(pan);
+        mapView.setCenter(geo.getCoordinates());
+        Server.Plantas.Pedidos.asGeoJsonDetail({
+            gid: gid
+        }, function (result, event) {
+            if (result.success) {
+                //console.log('SEM Problema no Server.Plantas.Pedidos.asGeoJsonDetail', result.message);
+                //console.log(result);
+                if (result.data.features) {
+                    var features = (new ol.format.GeoJSON()).readFeatures(result.data);
+                    //console.log(features);
+                    printrequestdetaillayer.getSource().addFeatures(features);
+                }
+            } else {
+                console.log('Problema no Server.Plantas.Pedidos.asGeoJsonDetail', result.message);
+            }
+        });
+    },
+
+    onLoadDrawClick: function (gid, pretensao) {
+        //console.log('onLoadDrawClick');
+        //console.log(arguments);
+        var me = this;
+        var view = me.getView();
+        var vm = view.getViewModel();
+        var olMap = view.down('mapcanvas').map;
+        var geo = (new ol.format.GeoJSON()).readGeometry(pretensao);
+        //console.log(geo.getCoordinates());
+        var mapView = olMap.getView();
+        var printrequestdetaillayer = vm.get('printrequestdetaillayer');
+        var features = printrequestdetaillayer.getSource().getFeatures();
+        //console.log(features.length);
+        if (features.length > 0) {
+            Ext.Msg.confirm('Recuperar edições anteriores', 'Já existem elementos desenhados.<br/>Quer perder os elementos desenhados e recuperar o pedido?', function (action, value) {
+                //console.log(arguments);
+                if (action === 'yes') {
+                    this.loadDraw(gid, pretensao);
+                }
+            });
+        } else {
+            this.loadDraw(gid, pretensao);
+        }
+    },
+
     onChangeGeometry: function (combo, newValue, oldValue, eOpts) {
-        console.log('onChangeGeometry: ' + newValue);
+        //console.log('onChangeGeometry: ' + newValue);
         var me = this;
 
         var view = this.getView();
@@ -86,7 +155,7 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
     },
 
     onDeleteLast: function (item, e, eOpts) {
-        console.log('Apaga tudo');
+        //console.log('Apaga tudo');
         var me = this;
         var view = this.getView();
         var vm = view.getViewModel();
@@ -94,8 +163,8 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
         var center = olMap.getView().getCenter();
         var printrequestdetaillayer = vm.get('printrequestdetaillayer');
         var features = printrequestdetaillayer.getSource().getFeatures();
-        console.log(features.length);
-        console.log(features);
+        //console.log(features.length);
+        //console.log(features);
         if (features.length) {
             var last = features[features.length - 1];
             printrequestdetaillayer.getSource().removeFeature(last);
@@ -104,7 +173,7 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
     },
 
     onDeleteAll: function (item, e, eOpts) {
-        console.log('Apaga tudo');
+        //console.log('Apaga tudo');
         var me = this;
         var view = this.getView();
         var vm = view.getViewModel();
@@ -158,18 +227,20 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
         var view = this.getView();
         var vm = view.getViewModel();
         var user = vm.get('current.user');
-        console.log(user);
+        //console.log(user);
         var userid = vm.get('current.user.id');
-        console.log(userid);
+        //console.log(userid);
 
         var olMap = view.down('mapcanvas').map;
         var center = olMap.getView().getCenter();
         var pedidoLayer = vm.get('pedidoLayer');
+        var printrequestdetaillayer = vm.get('printrequestdetaillayer');
 
         var newfeature = {};
         var username;
 
         if (userid) {
+            username = vm.get('current.user.nome');
             username = vm.get('current.user.nome');
             newfeature = {
                 geometry: new ol.geom.Point(center),
@@ -197,20 +268,75 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
         pedidoLayer.getSource().addFeature(thecenterfeature);
 
         var dados = (new ol.format.GeoJSON()).writeFeature(thecenterfeature);
-        console.log(dados);
-        console.log(JSON.stringify(dados));
+        //console.log(dados);
+        //console.log(JSON.stringify(dados));
 
         Server.Plantas.Pedidos.saveGeoJson({
             feature: dados
         }, function (result, event) {
             if (result.success) {
-                console.log('Gravou bem', result.message);
-                console.log(result.data[0].gid);
+                //console.log('Gravou bem', result.message);
+                //console.log(result.data[0].gid);
+
                 view.fireEvent('requestprintid', view, result.data[0].gid, username);
+                // já tenho o gid
+                // gravar todos os desenhos
+
+                var features = printrequestdetaillayer.getSource().getFeatures();
+
+                if (features.length) {
+                    var details = (new ol.format.GeoJSON()).writeFeatures(features);
+                    Server.Plantas.Pedidos.saveGeoJsonDetail({
+                        pedido: result.data[0].gid,
+                        features: details
+                    }, function (result, event) {
+                        if (result.success) {
+                            console.log('Gravou bem', result.message);
+                        } else {
+                            console.log('Gravou mal', result.message);
+                            saveGeoJsonDetail
+                        }
+                    });
+                }
             } else {
                 console.log('Gravou mal', result.message);
             }
         });
+
+        deatilfeatures = {
+            features: {
+                "type": "FeatureCollection",
+                "features": [{
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "Polygon",
+                        "coordinates": [[[-20563.9, 102316.2], [-20499.5, 102317.59999999999], [-20478.5, 102384.79999999999], [-20456.100000000002, 102318.99999999999], [-20393.100000000002, 102317.59999999999], [-20443.5, 102279.79999999999], [-20429.5, 102226.59999999999], [-20479.9, 102260.2], [-20538.7, 102222.4], [-20516.300000000003, 102279.79999999999], [-20563.9, 102316.2]]]
+                    },
+                    "properties": null
+                }, {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [[-20432.300000000003, 102359.59999999999], [-20402.9, 102407.2], [-20379.1, 102429.6], [-20356.7, 102439.4], [-20317.5, 102445]]
+                    },
+                    "properties": null
+                }, {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [[-20422.5, 102345.6], [-20381.9, 102379.2], [-20348.3, 102397.40000000001], [-20288.1, 102411.40000000001], [-20227.9, 102411.40000000001]]
+                    },
+                    "properties": null
+                }, {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [[-20381.9, 102337.2], [-20310.5, 102363.80000000002], [-20246.1, 102372.2], [-20122.9, 102379.2], [-20024.9, 102376.40000000001]]
+                    },
+                    "properties": null
+                }]
+            }
+        };
 
     },
 
@@ -312,7 +438,7 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
                 console.dir(obj);
 
                 var startTime = new Date().getTime();
-                me.downloadWhenReady(startTime, obj);
+                me.downloadWhenReady(me, startTime, obj);
 
                 Ext.Msg.alert('Pedido de Impressão ' + printid, 'A sua Planta de Localização poderá demorar entre 10 a 30 segundos.' + '<br/>' + 'Será descarregada automaticamente dentro de momentos.' + '<br/>' + 'Aguarde por favor.');
 
@@ -322,8 +448,12 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
                  statusURL: "/print/print/status/47470980-2975-418e-8841-08261c9fd6ea@dbfe37f9-02ef-4f4b-9441-4e3d0247733c.json"
                  */
 
+                var folderpdf = 'print-requests/' + Math.floor(printid / 1000);
+                var pathpdf = folderpdf + '/' + printid + '.pdf';
+
                 Server.Plantas.Pedidos.update({
                     gid: printid,
+                    pdf: pathpdf,
                     download_cod: obj.downloadURL,
                     //ref: obj.ref,
                     statusURL: obj.statusURL
@@ -348,8 +478,7 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
 
     },
 
-    downloadWhenReady: function (startTime, data) {
-        var me = this;
+    downloadWhenReady: function (me, startTime, data) {
         if ((new Date().getTime() - startTime) > 50000) {
             console.log('Gave up waiting after 50 seconds');
         } else {
@@ -359,16 +488,18 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
                     url: 'http://geoserver.sig.cm-agueda.pt' + data.statusURL,
                     success: function (response, opts) {
                         var statusData = Ext.decode(response.responseText);
-                        console.dir(statusData);
+                        //console.dir(statusData);
 
                         if (!statusData.done) {
-                            me.downloadWhenReady(startTime, data);
+                            me.downloadWhenReady(me, startTime, data);
                         } else {
-                            // TODO
-                            // popups are usually blocked!
-                            //window.open('http://localhost:8080' + statusData.downloadURL, '_blank');
                             window.location = 'http://geoserver.sig.cm-agueda.pt' + statusData.downloadURL;
-                            console.log('Downloading: ' + data.ref);
+                            //console.log('Downloading: ' + data.ref);
+                            // refresh grid
+
+                            var grid = me.getView().up('plantas').lookupReference('pedidoGrid');
+                            //console.log('Reler a grid');
+                            grid.store.load();
                         }
                     },
                     failure: function (response, opts) {
@@ -549,7 +680,7 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
             //console.log(feature);
             var geotype = feature.getGeometry().getType();
 
-           res = new ol.style.Style({
+            res = new ol.style.Style({
                 fill: new ol.style.Fill({
                     color: 'rgba(255, 51, 0, 0.2)'
                 }),
