@@ -40,14 +40,14 @@ Ext.define('Admin.view.pages.FAQ', {
             items: [
                 {
                     xtype: 'panel',
-                    title: 'Bem vindo',
+                    title: 'Welcome'.translate(),
                     ui: 'light',
                     cls: 'shadow-panel pages-faq-container',
                     iconCls: 'x-fa fa-lightbulb-o',
                     html: '',
                     bodyPadding: 15,
                     loader: {
-                        url: 'resources/help/welcome.html',
+                        url: 'resources/help/en/welcome.html'.translate(),
                         autoLoad: true
                     }
                 },
@@ -57,7 +57,7 @@ Ext.define('Admin.view.pages.FAQ', {
                     ui: 'light',
                     cls: 'shadow-panel pages-faq-container',
                     iconCls: 'x-fa fa-question',
-                    title: 'Precisa de Ajuda?',
+                    title: 'Need help?'.translate(),
                     layout: {
                         type: 'vbox',
                         align: 'stretch'
@@ -66,7 +66,7 @@ Ext.define('Admin.view.pages.FAQ', {
                         {
                             xtype: 'box',
                             loader: {
-                                url: 'resources/help/ajuda.html',
+                                url: 'resources/help/en/help.html'.translate(),
                                 autoLoad: true
                             }
                         } /*,
@@ -108,7 +108,7 @@ Ext.define('Admin.view.pages.FAQ', {
             cls: 'pages-faq-container shadow-panel',
 
             iconCls: 'x-fa fa-question-circle',
-            title: 'Questões típicas',
+            title: 'Frequent questions'.translate(),
             bodyPadding: 15,
             items: [
                 {

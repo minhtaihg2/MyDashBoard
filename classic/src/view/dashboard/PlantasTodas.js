@@ -18,7 +18,7 @@ Ext.define('Admin.view.dashboard.PlantasTodas', {
     headerPosition: 'bottom',
     iconCls: 'x-fa fa-bar-chart',
 
-    title: 'Plantas de Localização por ano',
+    title: 'Location Plans by year'.translate(),
 
     tbar: [ '->', {
         text: 'Download'.translate(),
@@ -47,7 +47,7 @@ Ext.define('Admin.view.dashboard.PlantasTodas', {
             grid: true,
             maximum: 4000,
             majorTickSteps: 8,
-            title: 'Nº de Plantas Emitidas'
+            title: 'Number of requests'.translate()
             //renderer: 'onAxisLabelRender'
         }, {
             type: 'category',

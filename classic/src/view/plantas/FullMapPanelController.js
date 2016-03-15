@@ -294,7 +294,6 @@ Ext.define('Admin.view.plantas.FullMapPanelController', {
                             console.log('Gravou bem', result.message);
                         } else {
                             console.log('Gravou mal', result.message);
-                            saveGeoJsonDetail
                         }
                     });
                 }

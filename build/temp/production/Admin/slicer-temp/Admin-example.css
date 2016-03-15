@@ -2393,6 +2393,46 @@
 .boldFont {
     font-weight: bold;
 }
+/* http://localhost:2222/classic/sass/etc/all.scss:62 */
+.portuguese {
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    background-image: url('flags/flags_iso/16/pt.png');
+}
+/* http://localhost:2222/classic/sass/etc/all.scss:70 */
+.english {
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    background-image: url('flags/flags_iso/16/gb.png');
+}
+/* http://localhost:2222/classic/sass/etc/all.scss:78 */
+.spanish {
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    background-image: url('flags/flags_iso/16/es.png');
+}
+/* http://localhost:2222/classic/sass/etc/all.scss:86 */
+.greek {
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    background-image: url('flags/flags_iso/16/gr.png');
+}
+/* http://localhost:2222/classic/sass/etc/all.scss:94 */
+.italian {
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    background-image: url('flags/flags_iso/16/it.png');
+}
 /* http://localhost:2222/ext/packages/core/sass/src/util/SizeMonitor.scss:5 */
 .x-size-monitored {
     /**

@@ -30,14 +30,14 @@ Ext.define('Admin.view.plantas.Plantas', {
         }],
 
         tbar: [ '->', {
-            text: 'Recuperar desenho',
+            text: 'Recover the draw'.translate(),
             iconCls: 'x-fa fa-pencil-square-o ',
             bind: {
                 disabled: '{!pedidoGrid.selection}'
             },
             handler: 'onLoadDrawClick'
         }, {
-            text: 'Descarregar novamente',
+            text: 'Download again'.translate(),
             iconCls: 'x-fa fa-download',
             bind: {
                 disabled: '{!pedidoGrid.selection}'
@@ -45,19 +45,19 @@ Ext.define('Admin.view.plantas.Plantas', {
             handler: 'onReDownloadClick'
         }],
 
-        title: 'Pedidos',
+        title: 'Requests'.translate(),
         bind: {
             store: '{pedido}'
         },
         viewConfig: {
-            emptyText: 'No data available'
+            emptyText: 'No data available'.translate()
         },
         columns: [{
-            text: 'Pedido',
+            text: 'Request'.translate(),
             dataIndex: 'gid',
             width: 120
         }, {
-            text: 'Documento',
+            text: 'Document'.translate(),
             dataIndex: 'pdf',
             flex: 1
         }, {
@@ -65,7 +65,7 @@ Ext.define('Admin.view.plantas.Plantas', {
             xtype: 'datecolumn',
             format: 'Y-m-d H:i:s',
             width: 150,
-            text: 'Date',
+            text: 'Date'.translate(),
             dataIndex: 'datahora'
         }],
         selType: 'rowmodel',

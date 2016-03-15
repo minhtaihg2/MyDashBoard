@@ -1,4 +1,79 @@
 Translation = [{
+    "id": "app-language",
+    "translation": "pt-PT"
+}, {
+    "id": "Frequent questions",
+    "translation": "Questões típicas"
+}, {
+    "id": "Welcome",
+    "translation": "Bem vindo"
+}, {
+    "id": "Need help?",
+    "translation": "Precisa de Ajuda?"
+}, {
+    "id": "resources/help/en/help.html",
+    "translation": "resources/help/pt/ajuda.html"
+}, {
+    "id": "resources/help/en/welcome.html",
+    "translation": "resources/help/pt/bemvindo.html"
+}, {
+    "id": "Portrait",
+    "translation": "Vertical"
+}, {
+    "id": "A3 paper",
+    "translation": "Folha A3"
+}, {
+    "id": "A4 paper",
+    "translation": "Folha A4"
+}, {
+    "id": "Print",
+    "translation": "Imprimir"
+}, {
+    "id": "Draw",
+    "translation": "Desenhar"
+}, {
+    "id": "Document",
+    "translation": "Documento"
+}, {
+    "id": "Date",
+    "translation": "Data"
+}, {
+    "id": "No data available",
+    "translation": "Sem dados para mostrar"
+}, {
+    "id": "Requests",
+    "translation": "Pedidos"
+}, {
+    "id": "Request",
+    "translation": "Pedido"
+}, {
+    "id": "Download again",
+    "translation": "Descarregar novamente"
+}, {
+    "id": "Recover the draw",
+    "translation": "Recuperar desenho"
+}, {
+    "id": "Location Plans by year",
+    "translation": "Plantas de Localização por ano"
+}, {
+    "id": "Number of requests",
+    "translation": "Nº de pedidos"
+}, {
+    "id": "Location Plans by month",
+    "translation": "Plantas de Localização por mês"
+}, {
+    "id": "GIS",
+    "translation": "SIG"
+}, {
+    "id": "Help",
+    "translation": "Ajuda"
+}, {
+    "id": "Users",
+    "translation": "Utilizadores"
+}, {
+    "id": "Location Plan",
+    "translation": "Plantas de Localização"
+}, {
     "id": "Log In",
     "translation": "Autenticação"
 }, {
@@ -140,6 +215,12 @@ Translation = [{
     "id": 'Search',
     "translation": 'Procurar'
 }, {
+    "id": 'Error',
+    "translation": 'Erro'
+}, {
+    "id": 'Error uploading file',
+    "translation": 'Erro ao carregar a imagem'
+}, {
     "id": 'Error starting session',
     "translation": 'Erro de autenticação'
 }, {
@@ -182,20 +263,3 @@ Translation = [{
     "id": 'Download',
     "translation": 'Descarregar'
 }];
-
-String.prototype.translate = function() {
-    var s = this.valueOf();
-    // console.log('TRANSLATE: ' + s);
-    var t = {},
-        i = 0,
-        n = Translation.length;
-    while (i < n) {
-        t = Translation[i];
-        // console.log(t);
-        if (t.id == s) {
-            return t.translation;
-        }
-        i++;
-    }
-    return s;
-};

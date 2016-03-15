@@ -59,6 +59,7 @@ Ext.define('Admin.Application', {
 
         // tradução da aplicação...
         // http://www.enovision.net/how-to-add-missing-extjs-6-locale-properties-in-your-application/
+        console.log('app-language'.translate());
 
         var ns = Server.API;
         if (ns) {

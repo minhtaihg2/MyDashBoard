@@ -40,8 +40,8 @@ Ext.define('Admin.view.profile.SocialController', {
             failure: function (form, action) {
                 console.log(arguments);
                 Ext.MessageBox.show({
-                    title: 'EXCEPTION',
-                    msg: 'Error uploading file',
+                    title: 'Error'.translate(),
+                    msg: 'Error uploading file'.translate(),
                     icon: Ext.MessageBox.ERROR,
                     buttons: Ext.Msg.OK
                 });

@@ -28,6 +28,9 @@ Ext.define('Admin.view.main.ViewportController', {
 
     init: function () {
         var me = this;
+        console.log('Admin.view.main.ViewportController.init()');
+
+        me.getViewModel().set('language', 'app-language'.translate());
 
         //var navigationTreeStore = Ext.getStore('NavigationTree');
         var navigationTreeStore = me.getViewModel().getStore('navigationTree');
@@ -39,8 +42,8 @@ Ext.define('Admin.view.main.ViewportController', {
             //me.redirectTo("dashboard");
             me.setCurrentView("dashboard");
         });
-
         me.callParent(arguments);
+
     },
 
     onLoginComSucesso: function (user) {
@@ -61,6 +64,7 @@ Ext.define('Admin.view.main.ViewportController', {
             }
         });
         treelist.onRootChange(estore.getRoot());
+
     },
 
     onLogoutComSucesso: function () {
@@ -118,7 +122,7 @@ Ext.define('Admin.view.main.ViewportController', {
             navigationList = refs.navigationTreeList,
             viewModel = me.getViewModel(),
             vmData = viewModel.getData(),
-            //store = navigationList.getStore(),
+        //store = navigationList.getStore(),
             store = viewModel.getStore('navigationTree'),
             node = store.findNode('routeId', hashTag),
             view = node ? node.get('extjsview') : null,
@@ -199,7 +203,60 @@ Ext.define('Admin.view.main.ViewportController', {
         }
     },
 
+    onLanguageClick: function (combo, newValue, oldValue, eOpts) {
+        var me = this;
+
+        console.log('onLanguageClick: oldValue → ' + oldValue + ' newValue → ' + newValue);
+
+        if (oldValue != null) {
+            Server.DXLogin.changeLanguage({
+                lang: newValue
+            }, function (result, event) {
+                if (result.success) {
+                    //Ext.Msg.alert(result.message);
+                    // TODO
+                    window.location.reload();
+                } else {
+                    Ext.Msg.alert('Erro.', Ext.encode(result));
+                }
+            });
+        }
+
+
+    },
+
+    /*
+     onLanguageClick: function (btn, menuitem) {
+     console.log('Server.DXLogin.ping');
+
+     var me = this;
+     var view = this.getView();
+     var vm = view.getViewModel();
+     vm.set('language', menuitem.type);
+     vm.set('flagCls', menuitem.iconCls);
+
+     Server.DXLogin.changeLanguage({
+     lang: menuitem.type
+     }, function (result, event) {
+     if (result.success) {
+     Ext.Msg.alert(result.message);
+     // TODO
+     // window.location.reload();
+     } else {
+     Ext.Msg.alert('Erro.', Ext.encode(result));
+     }
+     });
+
+
+     },
+     */
+
     onBellClick: function (button) {
+        var me = this;
+        console.log('flag     → ' + me.getViewModel().get('flagCls'));
+        console.log('language → ' + me.getViewModel().get('language'));
+        console.log('language → ' + 'app-language'.translate());
+
         console.log('Server.DXLogin.ping');
         Server.DXLogin.ping({}, function (result, event) {
             if (result.success) {

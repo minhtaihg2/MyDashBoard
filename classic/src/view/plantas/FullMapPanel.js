@@ -15,7 +15,7 @@ Ext.define("Admin.view.plantas.FullMapPanel", {
 
     initComponent: function () {
         var me = this;
-        console.log('Admin.view.plantas.FullMapPanel');
+        //console.log('Admin.view.plantas.FullMapPanel');
 
         var topButtons = [{
             xtype: 'buttongroup',
@@ -49,7 +49,7 @@ Ext.define("Admin.view.plantas.FullMapPanel", {
             //padding: '30 10 10 10',
             //margin: '10 10 10 10',
             columns: 2,
-            title: 'Desenhar',
+            title: 'Draw'.translate(),
             //iconCls: 'x-fa fa-edit',
             frame: true,
             items: [{
@@ -95,7 +95,7 @@ Ext.define("Admin.view.plantas.FullMapPanel", {
             //frame: true,
             columns: 2,
             //cls: 'shadow-panel',
-            title: 'Imprimir',
+            title: 'Print'.translate(),
             //padding: '30 0 0 0',
             items: [{
                 xtype: 'cycle',
@@ -106,11 +106,11 @@ Ext.define("Admin.view.plantas.FullMapPanel", {
                 },
                 menu: {
                     items: [{
-                        text: 'Folha A4',
+                        text: 'A4 paper',
                         type: 'A4',
                         checked: true
                     }, {
-                        text: 'Folha A3',
+                        text: 'A3 paper',
                         type: 'A3'
                     }]
                 }
@@ -123,11 +123,11 @@ Ext.define("Admin.view.plantas.FullMapPanel", {
                 },
                 menu: {
                     items: [{
-                        text: 'Vertical',
+                        text: 'Portrait'.translate(),
                         type: 'portrait',
                         checked: true
                     }, {
-                        text: 'Horizontal',
+                        text: 'Horizontal'.translate(),
                         type: 'landscape'
                     }]
                 }

@@ -54,8 +54,17 @@ Ext.define('Admin.view.main.Viewport', {
                 {
                     xtype: 'tbspacer',
                     flex: 1
+                }, /*
+                {
+                    cls: 'delete-focus-bg',
+                    //iconCls: 'x-fa fa-bell',
+                    //iconCls: 'portugues',
+                    handler: 'onBellClick',
+                    bind: {
+                        iconCls: '{flagCls}',
+                        text: '{language}'
+                    }
                 },
-                /*
                  {
                  cls: 'delete-focus-bg',
                  iconCls: 'x-fa fa-search',
@@ -117,7 +126,24 @@ Ext.define('Admin.view.main.Viewport', {
                         //itemId: 'botaoLogout',
                         handler: 'onLogoutClick'
                     }]
-                }]
+                }, {
+                    xtype: 'combobox',
+                    //fieldLabel: '',
+                    labelSeparator: '',
+                    labelWidth: 0, // 60,
+                    bind: {
+                        store: '{idioms}',
+                        value: '{language}'
+                    },
+                    queryMode: 'local',
+                    displayField: 'name',
+                    valueField: 'language',
+                    listeners: {
+                        change: 'onLanguageClick'
+                    }
+                }
+
+            ]
         },
         {
             xtype: 'maincontainerwrap',
@@ -153,5 +179,12 @@ Ext.define('Admin.view.main.Viewport', {
                 }
             ]
         }
-    ]
+    ],
+
+    init: function () {
+        var me = this;
+        console.log('Admin.view.main.Viewport.init()');
+        me.callParent(arguments);
+    }
+
 });

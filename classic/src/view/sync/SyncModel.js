@@ -49,7 +49,7 @@ Ext.define('Admin.view.sync.SyncModel', {
             autoSync: true, // true,
             remoteSort: true,
             remoteFilter: true,
-            pageSize: 20,
+            pageSize: 100,
             filters: [{
                 property: 'sensorid',
                 type: 'number',

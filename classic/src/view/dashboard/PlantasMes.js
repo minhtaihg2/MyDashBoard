@@ -18,7 +18,7 @@ Ext.define('Admin.view.dashboard.PlantasMes', {
     headerPosition: 'bottom',
     iconCls: 'x-fa fa-calendar',
 
-    title: 'Plantas de Localização por mês',
+    title: 'Location Plans by month'.translate(),
 
     tbar: [ '->', {
         text: 'Download'.translate(),
@@ -47,7 +47,7 @@ Ext.define('Admin.view.dashboard.PlantasMes', {
             grid: true,
             maximum: 500,
             majorTickSteps: 8,
-            title: 'Nº de Plantas Emitidas'
+            title: 'Number of requests'.translate()
             //renderer: 'onAxisLabelRender'
         }, {
             type: 'category',
